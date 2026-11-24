@@ -1,0 +1,880 @@
+{
+ "doors": [
+  {
+   "brand": "Fichet",
+   "name": "Bloc-porte blindé Forstyl – appartement",
+   "cert": "BP1",
+   "usage": [
+    "appartement"
+   ],
+   "type": "bloc-porte",
+   "desc": "Bloc-porte complet (porte + bâti) pour porte palière, avec serrure multipoints haute sécurité et finitions personnalisables.",
+   "specs": [
+    "A2P BP1",
+    "Serrure A2P★★★",
+    "Isolation phonique"
+   ],
+   "price": "à partir de 3 500 €",
+   "badge": "A2P BP1",
+   "color": "#2a3f6b",
+   "style": "moulure"
+  },
+  {
+   "brand": "Fichet",
+   "name": "Bloc-porte blindé haute sécurité",
+   "cert": "BP3",
+   "usage": [
+    "appartement",
+    "maison"
+   ],
+   "type": "bloc-porte",
+   "desc": "Le niveau de résistance le plus élevé de la certification A2P, pour les biens exposés ou les exigences d'assurance renforcées.",
+   "specs": [
+    "A2P BP3",
+    "Serrure A2P★★★",
+    "Pions anti-dégondage"
+   ],
+   "price": "à partir de 7 000 €",
+   "badge": "A2P BP3",
+   "color": "#1d2a40",
+   "style": "classic"
+  },
+  {
+   "brand": "Fichet",
+   "name": "Blindage de porte existante",
+   "cert": "none",
+   "usage": [
+    "appartement",
+    "maison"
+   ],
+   "type": "blindage",
+   "desc": "Conservez votre porte : nous la renforçons par une tôle d'acier, des cornières anti-pince et une serrure multipoints.",
+   "specs": [
+    "Tôle acier",
+    "Cornières anti-pince",
+    "Serrure multipoints"
+   ],
+   "price": "à partir de 1 500 €",
+   "color": "#6b4b33",
+   "dark": "#3e2a1b",
+   "style": "plate"
+  },
+  {
+   "brand": "Picard Serrures",
+   "name": "Bloc-porte blindé palier",
+   "cert": "BP1",
+   "usage": [
+    "appartement"
+   ],
+   "type": "bloc-porte",
+   "desc": "Fabrication française, idéal en remplacement de porte palière d'immeuble. Habillages bois, laqués ou moulurés.",
+   "specs": [
+    "A2P BP1",
+    "Fabrication française",
+    "Seuil à la suisse"
+   ],
+   "price": "à partir de 3 200 €",
+   "badge": "A2P BP1",
+   "color": "#5a3a26",
+   "dark": "#38231a",
+   "style": "moulure"
+  },
+  {
+   "brand": "Picard Serrures",
+   "name": "Bloc-porte blindé renforcé",
+   "cert": "BP2",
+   "usage": [
+    "appartement",
+    "maison"
+   ],
+   "type": "bloc-porte",
+   "desc": "Résistance accrue à l'effraction, serrure à combinaisons protégées et carte de propriété pour la reproduction des clés.",
+   "specs": [
+    "A2P BP2",
+    "Carte de propriété",
+    "Acoustique renforcée"
+   ],
+   "price": "à partir de 4 800 €",
+   "badge": "A2P BP2",
+   "color": "#2b2f36",
+   "dark": "#14171b",
+   "style": "classic"
+  },
+  {
+   "brand": "Bricard",
+   "name": "Porte blindée certifiée A2P",
+   "cert": "BP1",
+   "usage": [
+    "appartement"
+   ],
+   "type": "bloc-porte",
+   "desc": "Bloc-porte blindé associé aux serrures et cylindres de la marque, pour une solution homogène et certifiée.",
+   "specs": [
+    "A2P BP1",
+    "Cylindre haute sécurité",
+    "Paumelles renforcées"
+   ],
+   "price": "à partir de 3 300 €",
+   "badge": "A2P BP1",
+   "color": "#33465f",
+   "dark": "#1c2738",
+   "style": "modern"
+  },
+  {
+   "brand": "Bricard",
+   "name": "Porte blindée haute résistance",
+   "cert": "BP2",
+   "usage": [
+    "appartement",
+    "maison"
+   ],
+   "type": "bloc-porte",
+   "desc": "Pour les logements en rez-de-chaussée ou les biens de valeur : temps de résistance doublé par rapport au niveau BP1.",
+   "specs": [
+    "A2P BP2",
+    "Multipoints",
+    "Anti-dégondage"
+   ],
+   "price": "à partir de 5 000 €",
+   "badge": "A2P BP2",
+   "color": "#4a4f57",
+   "dark": "#2a2e33",
+   "style": "lines"
+  },
+  {
+   "brand": "Héraclès",
+   "name": "Porte blindée palière",
+   "cert": "BP1",
+   "usage": [
+    "appartement"
+   ],
+   "type": "bloc-porte",
+   "desc": "Porte palière blindée certifiée, large choix de panneaux décoratifs pour s'harmoniser avec les parties communes.",
+   "specs": [
+    "A2P BP1",
+    "Panneaux décoratifs",
+    "Joint isophonique"
+   ],
+   "price": "à partir de 3 000 €",
+   "badge": "A2P BP1",
+   "color": "#7a5132",
+   "dark": "#4a3020",
+   "style": "classic"
+  },
+  {
+   "brand": "Héraclès",
+   "name": "Porte d'entrée blindée isolante",
+   "cert": "BP2",
+   "usage": [
+    "maison"
+   ],
+   "type": "bloc-porte",
+   "desc": "Porte d'entrée de maison alliant sécurité et performance thermique, résistante aux intempéries.",
+   "specs": [
+    "A2P BP2",
+    "Isolation thermique",
+    "Usage extérieur"
+   ],
+   "price": "à partir de 4 900 €",
+   "badge": "A2P BP2",
+   "color": "#3c4a3e",
+   "dark": "#222b23",
+   "style": "glass"
+  },
+  {
+   "brand": "Dierre",
+   "name": "Porte blindée design",
+   "cert": "RC3",
+   "usage": [
+    "appartement",
+    "maison"
+   ],
+   "type": "bloc-porte",
+   "desc": "Fabricant italien réputé pour ses portes blindées au design contemporain et leurs nombreuses finitions.",
+   "specs": [
+    "EN 1627 classe 3",
+    "Design italien",
+    "Finitions sur mesure"
+   ],
+   "price": "à partir de 3 800 €",
+   "badge": "Classe 3",
+   "color": "#e9e4dc",
+   "dark": "#b7ae9f",
+   "style": "modern"
+  },
+  {
+   "brand": "Gardesa",
+   "name": "Porte blindée classe 4",
+   "cert": "RC4",
+   "usage": [
+    "appartement",
+    "maison"
+   ],
+   "type": "bloc-porte",
+   "desc": "Porte blindée italienne haute sécurité, structure acier, compatible serrures mécaniques ou électroniques.",
+   "specs": [
+    "EN 1627 classe 4",
+    "Serrure électronique possible",
+    "Isolation"
+   ],
+   "price": "à partir de 5 500 €",
+   "badge": "Classe 4",
+   "color": "#24272c",
+   "dark": "#0f1113",
+   "style": "lines"
+  },
+  {
+   "brand": "Di.Bi.",
+   "name": "Porte blindée contemporaine",
+   "cert": "RC3",
+   "usage": [
+    "appartement",
+    "maison"
+   ],
+   "type": "bloc-porte",
+   "desc": "Portes blindées italiennes aux lignes épurées, disponibles en version thermique pour l'extérieur.",
+   "specs": [
+    "EN 1627 classe 3",
+    "Version thermique",
+    "Design épuré"
+   ],
+   "price": "à partir de 3 600 €",
+   "badge": "Classe 3",
+   "color": "#8a8f96",
+   "dark": "#5a5e64",
+   "style": "modern"
+  },
+  {
+   "brand": "Torterolo & Re",
+   "name": "Porte blindée sur mesure",
+   "cert": "RC3",
+   "usage": [
+    "appartement",
+    "maison"
+   ],
+   "type": "bloc-porte",
+   "desc": "Portes blindées italiennes fabriquées sur mesure, panneaux bois, laqués ou à moulures classiques.",
+   "specs": [
+    "EN 1627 classe 3",
+    "Sur mesure",
+    "Panneaux au choix"
+   ],
+   "price": "à partir de 3 900 €",
+   "badge": "Classe 3",
+   "color": "#6e2f2a",
+   "dark": "#431b18",
+   "style": "moulure"
+  },
+  {
+   "brand": "Stremler",
+   "name": "Blindage de porte",
+   "cert": "none",
+   "usage": [
+    "appartement",
+    "maison"
+   ],
+   "type": "blindage",
+   "desc": "Solution de blindage français pour renforcer une porte en bois existante sans changer l'huisserie.",
+   "specs": [
+    "Blindage acier",
+    "Fabrication française",
+    "Serrure multipoints"
+   ],
+   "price": "à partir de 1 300 €",
+   "color": "#7d5a3c",
+   "dark": "#4b3422",
+   "style": "plate"
+  },
+  {
+   "brand": "Tordjman Métal",
+   "name": "Porte blindée certifiée",
+   "cert": "BP1",
+   "usage": [
+    "appartement"
+   ],
+   "type": "bloc-porte",
+   "desc": "Fabricant français de portes blindées et de blindages, reconnu pour la robustesse de ses blocs-portes.",
+   "specs": [
+    "A2P BP1",
+    "Fabrication française",
+    "Sur mesure"
+   ],
+   "price": "à partir de 3 200 €",
+   "badge": "A2P BP1",
+   "color": "#3a2a20",
+   "dark": "#22170f",
+   "style": "classic"
+  },
+  {
+   "brand": "Tordjman Métal",
+   "name": "Blindage de porte",
+   "cert": "none",
+   "usage": [
+    "appartement",
+    "maison"
+   ],
+   "type": "blindage",
+   "desc": "Blindage sur mesure d'une porte existante avec cornières, paumelles renforcées et serrure multipoints.",
+   "specs": [
+    "Blindage acier",
+    "Cornières anti-pince",
+    "Multipoints"
+   ],
+   "price": "à partir de 1 400 €",
+   "color": "#6b4b33",
+   "dark": "#3e2a1b",
+   "style": "plate"
+  },
+  {
+   "brand": "Zilten",
+   "name": "Porte blindée design",
+   "cert": "BP2",
+   "usage": [
+    "appartement",
+    "maison"
+   ],
+   "type": "bloc-porte",
+   "desc": "Portes blindées françaises au design soigné, larges choix de panneaux et de finitions contemporaines.",
+   "specs": [
+    "A2P selon version",
+    "Design",
+    "Acoustique"
+   ],
+   "price": "à partir de 4 200 €",
+   "badge": "A2P",
+   "color": "#d9d4cc",
+   "dark": "#a39b8f",
+   "style": "modern"
+  },
+  {
+   "brand": "Hörmann",
+   "name": "Porte d'entrée de sécurité",
+   "cert": "RC3",
+   "usage": [
+    "maison"
+   ],
+   "type": "bloc-porte",
+   "desc": "Porte d'entrée isolante avec équipement de sécurité anti-effraction classé selon la norme européenne.",
+   "specs": [
+    "Classe RC selon modèle",
+    "Isolation thermique",
+    "Usage extérieur"
+   ],
+   "price": "à partir de 3 500 €",
+   "badge": "RC",
+   "color": "#3d4249",
+   "dark": "#23272c",
+   "style": "glass"
+  },
+  {
+   "brand": "Bel'M",
+   "name": "Porte d'entrée haute sécurité",
+   "cert": "none",
+   "usage": [
+    "maison"
+   ],
+   "type": "bloc-porte",
+   "desc": "Porte d'entrée aluminium haut de gamme, serrure automatique multipoints et forte isolation.",
+   "specs": [
+    "Aluminium",
+    "Serrure automatique",
+    "Isolation"
+   ],
+   "color": "#2d3035",
+   "dark": "#16181b",
+   "style": "lines"
+  },
+  {
+   "brand": "K-Line",
+   "name": "Porte d'entrée aluminium sécurisée",
+   "cert": "none",
+   "usage": [
+    "maison"
+   ],
+   "type": "bloc-porte",
+   "desc": "Porte d'entrée aluminium design, renforts et serrure multipoints pour une maison individuelle.",
+   "specs": [
+    "Aluminium",
+    "Multipoints",
+    "Design"
+   ],
+   "color": "#5b6068",
+   "dark": "#34383d",
+   "style": "modern"
+  },
+  {
+   "brand": "Toutes marques",
+   "name": "Porte blindée de cave / local technique",
+   "cert": "none",
+   "usage": [
+    "immeuble"
+   ],
+   "type": "bloc-porte",
+   "desc": "Porte métallique renforcée pour caves, locaux poubelles, locaux vélos ou locaux techniques en copropriété.",
+   "specs": [
+    "Acier",
+    "Serrure 3 points",
+    "Ferme-porte"
+   ],
+   "price": "à partir de 1 200 €",
+   "color": "#5b6678",
+   "dark": "#394150",
+   "style": "lines"
+  },
+  {
+   "brand": "Toutes marques",
+   "name": "Porte blindée de hall d'immeuble",
+   "cert": "none",
+   "usage": [
+    "immeuble"
+   ],
+   "type": "bloc-porte",
+   "desc": "Remplacement de porte d'entrée d'immeuble avec contrôle d'accès (badge, interphone, ventouse).",
+   "specs": [
+    "Contrôle d'accès",
+    "Ventouse",
+    "Copropriété"
+   ],
+   "color": "#1f2937",
+   "dark": "#0b0f16",
+   "style": "glass"
+  }
+ ],
+ "locks": [
+  {
+   "brand": "Fichet",
+   "name": "Serrure multipoints 787 Z",
+   "kind": "multipoints",
+   "cert": "A2P3",
+   "pose": "encastree",
+   "points": 5,
+   "desc": "Serrure de référence chez Fichet pour portes blindées, mécanisme haute sécurité à clé protégée.",
+   "specs": [
+    "A2P★★★",
+    "Encastrée",
+    "Clé protégée"
+   ],
+   "badge": "A2P★★★",
+   "color": "#1a2b4f"
+  },
+  {
+   "brand": "Fichet",
+   "name": "Cylindre F3D",
+   "kind": "cylindre",
+   "cert": "A2P3",
+   "pose": "cylindre",
+   "desc": "Cylindre haute sécurité à clé brevetée, compatible de nombreuses serrures multipoints.",
+   "specs": [
+    "A2P★★★",
+    "Clé brevetée",
+    "Carte de propriété"
+   ],
+   "badge": "A2P★★★"
+  },
+  {
+   "brand": "Mul-T-Lock",
+   "name": "Cylindre MT5+",
+   "kind": "cylindre",
+   "cert": "A2P2",
+   "pose": "cylindre",
+   "desc": "Cylindre réputé pour sa résistance au crochetage et sa clé à reproduction contrôlée.",
+   "specs": [
+    "A2P selon version",
+    "Anti-crochetage",
+    "Carte de propriété"
+   ],
+   "badge": "A2P",
+   "color": "#e8e8e8",
+   "dark": "#9aa1ab"
+  },
+  {
+   "brand": "Mul-T-Lock",
+   "name": "Cylindre Interactive+",
+   "kind": "cylindre",
+   "cert": "A2P1",
+   "pose": "cylindre",
+   "desc": "Bon compromis prix / sécurité, idéal pour un changement de cylindre sur serrure existante.",
+   "specs": [
+    "A2P selon version",
+    "Anti-perçage",
+    "Clé protégée"
+   ],
+   "badge": "A2P",
+   "color": "#e8e8e8",
+   "dark": "#9aa1ab"
+  },
+  {
+   "brand": "Vachette",
+   "name": "Cylindre Radial NT",
+   "kind": "cylindre",
+   "cert": "A2P2",
+   "pose": "cylindre",
+   "desc": "Cylindre de sécurité à clé réversible, protections anti-arrachement et anti-perçage.",
+   "specs": [
+    "A2P selon version",
+    "Clé réversible",
+    "Anti-arrachement"
+   ],
+   "badge": "A2P"
+  },
+  {
+   "brand": "Bricard",
+   "name": "Serrure multipoints en applique",
+   "kind": "multipoints",
+   "cert": "A2P2",
+   "pose": "applique",
+   "points": 3,
+   "desc": "Serrure 3 points posée en applique, solution efficace pour sécuriser une porte d'appartement sans la changer.",
+   "specs": [
+    "A2P★★",
+    "En applique",
+    "3 points"
+   ],
+   "badge": "A2P★★",
+   "color": "#33465f"
+  },
+  {
+   "brand": "Bricard",
+   "name": "Cylindre haute sécurité",
+   "kind": "cylindre",
+   "cert": "A2P3",
+   "pose": "cylindre",
+   "desc": "Cylindre haut de gamme avec clés à reproduction protégée, pour serrures multipoints.",
+   "specs": [
+    "A2P★★★",
+    "Reproduction protégée"
+   ],
+   "badge": "A2P★★★"
+  },
+  {
+   "brand": "Picard Serrures",
+   "name": "Serrure multipoints à encastrer",
+   "kind": "multipoints",
+   "cert": "A2P2",
+   "pose": "encastree",
+   "points": 5,
+   "desc": "Serrure 5 points intégrée dans l'épaisseur de la porte, fabrication française.",
+   "specs": [
+    "A2P selon version",
+    "Encastrée",
+    "5 points"
+   ],
+   "badge": "A2P",
+   "color": "#2b2f36"
+  },
+  {
+   "brand": "Abus",
+   "name": "Cylindre Bravus",
+   "kind": "cylindre",
+   "cert": "A2P2",
+   "pose": "cylindre",
+   "desc": "Gamme de cylindres modulaires avec niveaux de sécurité adaptés à chaque porte.",
+   "specs": [
+    "A2P selon version",
+    "Modulaire",
+    "Anti-casse"
+   ],
+   "badge": "A2P",
+   "color": "#e8e8e8",
+   "dark": "#9aa1ab"
+  },
+  {
+   "brand": "Iseo",
+   "name": "Cylindre R50",
+   "kind": "cylindre",
+   "cert": "hs",
+   "pose": "cylindre",
+   "desc": "Cylindre européen à clé plate, bonne résistance aux techniques d'effraction courantes.",
+   "specs": [
+    "Haute sécurité",
+    "Clé plate",
+    "Anti-bumping"
+   ],
+   "badge": "Sécurité"
+  },
+  {
+   "brand": "Cisa",
+   "name": "Cylindre AP4 S",
+   "kind": "cylindre",
+   "cert": "hs",
+   "pose": "cylindre",
+   "desc": "Cylindre de sécurité avec protection anti-bumping et anti-perçage.",
+   "specs": [
+    "Anti-bumping",
+    "Anti-perçage",
+    "Carte de propriété"
+   ],
+   "badge": "Sécurité"
+  },
+  {
+   "brand": "Kaba",
+   "name": "Cylindre ExperT",
+   "kind": "cylindre",
+   "cert": "hs",
+   "pose": "cylindre",
+   "desc": "Cylindre à clé réversible à alvéoles, système breveté de reproduction contrôlée.",
+   "specs": [
+    "Clé à alvéoles",
+    "Reproduction contrôlée"
+   ],
+   "badge": "Sécurité",
+   "color": "#e8e8e8",
+   "dark": "#9aa1ab"
+  },
+  {
+   "brand": "Keso",
+   "name": "Cylindre Keso 8000",
+   "kind": "cylindre",
+   "cert": "hs",
+   "pose": "cylindre",
+   "desc": "Cylindre très haute sécurité utilisé en résidentiel haut de gamme et en tertiaire.",
+   "specs": [
+    "Très haute sécurité",
+    "Clé brevetée"
+   ],
+   "badge": "Sécurité",
+   "color": "#e8e8e8",
+   "dark": "#9aa1ab"
+  },
+  {
+   "brand": "Evva",
+   "name": "Cylindre 4KS",
+   "kind": "cylindre",
+   "cert": "hs",
+   "pose": "cylindre",
+   "desc": "Système à courbes de contrôle, conçu pour résister au crochetage et à la copie illicite.",
+   "specs": [
+    "Anti-crochetage",
+    "Anti-copie"
+   ],
+   "badge": "Sécurité"
+  },
+  {
+   "brand": "Mottura",
+   "name": "Serrure multipoints Champions",
+   "kind": "multipoints",
+   "cert": "hs",
+   "pose": "encastree",
+   "points": 5,
+   "desc": "Serrure italienne pour porte blindée, déclinable avec cylindre européen haute sécurité.",
+   "specs": [
+    "Encastrée",
+    "Cylindre européen",
+    "5 points"
+   ],
+   "badge": "Sécurité",
+   "color": "#24272c"
+  },
+  {
+   "brand": "Thirard",
+   "name": "Serrure multipoints en applique",
+   "kind": "multipoints",
+   "cert": "A2P2",
+   "pose": "applique",
+   "points": 3,
+   "desc": "Fabricant français historique : serrures 3 points en applique pour sécuriser une porte d'entrée.",
+   "specs": [
+    "A2P selon version",
+    "En applique",
+    "Fabrication française"
+   ],
+   "badge": "A2P",
+   "color": "#3a3f46"
+  },
+  {
+   "brand": "Ultion",
+   "name": "Cylindre haute sécurité",
+   "kind": "cylindre",
+   "cert": "hs",
+   "pose": "cylindre",
+   "desc": "Cylindre réputé pour sa résistance au cassage, au crochetage et au perçage.",
+   "specs": [
+    "Anti-casse",
+    "Anti-crochetage",
+    "Clé protégée"
+   ],
+   "badge": "Sécurité"
+  },
+  {
+   "brand": "Tesa",
+   "name": "Cylindre de sécurité",
+   "kind": "cylindre",
+   "cert": "hs",
+   "pose": "cylindre",
+   "desc": "Cylindres européens à clé protégée, adaptés aux serrures de portes d'entrée et blindées.",
+   "specs": [
+    "Clé protégée",
+    "Anti-perçage"
+   ],
+   "badge": "Sécurité",
+   "color": "#e8e8e8",
+   "dark": "#9aa1ab"
+  },
+  {
+   "brand": "DOM",
+   "name": "Cylindre haute sécurité",
+   "kind": "cylindre",
+   "cert": "hs",
+   "pose": "cylindre",
+   "desc": "Cylindres allemands à reproduction de clés contrôlée, pour portes d'appartement ou de maison.",
+   "specs": [
+    "Reproduction contrôlée",
+    "Anti-crochetage"
+   ],
+   "badge": "Sécurité"
+  },
+  {
+   "brand": "JPM",
+   "name": "Serrure multipoints",
+   "kind": "multipoints",
+   "cert": "A2P1",
+   "pose": "applique",
+   "points": 3,
+   "desc": "Fabricant français de serrures : multipoints en applique et serrures de sûreté pour l'habitat.",
+   "specs": [
+    "A2P selon version",
+    "Fabrication française"
+   ],
+   "badge": "A2P",
+   "color": "#7a1f1f"
+  },
+  {
+   "brand": "Laperche",
+   "name": "Serrure en applique",
+   "kind": "multipoints",
+   "cert": "A2P1",
+   "pose": "applique",
+   "points": 3,
+   "desc": "Serrures en applique robustes, solution éprouvée pour les portes d'appartement.",
+   "specs": [
+    "En applique",
+    "Pose rapide"
+   ],
+   "badge": "A2P",
+   "color": "#5b2a2a"
+  },
+  {
+   "brand": "Métalux",
+   "name": "Serrure multipoints",
+   "kind": "multipoints",
+   "cert": "A2P2",
+   "pose": "applique",
+   "points": 3,
+   "desc": "Serrures et systèmes de verrouillage multipoints pour renforcer la porte d'entrée.",
+   "specs": [
+    "Multipoints",
+    "Verrouillage renforcé"
+   ],
+   "badge": "A2P",
+   "color": "#4a4f57"
+  },
+  {
+   "brand": "Pollux",
+   "name": "Verrou de sécurité",
+   "kind": "verrou",
+   "cert": "hs",
+   "pose": "applique",
+   "desc": "Fabricant français de verrous et serrures : complément idéal à une serrure existante.",
+   "specs": [
+    "Fabrication française",
+    "Complément"
+   ],
+   "badge": "Verrou"
+  },
+  {
+   "brand": "Yale",
+   "name": "Serrure connectée",
+   "kind": "connectee",
+   "cert": "none",
+   "pose": "electronique",
+   "desc": "Serrure connectée pilotable depuis le smartphone, avec accès temporaires pour vos proches.",
+   "specs": [
+    "Smartphone",
+    "Accès partagés"
+   ],
+   "badge": "Connectée"
+  },
+  {
+   "brand": "Nuki",
+   "name": "Smart Lock",
+   "kind": "connectee",
+   "cert": "none",
+   "pose": "electronique",
+   "desc": "Se monte côté intérieur sur la serrure existante : ouverture automatique à votre arrivée.",
+   "specs": [
+    "Sans changer la serrure",
+    "Smartphone"
+   ],
+   "badge": "Connectée"
+  },
+  {
+   "brand": "Somfy",
+   "name": "Serrure connectée",
+   "kind": "connectee",
+   "cert": "none",
+   "pose": "electronique",
+   "desc": "Serrure connectée intégrée à l'écosystème maison connectée, alarme et caméras.",
+   "specs": [
+    "Maison connectée",
+    "Smartphone"
+   ],
+   "badge": "Connectée"
+  },
+  {
+   "brand": "Netatmo",
+   "name": "Serrure intelligente",
+   "kind": "connectee",
+   "cert": "none",
+   "pose": "electronique",
+   "desc": "Serrure connectée avec clés physiques intelligentes et application, sans abonnement.",
+   "specs": [
+    "Clés intelligentes",
+    "Application"
+   ],
+   "badge": "Connectée"
+  },
+  {
+   "brand": "Toutes marques",
+   "name": "Serrure 3 points en applique A2P★",
+   "kind": "multipoints",
+   "cert": "A2P1",
+   "pose": "applique",
+   "points": 3,
+   "desc": "La solution la plus courante pour sécuriser une porte d'entrée en bois : pose rapide, certification A2P.",
+   "specs": [
+    "A2P★",
+    "En applique",
+    "3 points"
+   ],
+   "badge": "A2P★",
+   "color": "#4a4f57"
+  },
+  {
+   "brand": "Toutes marques",
+   "name": "Verrou de sécurité",
+   "kind": "verrou",
+   "cert": "A2P1",
+   "pose": "applique",
+   "desc": "Verrou additionnel à cylindre pour renforcer une serrure existante à moindre coût.",
+   "specs": [
+    "Complément",
+    "Pose rapide"
+   ],
+   "badge": "Verrou"
+  },
+  {
+   "brand": "Toutes marques",
+   "name": "Serrure connectée / électronique",
+   "kind": "connectee",
+   "cert": "none",
+   "pose": "electronique",
+   "desc": "Ouverture par code, badge ou smartphone, compatible avec de nombreuses serrures et portes blindées.",
+   "specs": [
+    "Smartphone",
+    "Code / badge",
+    "Historique d'accès"
+   ],
+   "badge": "Connectée"
+  }
+ ]
+}

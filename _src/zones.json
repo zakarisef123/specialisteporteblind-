@@ -1,0 +1,809 @@
+[
+ {
+  "slug": "paris-1",
+  "name": "Paris 1er",
+  "cp": "75001",
+  "dep": "75",
+  "pop": 15114,
+  "lat": 48.8625,
+  "lng": 2.3363,
+  "quartiers": [
+   "Saint-Germain-l'Auxerrois",
+   "Les Halles",
+   "Palais-Royal",
+   "Place Vendôme"
+  ],
+  "lieux": [
+   "le Louvre",
+   "Châtelet",
+   "la rue de Rivoli"
+  ]
+ },
+ {
+  "slug": "paris-2",
+  "name": "Paris 2e",
+  "cp": "75002",
+  "dep": "75",
+  "pop": 19847,
+  "lat": 48.8683,
+  "lng": 2.3428,
+  "quartiers": [
+   "Gaillon",
+   "Vivienne",
+   "Mail",
+   "Bonne-Nouvelle"
+  ],
+  "lieux": [
+   "la Bourse",
+   "le Sentier",
+   "la rue Montorgueil"
+  ]
+ },
+ {
+  "slug": "paris-3",
+  "name": "Paris 3e",
+  "cp": "75003",
+  "dep": "75",
+  "pop": 32179,
+  "lat": 48.863,
+  "lng": 2.36,
+  "quartiers": [
+   "Arts-et-Métiers",
+   "Enfants-Rouges",
+   "Archives",
+   "Sainte-Avoye"
+  ],
+  "lieux": [
+   "le Haut-Marais",
+   "la place de la République",
+   "le Temple"
+  ]
+ },
+ {
+  "slug": "paris-4",
+  "name": "Paris 4e",
+  "cp": "75004",
+  "dep": "75",
+  "pop": 27332,
+  "lat": 48.8543,
+  "lng": 2.3576,
+  "quartiers": [
+   "Saint-Merri",
+   "Saint-Gervais",
+   "Arsenal",
+   "Notre-Dame"
+  ],
+  "lieux": [
+   "l'Hôtel de Ville",
+   "l'île Saint-Louis",
+   "le Marais"
+  ]
+ },
+ {
+  "slug": "paris-5",
+  "name": "Paris 5e",
+  "cp": "75005",
+  "dep": "75",
+  "pop": 55252,
+  "lat": 48.8445,
+  "lng": 2.3507,
+  "quartiers": [
+   "Saint-Victor",
+   "Jardin-des-Plantes",
+   "Val-de-Grâce",
+   "Sorbonne"
+  ],
+  "lieux": [
+   "le Quartier latin",
+   "le Panthéon",
+   "la rue Mouffetard"
+  ]
+ },
+ {
+  "slug": "paris-6",
+  "name": "Paris 6e",
+  "cp": "75006",
+  "dep": "75",
+  "pop": 40389,
+  "lat": 48.8491,
+  "lng": 2.3329,
+  "quartiers": [
+   "Monnaie",
+   "Odéon",
+   "Notre-Dame-des-Champs",
+   "Saint-Germain-des-Prés"
+  ],
+  "lieux": [
+   "le jardin du Luxembourg",
+   "Saint-Sulpice",
+   "Vavin"
+  ]
+ },
+ {
+  "slug": "paris-7",
+  "name": "Paris 7e",
+  "cp": "75007",
+  "dep": "75",
+  "pop": 48015,
+  "lat": 48.8562,
+  "lng": 2.3121,
+  "quartiers": [
+   "Saint-Thomas-d'Aquin",
+   "Invalides",
+   "École-Militaire",
+   "Gros-Caillou"
+  ],
+  "lieux": [
+   "la tour Eiffel",
+   "les Invalides",
+   "la rue du Bac"
+  ]
+ },
+ {
+  "slug": "paris-8",
+  "name": "Paris 8e",
+  "cp": "75008",
+  "dep": "75",
+  "pop": 35317,
+  "lat": 48.8727,
+  "lng": 2.3125,
+  "quartiers": [
+   "Champs-Élysées",
+   "Faubourg-du-Roule",
+   "Madeleine",
+   "Europe"
+  ],
+  "lieux": [
+   "les Champs-Élysées",
+   "la gare Saint-Lazare",
+   "le parc Monceau"
+  ]
+ },
+ {
+  "slug": "paris-9",
+  "name": "Paris 9e",
+  "cp": "75009",
+  "dep": "75",
+  "pop": 57271,
+  "lat": 48.8771,
+  "lng": 2.3375,
+  "quartiers": [
+   "Saint-Georges",
+   "Chaussée-d'Antin",
+   "Faubourg-Montmartre",
+   "Rochechouart"
+  ],
+  "lieux": [
+   "l'Opéra",
+   "les Grands Boulevards",
+   "South Pigalle"
+  ]
+ },
+ {
+  "slug": "paris-10",
+  "name": "Paris 10e",
+  "cp": "75010",
+  "dep": "75",
+  "pop": 83873,
+  "lat": 48.8761,
+  "lng": 2.3607,
+  "quartiers": [
+   "Saint-Vincent-de-Paul",
+   "Porte-Saint-Denis",
+   "Porte-Saint-Martin",
+   "Hôpital-Saint-Louis"
+  ],
+  "lieux": [
+   "la gare du Nord",
+   "la gare de l'Est",
+   "le canal Saint-Martin"
+  ]
+ },
+ {
+  "slug": "paris-11",
+  "name": "Paris 11e",
+  "cp": "75011",
+  "dep": "75",
+  "pop": 138170,
+  "lat": 48.8591,
+  "lng": 2.38,
+  "quartiers": [
+   "Folie-Méricourt",
+   "Roquette",
+   "Sainte-Marguerite",
+   "Saint-Ambroise"
+  ],
+  "lieux": [
+   "Bastille",
+   "Oberkampf",
+   "la place Léon-Blum"
+  ]
+ },
+ {
+  "slug": "paris-12",
+  "name": "Paris 12e",
+  "cp": "75012",
+  "dep": "75",
+  "pop": 138024,
+  "lat": 48.84,
+  "lng": 2.388,
+  "quartiers": [
+   "Bel-Air",
+   "Picpus",
+   "Bercy",
+   "Quinze-Vingts"
+  ],
+  "lieux": [
+   "la gare de Lyon",
+   "Bercy",
+   "Daumesnil"
+  ]
+ },
+ {
+  "slug": "paris-13",
+  "name": "Paris 13e",
+  "cp": "75013",
+  "dep": "75",
+  "pop": 181271,
+  "lat": 48.8283,
+  "lng": 2.3622,
+  "quartiers": [
+   "Salpêtrière",
+   "Gare",
+   "Maison-Blanche",
+   "Croulebarbe"
+  ],
+  "lieux": [
+   "la place d'Italie",
+   "la Butte-aux-Cailles",
+   "la BnF"
+  ]
+ },
+ {
+  "slug": "paris-14",
+  "name": "Paris 14e",
+  "cp": "75014",
+  "dep": "75",
+  "pop": 136455,
+  "lat": 48.8292,
+  "lng": 2.3266,
+  "quartiers": [
+   "Montparnasse",
+   "Parc-de-Montsouris",
+   "Petit-Montrouge",
+   "Plaisance"
+  ],
+  "lieux": [
+   "Montparnasse",
+   "Denfert-Rochereau",
+   "Alésia"
+  ]
+ },
+ {
+  "slug": "paris-15",
+  "name": "Paris 15e",
+  "cp": "75015",
+  "dep": "75",
+  "pop": 229713,
+  "lat": 48.8401,
+  "lng": 2.2934,
+  "quartiers": [
+   "Saint-Lambert",
+   "Necker",
+   "Grenelle",
+   "Javel"
+  ],
+  "lieux": [
+   "Convention",
+   "Beaugrenelle",
+   "la rue de Vaugirard"
+  ]
+ },
+ {
+  "slug": "paris-16",
+  "name": "Paris 16e",
+  "cp": "75016",
+  "dep": "75",
+  "pop": 159386,
+  "lat": 48.8637,
+  "lng": 2.2769,
+  "quartiers": [
+   "Auteuil",
+   "Muette",
+   "Porte-Dauphine",
+   "Chaillot"
+  ],
+  "lieux": [
+   "le Trocadéro",
+   "Passy",
+   "Auteuil"
+  ]
+ },
+ {
+  "slug": "paris-17",
+  "name": "Paris 17e",
+  "cp": "75017",
+  "dep": "75",
+  "pop": 159212,
+  "lat": 48.8873,
+  "lng": 2.3067,
+  "quartiers": [
+   "Ternes",
+   "Plaine-de-Monceaux",
+   "Batignolles",
+   "Épinettes"
+  ],
+  "lieux": [
+   "les Batignolles",
+   "les Ternes",
+   "la place de Clichy"
+  ]
+ },
+ {
+  "slug": "paris-18",
+  "name": "Paris 18e",
+  "cp": "75018",
+  "dep": "75",
+  "pop": 183127,
+  "lat": 48.8925,
+  "lng": 2.3484,
+  "quartiers": [
+   "Grandes-Carrières",
+   "Clignancourt",
+   "Goutte-d'Or",
+   "La Chapelle"
+  ],
+  "lieux": [
+   "Montmartre",
+   "Barbès",
+   "la porte de Clignancourt"
+  ]
+ },
+ {
+  "slug": "paris-19",
+  "name": "Paris 19e",
+  "cp": "75019",
+  "dep": "75",
+  "pop": 178691,
+  "lat": 48.8871,
+  "lng": 2.3848,
+  "quartiers": [
+   "La Villette",
+   "Pont-de-Flandre",
+   "Amérique",
+   "Combat"
+  ],
+  "lieux": [
+   "les Buttes-Chaumont",
+   "le parc de la Villette",
+   "Jaurès"
+  ]
+ },
+ {
+  "slug": "paris-20",
+  "name": "Paris 20e",
+  "cp": "75020",
+  "dep": "75",
+  "pop": 185140,
+  "lat": 48.8634,
+  "lng": 2.4012,
+  "quartiers": [
+   "Belleville",
+   "Saint-Fargeau",
+   "Père-Lachaise",
+   "Charonne"
+  ],
+  "lieux": [
+   "Belleville",
+   "le Père-Lachaise",
+   "Gambetta"
+  ]
+ },
+ {
+  "slug": "antony",
+  "name": "Antony",
+  "cp": "92160",
+  "dep": "92",
+  "pop": 64263,
+  "lat": 48.7543,
+  "lng": 2.2977,
+  "quartiers": [],
+  "lieux": []
+ },
+ {
+  "slug": "asnieres-sur-seine",
+  "name": "Asnières-sur-Seine",
+  "cp": "92600",
+  "dep": "92",
+  "pop": 93941,
+  "lat": 48.9145,
+  "lng": 2.2876,
+  "quartiers": [],
+  "lieux": []
+ },
+ {
+  "slug": "bagneux",
+  "name": "Bagneux",
+  "cp": "92220",
+  "dep": "92",
+  "pop": 44572,
+  "lat": 48.796,
+  "lng": 2.309,
+  "quartiers": [],
+  "lieux": []
+ },
+ {
+  "slug": "bois-colombes",
+  "name": "Bois-Colombes",
+  "cp": "92270",
+  "dep": "92",
+  "pop": 28909,
+  "lat": 48.9177,
+  "lng": 2.2683,
+  "quartiers": [],
+  "lieux": []
+ },
+ {
+  "slug": "boulogne-billancourt",
+  "name": "Boulogne-Billancourt",
+  "cp": "92100",
+  "dep": "92",
+  "pop": 119019,
+  "lat": 48.8352,
+  "lng": 2.241,
+  "quartiers": [],
+  "lieux": []
+ },
+ {
+  "slug": "bourg-la-reine",
+  "name": "Bourg-la-Reine",
+  "cp": "92340",
+  "dep": "92",
+  "pop": 21019,
+  "lat": 48.7797,
+  "lng": 2.3165,
+  "quartiers": [],
+  "lieux": []
+ },
+ {
+  "slug": "chatenay-malabry",
+  "name": "Châtenay-Malabry",
+  "cp": "92290",
+  "dep": "92",
+  "pop": 35825,
+  "lat": 48.7652,
+  "lng": 2.2638,
+  "quartiers": [],
+  "lieux": []
+ },
+ {
+  "slug": "chatillon",
+  "name": "Châtillon",
+  "cp": "92320",
+  "dep": "92",
+  "pop": 36705,
+  "lat": 48.8024,
+  "lng": 2.2905,
+  "quartiers": [],
+  "lieux": []
+ },
+ {
+  "slug": "chaville",
+  "name": "Chaville",
+  "cp": "92370",
+  "dep": "92",
+  "pop": 20594,
+  "lat": 48.8085,
+  "lng": 2.1886,
+  "quartiers": [],
+  "lieux": []
+ },
+ {
+  "slug": "clamart",
+  "name": "Clamart",
+  "cp": "92140",
+  "dep": "92",
+  "pop": 58576,
+  "lat": 48.8003,
+  "lng": 2.2668,
+  "quartiers": [],
+  "lieux": []
+ },
+ {
+  "slug": "clichy",
+  "name": "Clichy",
+  "cp": "92110",
+  "dep": "92",
+  "pop": 64410,
+  "lat": 48.9045,
+  "lng": 2.3062,
+  "quartiers": [],
+  "lieux": []
+ },
+ {
+  "slug": "colombes",
+  "name": "Colombes",
+  "cp": "92700",
+  "dep": "92",
+  "pop": 91053,
+  "lat": 48.9226,
+  "lng": 2.2522,
+  "quartiers": [],
+  "lieux": []
+ },
+ {
+  "slug": "courbevoie",
+  "name": "Courbevoie",
+  "cp": "92400",
+  "dep": "92",
+  "pop": 82902,
+  "lat": 48.8973,
+  "lng": 2.253,
+  "quartiers": [],
+  "lieux": []
+ },
+ {
+  "slug": "fontenay-aux-roses",
+  "name": "Fontenay-aux-Roses",
+  "cp": "92260",
+  "dep": "92",
+  "pop": 24070,
+  "lat": 48.7893,
+  "lng": 2.287,
+  "quartiers": [],
+  "lieux": []
+ },
+ {
+  "slug": "garches",
+  "name": "Garches",
+  "cp": "92380",
+  "dep": "92",
+  "pop": 17743,
+  "lat": 48.8456,
+  "lng": 2.1873,
+  "quartiers": [],
+  "lieux": []
+ },
+ {
+  "slug": "la-garenne-colombes",
+  "name": "La Garenne-Colombes",
+  "cp": "92250",
+  "dep": "92",
+  "pop": 30197,
+  "lat": 48.9067,
+  "lng": 2.2447,
+  "quartiers": [],
+  "lieux": []
+ },
+ {
+  "slug": "gennevilliers",
+  "name": "Gennevilliers",
+  "cp": "92230",
+  "dep": "92",
+  "pop": 50979,
+  "lat": 48.9333,
+  "lng": 2.2933,
+  "quartiers": [],
+  "lieux": []
+ },
+ {
+  "slug": "issy-les-moulineaux",
+  "name": "Issy-les-Moulineaux",
+  "cp": "92130",
+  "dep": "92",
+  "pop": 67669,
+  "lat": 48.824,
+  "lng": 2.27,
+  "quartiers": [],
+  "lieux": []
+ },
+ {
+  "slug": "levallois-perret",
+  "name": "Levallois-Perret",
+  "cp": "92300",
+  "dep": "92",
+  "pop": 68092,
+  "lat": 48.895,
+  "lng": 2.287,
+  "quartiers": [],
+  "lieux": []
+ },
+ {
+  "slug": "malakoff",
+  "name": "Malakoff",
+  "cp": "92240",
+  "dep": "92",
+  "pop": 30557,
+  "lat": 48.8169,
+  "lng": 2.299,
+  "quartiers": [],
+  "lieux": []
+ },
+ {
+  "slug": "marnes-la-coquette",
+  "name": "Marnes-la-Coquette",
+  "cp": "92430",
+  "dep": "92",
+  "pop": 1752,
+  "lat": 48.829,
+  "lng": 2.172,
+  "quartiers": [],
+  "lieux": []
+ },
+ {
+  "slug": "meudon",
+  "name": "Meudon",
+  "cp": "92190",
+  "dep": "92",
+  "pop": 46334,
+  "lat": 48.813,
+  "lng": 2.235,
+  "quartiers": [],
+  "lieux": []
+ },
+ {
+  "slug": "montrouge",
+  "name": "Montrouge",
+  "cp": "92120",
+  "dep": "92",
+  "pop": 46324,
+  "lat": 48.8162,
+  "lng": 2.3168,
+  "quartiers": [],
+  "lieux": []
+ },
+ {
+  "slug": "nanterre",
+  "name": "Nanterre",
+  "cp": "92000",
+  "dep": "92",
+  "pop": 97783,
+  "lat": 48.8924,
+  "lng": 2.2066,
+  "quartiers": [],
+  "lieux": []
+ },
+ {
+  "slug": "neuilly-sur-seine",
+  "name": "Neuilly-sur-Seine",
+  "cp": "92200",
+  "dep": "92",
+  "pop": 59538,
+  "lat": 48.8846,
+  "lng": 2.2697,
+  "quartiers": [],
+  "lieux": []
+ },
+ {
+  "slug": "le-plessis-robinson",
+  "name": "Le Plessis-Robinson",
+  "cp": "92350",
+  "dep": "92",
+  "pop": 28848,
+  "lat": 48.781,
+  "lng": 2.263,
+  "quartiers": [],
+  "lieux": []
+ },
+ {
+  "slug": "puteaux",
+  "name": "Puteaux",
+  "cp": "92800",
+  "dep": "92",
+  "pop": 44002,
+  "lat": 48.884,
+  "lng": 2.238,
+  "quartiers": [],
+  "lieux": []
+ },
+ {
+  "slug": "rueil-malmaison",
+  "name": "Rueil-Malmaison",
+  "cp": "92500",
+  "dep": "92",
+  "pop": 82874,
+  "lat": 48.877,
+  "lng": 2.18,
+  "quartiers": [],
+  "lieux": []
+ },
+ {
+  "slug": "saint-cloud",
+  "name": "Saint-Cloud",
+  "cp": "92210",
+  "dep": "92",
+  "pop": 29855,
+  "lat": 48.844,
+  "lng": 2.219,
+  "quartiers": [],
+  "lieux": []
+ },
+ {
+  "slug": "sceaux",
+  "name": "Sceaux",
+  "cp": "92330",
+  "dep": "92",
+  "pop": 20884,
+  "lat": 48.7766,
+  "lng": 2.29,
+  "quartiers": [],
+  "lieux": []
+ },
+ {
+  "slug": "sevres",
+  "name": "Sèvres",
+  "cp": "92310",
+  "dep": "92",
+  "pop": 22303,
+  "lat": 48.824,
+  "lng": 2.211,
+  "quartiers": [],
+  "lieux": []
+ },
+ {
+  "slug": "suresnes",
+  "name": "Suresnes",
+  "cp": "92150",
+  "dep": "92",
+  "pop": 48956,
+  "lat": 48.871,
+  "lng": 2.229,
+  "quartiers": [],
+  "lieux": []
+ },
+ {
+  "slug": "vanves",
+  "name": "Vanves",
+  "cp": "92170",
+  "dep": "92",
+  "pop": 28622,
+  "lat": 48.8215,
+  "lng": 2.29,
+  "quartiers": [],
+  "lieux": []
+ },
+ {
+  "slug": "vaucresson",
+  "name": "Vaucresson",
+  "cp": "92420",
+  "dep": "92",
+  "pop": 8432,
+  "lat": 48.84,
+  "lng": 2.153,
+  "quartiers": [],
+  "lieux": []
+ },
+ {
+  "slug": "ville-d-avray",
+  "name": "Ville-d'Avray",
+  "cp": "92410",
+  "dep": "92",
+  "pop": 11089,
+  "lat": 48.825,
+  "lng": 2.193,
+  "quartiers": [],
+  "lieux": []
+ },
+ {
+  "slug": "villeneuve-la-garenne",
+  "name": "Villeneuve-la-Garenne",
+  "cp": "92390",
+  "dep": "92",
+  "pop": 26021,
+  "lat": 48.9367,
+  "lng": 2.325,
+  "quartiers": [],
+  "lieux": []
+ },
+ {
+  "slug": "saint-ouen-sur-seine",
+  "name": "Saint-Ouen-sur-Seine",
+  "cp": "93400",
+  "dep": "93",
+  "pop": 53615,
+  "lat": 48.9116,
+  "lng": 2.3339,
+  "quartiers": [],
+  "lieux": []
+ }
+]
