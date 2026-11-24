@@ -1,8 +1,22 @@
 /* ==========================================================
    Spécialiste Porte Blindée — scripts
+   Données produits : assets/js/data.js (généré par _src/build.py)
    ========================================================== */
 (function () {
   "use strict";
+  var DATA = window.SITE_DATA || { doors: [], locks: [], logos: {} };
+  var dl = window.dataLayer = window.dataLayer || [];
+  function track(event, extra) {
+    var o = { event: event };
+    for (var k in extra || {}) o[k] = extra[k];
+    dl.push(o);
+  }
+
+  /* ---------- Suivi des clics (appel, WhatsApp) ---------- */
+  document.addEventListener("click", function (e) {
+    var a = e.target.closest && e.target.closest("[data-track]");
+    if (a) track(a.getAttribute("data-track"), { page: location.pathname });
+  });
 
   /* ---------- Menu mobile ---------- */
   var toggle = document.querySelector(".menu-toggle");
@@ -13,10 +27,7 @@
       toggle.setAttribute("aria-expanded", open ? "true" : "false");
     });
     nav.addEventListener("click", function (e) {
-      if (e.target.tagName === "A") {
-        nav.classList.remove("open");
-        toggle.setAttribute("aria-expanded", "false");
-      }
+      if (e.target.tagName === "A") { nav.classList.remove("open"); toggle.setAttribute("aria-expanded", "false"); }
     });
   }
 
@@ -28,37 +39,35 @@
     onScroll();
   }
 
-  /* ---------- Mur de marques : onglets ---------- */
-  var wall = document.getElementById("brand-wall");
-  if (wall) {
-    var tabs = document.querySelectorAll("[data-filter]");
+  /* ---------- Onglets de filtrage (marques, galerie) ---------- */
+  function tabFilter(btnAttr, containerId, itemSel, itemAttr) {
+    var box = document.getElementById(containerId);
+    if (!box) return;
+    var tabs = document.querySelectorAll("[" + btnAttr + "]");
     tabs.forEach(function (tab) {
       tab.addEventListener("click", function () {
-        var f = tab.getAttribute("data-filter");
+        var f = tab.getAttribute(btnAttr);
         tabs.forEach(function (t) { t.setAttribute("aria-selected", t === tab ? "true" : "false"); });
-        wall.querySelectorAll(".brand-cell").forEach(function (cell) {
-          cell.hidden = f !== "all" && (" " + cell.getAttribute("data-cats") + " ").indexOf(" " + f + " ") === -1;
+        box.querySelectorAll(itemSel).forEach(function (el) {
+          el.hidden = f !== "all" && (" " + el.getAttribute(itemAttr) + " ").indexOf(" " + f + " ") === -1;
         });
       });
     });
   }
+  tabFilter("data-filter", "brand-wall", "[data-cats]", "data-cats");
+  tabFilter("data-gal", "gallery", "figure", "data-cat");
 
-  /* ---------- Année du footer ---------- */
-  document.querySelectorAll("[data-year]").forEach(function (el) {
-    el.textContent = new Date().getFullYear();
-  });
+  /* ---------- Année ---------- */
+  document.querySelectorAll("[data-year]").forEach(function (el) { el.textContent = new Date().getFullYear(); });
 
   /* ---------- Apparition au scroll ---------- */
   var reveals = document.querySelectorAll(".reveal");
   if ("IntersectionObserver" in window) {
     var io = new IntersectionObserver(function (entries) {
       entries.forEach(function (entry) {
-        if (entry.isIntersecting) {
-          entry.target.classList.add("visible");
-          io.unobserve(entry.target);
-        }
+        if (entry.isIntersecting) { entry.target.classList.add("visible"); io.unobserve(entry.target); }
       });
-    }, { threshold: 0.12 });
+    }, { threshold: 0.08 });
     reveals.forEach(function (el) { io.observe(el); });
   } else {
     reveals.forEach(function (el) { el.classList.add("visible"); });
@@ -67,33 +76,29 @@
   /* ---------- Formulaire de devis ---------- */
   var form = document.getElementById("devis-form");
   if (form) {
-    // Pré-remplissage depuis le catalogue : ?produit=...
     var params = new URLSearchParams(window.location.search);
     var produit = params.get("produit");
     var message = form.querySelector("#message");
-    if (produit && message && !message.value) {
-      message.value = "Je souhaite un devis pour : " + produit + "\n";
-    }
+    if (produit && message && !message.value) message.value = "Je souhaite un devis pour : " + produit + "\n";
     var prestation = params.get("prestation");
     if (prestation) {
       var radio = form.querySelector('input[name="prestation"][value="' + prestation + '"]');
       if (radio) radio.checked = true;
     }
-
+    var tel = form.querySelector("#telephone");
     form.addEventListener("submit", function (e) {
-      var phone = form.querySelector("#telephone");
-      if (phone) {
-        var digits = phone.value.replace(/\D/g, "");
+      if (tel) {
+        var digits = tel.value.replace(/\D/g, "");
         if (digits.length < 10) {
           e.preventDefault();
-          phone.setCustomValidity("Merci d'indiquer un numéro de téléphone valide (10 chiffres).");
-          phone.reportValidity();
+          tel.setCustomValidity("Merci d'indiquer un numéro de téléphone valide (10 chiffres).");
+          tel.reportValidity();
           return;
         }
-        phone.setCustomValidity("");
+        tel.setCustomValidity("");
       }
+      track("envoi_formulaire", { prestation: (form.querySelector('input[name="prestation"]:checked') || {}).value });
     });
-    var tel = form.querySelector("#telephone");
     if (tel) tel.addEventListener("input", function () { tel.setCustomValidity(""); });
   }
 
@@ -198,23 +203,38 @@
       '</svg>';
   }
 
-  /* Logos des marques (assets/img/marques/<slug>.webp) */
-  var LOGOS = {
-    "Fichet": "point-fort-fichet", "Picard Serrures": "picard", "Bricard": "bricard", "Héraclès": "heracles",
-    "Tordjman Métal": "tordjman", "Zilten": "zilten", "Dierre": "dierre", "Gardesa": "gardesa", "Stremler": "stremler",
-    "Bel'M": "belm", "K-Line": "kline", "Hörmann": "hormann", "Vachette": "vachette", "Mul-T-Lock": "mul-t-lock",
-    "Abus": "abus", "Thirard": "thirard", "Mottura": "mottura", "Iseo": "iseo", "Cisa": "cisa", "Kaba": "kaba",
-    "Keso": "keso", "Evva": "evva", "Tesa": "tesa", "DOM": "dom", "JPM": "jpm", "Laperche": "laperche",
-    "Métalux": "metalux", "Pollux": "pollux", "Ultion": "ultion", "Yale": "yale", "Nuki": "nuki", "Somfy": "somfy",
-    "Netatmo": "netatmo", "Danalock": "danalock", "igloohome": "igloohome", "Bold": "bold"
-  };
+  var BY_ID = {};
+  DATA.doors.forEach(function (p) { p.isDoor = true; BY_ID[p.id] = p; });
+  DATA.locks.forEach(function (p) { BY_ID[p.id] = p; });
+  function visual(p) { return p.isDoor ? doorSVG(p) : lockSVG(p); }
+
+  // Visuels insérés dans les pages générées : <span data-visual="d3">
+  document.querySelectorAll("[data-visual]").forEach(function (el) {
+    var p = BY_ID[el.getAttribute("data-visual")];
+    if (p) el.outerHTML = visual(p);
+  });
+
+  function esc(s) { return String(s).replace(/[&<>"]/g, function (c) { return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]; }); }
   function brandLogo(name) {
-    var slug = LOGOS[name];
-    return slug ? '<span class="brand-logo"><img src="assets/img/marques/' + slug + '.webp" alt="' + name + '" loading="lazy"></span>' : "";
+    var slug = DATA.logos[name];
+    return slug ? '<span class="brand-logo"><img src="/assets/img/marques/' + slug + '.webp" alt="' + esc(name) + '" loading="lazy"></span>' : "";
+  }
+  function card(p) {
+    var url = "/produits/" + p.slug + ".html";
+    return '<article class="product">' +
+      '<a class="product-visual" href="' + url + '" aria-label="' + esc(p.name) + '">' + brandLogo(p.brand) + (p.badge ? '<span class="cert-tag">' + p.badge + '</span>' : "") + visual(p) + '</a>' +
+      '<div class="product-body">' +
+      '<div class="product-brand">' + esc(p.brand) + '</div>' +
+      '<h3><a href="' + url + '">' + esc(p.name) + '</a></h3>' +
+      '<p>' + esc(p.desc) + '</p>' +
+      '<div class="specs">' + p.specs.map(function (s) { return '<span>' + s + '</span>'; }).join("") + '</div>' +
+      '<div class="product-foot"><div class="price">' + (p.price ? 'Budget indicatif posé<strong>' + p.price + '</strong>' : 'Prix posé<strong>Sur devis</strong>') + '</div>' +
+      '<a class="btn btn-ink btn-sm" href="' + url + '">Voir</a></div>' +
+      '</div></article>';
   }
 
   /* ======================================================
-     Catalogue générique (filtrage + recherche)
+     Catalogue (filtrage + recherche)
      ====================================================== */
   function initCatalog(cfg) {
     var root = document.getElementById(cfg.rootId);
@@ -227,7 +247,6 @@
     var filtersToggle = root.querySelector(".filters-toggle");
     var brandSelect = root.querySelector('select[name="brand"]');
 
-    // Liste des marques
     if (brandSelect) {
       var brands = cfg.data.map(function (p) { return p.brand; })
         .filter(function (b, i, a) { return a.indexOf(b) === i; })
@@ -240,27 +259,20 @@
       var preBrand = new URLSearchParams(window.location.search).get("marque");
       if (preBrand && brands.indexOf(preBrand) !== -1) brandSelect.value = preBrand;
     }
-
     function checked(name) {
-      return Array.prototype.map.call(
-        root.querySelectorAll('input[name="' + name + '"]:checked'),
-        function (i) { return i.value; }
-      );
+      return Array.prototype.map.call(root.querySelectorAll('input[name="' + name + '"]:checked'), function (i) { return i.value; });
     }
-
     function render() {
       var q = (search && search.value || "").trim().toLowerCase();
       var brand = brandSelect ? brandSelect.value : "";
       var active = {};
       cfg.filters.forEach(function (f) { active[f] = checked(f); });
-
       var list = cfg.data.filter(function (p) {
         if (brand && p.brand !== brand) return false;
         for (var i = 0; i < cfg.filters.length; i++) {
           var f = cfg.filters[i];
           if (active[f].length) {
-            var v = p[f];
-            var vals = Array.isArray(v) ? v : [v];
+            var vals = Array.isArray(p[f]) ? p[f] : [p[f]];
             if (!vals.some(function (x) { return active[f].indexOf(x) !== -1; })) return false;
           }
         }
@@ -270,27 +282,10 @@
         }
         return true;
       });
-
       countEl.textContent = list.length + (list.length > 1 ? " modèles" : " modèle");
-      if (!list.length) {
-        grid.innerHTML = '<div class="empty"><strong>Aucun modèle ne correspond à ces critères.</strong><br>Appelez-nous : nous travaillons avec toutes les marques du marché français, même celles non listées ici.</div>';
-        return;
-      }
-      grid.innerHTML = list.map(function (p) {
-        var label = p.brand + " – " + p.name;
-        return '<article class="product">' +
-          '<div class="product-visual">' + brandLogo(p.brand) + (p.badge ? '<span class="cert-tag">' + p.badge + '</span>' : "") + cfg.visual(p) + '</div>' +
-          '<div class="product-body">' +
-          '<div class="product-brand">' + p.brand + '</div>' +
-          '<h3>' + p.name + '</h3>' +
-          '<p>' + p.desc + '</p>' +
-          '<div class="specs">' + p.specs.map(function (sp) { return '<span>' + sp + '</span>'; }).join("") + '</div>' +
-          '<div class="product-foot"><div class="price">' + (p.price ? 'Budget indicatif posé<strong>' + p.price + '</strong>' : 'Prix posé<strong>Sur devis</strong>') + '</div>' +
-          '<a class="btn btn-ink btn-sm" href="index.html?produit=' + encodeURIComponent(label) + '&prestation=' + cfg.prestation + '#devis">Devis</a></div>' +
-          '</div></article>';
-      }).join("");
+      grid.innerHTML = list.length ? list.map(card).join("") :
+        '<div class="empty"><strong>Aucun modèle ne correspond à ces critères.</strong><br>Appelez-nous : nous travaillons avec toutes les marques du marché français, même celles non listées ici.</div>';
     }
-
     root.addEventListener("change", render);
     if (search) search.addEventListener("input", render);
     if (resetBtn) resetBtn.addEventListener("click", function () {
@@ -305,187 +300,76 @@
     });
     render();
   }
+  initCatalog({ rootId: "catalogue-portes", data: DATA.doors, filters: ["cert", "usage", "type"] });
+  initCatalog({ rootId: "catalogue-serrures", data: DATA.locks, filters: ["kind", "cert", "pose"] });
 
   /* ======================================================
-     Données : portes blindées
-     Les certifications indiquées correspondent aux versions
-     proposées ; chaque fabricant décline plusieurs niveaux.
+     Simulateur de prix (fourchettes moyennes TTC posé)
      ====================================================== */
-  var DOORS = [
-    { brand: "Fichet", name: "Bloc-porte blindé Forstyl – appartement", cert: "BP1", usage: ["appartement"], type: "bloc-porte",
-      desc: "Bloc-porte complet (porte + bâti) pour porte palière, avec serrure multipoints haute sécurité et finitions personnalisables.",
-      specs: ["A2P BP1", "Serrure A2P★★★", "Isolation phonique"], price: "à partir de 3 500 €", badge: "A2P BP1", color: "#2a3f6b", style: "moulure" },
-    { brand: "Fichet", name: "Bloc-porte blindé haute sécurité", cert: "BP3", usage: ["appartement", "maison"], type: "bloc-porte",
-      desc: "Le niveau de résistance le plus élevé de la certification A2P, pour les biens exposés ou les exigences d'assurance renforcées.",
-      specs: ["A2P BP3", "Serrure A2P★★★", "Pions anti-dégondage"], price: "à partir de 7 000 €", badge: "A2P BP3", color: "#1d2a40", style: "classic" },
-    { brand: "Fichet", name: "Blindage de porte existante", cert: "none", usage: ["appartement", "maison"], type: "blindage",
-      desc: "Conservez votre porte : nous la renforçons par une tôle d'acier, des cornières anti-pince et une serrure multipoints.",
-      specs: ["Tôle acier", "Cornières anti-pince", "Serrure multipoints"], price: "à partir de 1 500 €", color: "#6b4b33", dark: "#3e2a1b", style: "plate" },
-    { brand: "Picard Serrures", name: "Bloc-porte blindé palier", cert: "BP1", usage: ["appartement"], type: "bloc-porte",
-      desc: "Fabrication française, idéal en remplacement de porte palière d'immeuble. Habillages bois, laqués ou moulurés.",
-      specs: ["A2P BP1", "Fabrication française", "Seuil à la suisse"], price: "à partir de 3 200 €", badge: "A2P BP1", color: "#5a3a26", dark: "#38231a", style: "moulure" },
-    { brand: "Picard Serrures", name: "Bloc-porte blindé renforcé", cert: "BP2", usage: ["appartement", "maison"], type: "bloc-porte",
-      desc: "Résistance accrue à l'effraction, serrure à combinaisons protégées et carte de propriété pour la reproduction des clés.",
-      specs: ["A2P BP2", "Carte de propriété", "Acoustique renforcée"], price: "à partir de 4 800 €", badge: "A2P BP2", color: "#2b2f36", dark: "#14171b", style: "classic" },
-    { brand: "Bricard", name: "Porte blindée certifiée A2P", cert: "BP1", usage: ["appartement"], type: "bloc-porte",
-      desc: "Bloc-porte blindé associé aux serrures et cylindres de la marque, pour une solution homogène et certifiée.",
-      specs: ["A2P BP1", "Cylindre haute sécurité", "Paumelles renforcées"], price: "à partir de 3 300 €", badge: "A2P BP1", color: "#33465f", dark: "#1c2738", style: "modern" },
-    { brand: "Bricard", name: "Porte blindée haute résistance", cert: "BP2", usage: ["appartement", "maison"], type: "bloc-porte",
-      desc: "Pour les logements en rez-de-chaussée ou les biens de valeur : temps de résistance doublé par rapport au niveau BP1.",
-      specs: ["A2P BP2", "Multipoints", "Anti-dégondage"], price: "à partir de 5 000 €", badge: "A2P BP2", color: "#4a4f57", dark: "#2a2e33", style: "lines" },
-    { brand: "Héraclès", name: "Porte blindée palière", cert: "BP1", usage: ["appartement"], type: "bloc-porte",
-      desc: "Porte palière blindée certifiée, large choix de panneaux décoratifs pour s'harmoniser avec les parties communes.",
-      specs: ["A2P BP1", "Panneaux décoratifs", "Joint isophonique"], price: "à partir de 3 000 €", badge: "A2P BP1", color: "#7a5132", dark: "#4a3020", style: "classic" },
-    { brand: "Héraclès", name: "Porte d'entrée blindée isolante", cert: "BP2", usage: ["maison"], type: "bloc-porte",
-      desc: "Porte d'entrée de maison alliant sécurité et performance thermique, résistante aux intempéries.",
-      specs: ["A2P BP2", "Isolation thermique", "Usage extérieur"], price: "à partir de 4 900 €", badge: "A2P BP2", color: "#3c4a3e", dark: "#222b23", style: "glass" },
-    { brand: "Dierre", name: "Porte blindée design", cert: "RC3", usage: ["appartement", "maison"], type: "bloc-porte",
-      desc: "Fabricant italien réputé pour ses portes blindées au design contemporain et leurs nombreuses finitions.",
-      specs: ["EN 1627 classe 3", "Design italien", "Finitions sur mesure"], price: "à partir de 3 800 €", badge: "Classe 3", color: "#e9e4dc", dark: "#b7ae9f", style: "modern" },
-    { brand: "Gardesa", name: "Porte blindée classe 4", cert: "RC4", usage: ["appartement", "maison"], type: "bloc-porte",
-      desc: "Porte blindée italienne haute sécurité, structure acier, compatible serrures mécaniques ou électroniques.",
-      specs: ["EN 1627 classe 4", "Serrure électronique possible", "Isolation"], price: "à partir de 5 500 €", badge: "Classe 4", color: "#24272c", dark: "#0f1113", style: "lines" },
-    { brand: "Di.Bi.", name: "Porte blindée contemporaine", cert: "RC3", usage: ["appartement", "maison"], type: "bloc-porte",
-      desc: "Portes blindées italiennes aux lignes épurées, disponibles en version thermique pour l'extérieur.",
-      specs: ["EN 1627 classe 3", "Version thermique", "Design épuré"], price: "à partir de 3 600 €", badge: "Classe 3", color: "#8a8f96", dark: "#5a5e64", style: "modern" },
-    { brand: "Torterolo & Re", name: "Porte blindée sur mesure", cert: "RC3", usage: ["appartement", "maison"], type: "bloc-porte",
-      desc: "Portes blindées italiennes fabriquées sur mesure, panneaux bois, laqués ou à moulures classiques.",
-      specs: ["EN 1627 classe 3", "Sur mesure", "Panneaux au choix"], price: "à partir de 3 900 €", badge: "Classe 3", color: "#6e2f2a", dark: "#431b18", style: "moulure" },
-    { brand: "Stremler", name: "Blindage de porte", cert: "none", usage: ["appartement", "maison"], type: "blindage",
-      desc: "Solution de blindage français pour renforcer une porte en bois existante sans changer l'huisserie.",
-      specs: ["Blindage acier", "Fabrication française", "Serrure multipoints"], price: "à partir de 1 300 €", color: "#7d5a3c", dark: "#4b3422", style: "plate" },
-    { brand: "Tordjman Métal", name: "Porte blindée certifiée", cert: "BP1", usage: ["appartement"], type: "bloc-porte",
-      desc: "Fabricant français de portes blindées et de blindages, reconnu pour la robustesse de ses blocs-portes.",
-      specs: ["A2P BP1", "Fabrication française", "Sur mesure"], price: "à partir de 3 200 €", badge: "A2P BP1", color: "#3a2a20", dark: "#22170f", style: "classic" },
-    { brand: "Tordjman Métal", name: "Blindage de porte", cert: "none", usage: ["appartement", "maison"], type: "blindage",
-      desc: "Blindage sur mesure d'une porte existante avec cornières, paumelles renforcées et serrure multipoints.",
-      specs: ["Blindage acier", "Cornières anti-pince", "Multipoints"], price: "à partir de 1 400 €", color: "#6b4b33", dark: "#3e2a1b", style: "plate" },
-    { brand: "Zilten", name: "Porte blindée design", cert: "BP2", usage: ["appartement", "maison"], type: "bloc-porte",
-      desc: "Portes blindées françaises au design soigné, larges choix de panneaux et de finitions contemporaines.",
-      specs: ["A2P selon version", "Design", "Acoustique"], price: "à partir de 4 200 €", badge: "A2P", color: "#d9d4cc", dark: "#a39b8f", style: "modern" },
-    { brand: "Hörmann", name: "Porte d'entrée de sécurité", cert: "RC3", usage: ["maison"], type: "bloc-porte",
-      desc: "Porte d'entrée isolante avec équipement de sécurité anti-effraction classé selon la norme européenne.",
-      specs: ["Classe RC selon modèle", "Isolation thermique", "Usage extérieur"], price: "à partir de 3 500 €", badge: "RC", color: "#3d4249", dark: "#23272c", style: "glass" },
-    { brand: "Bel'M", name: "Porte d'entrée haute sécurité", cert: "none", usage: ["maison"], type: "bloc-porte",
-      desc: "Porte d'entrée aluminium haut de gamme, serrure automatique multipoints et forte isolation.",
-      specs: ["Aluminium", "Serrure automatique", "Isolation"], color: "#2d3035", dark: "#16181b", style: "lines" },
-    { brand: "K-Line", name: "Porte d'entrée aluminium sécurisée", cert: "none", usage: ["maison"], type: "bloc-porte",
-      desc: "Porte d'entrée aluminium design, renforts et serrure multipoints pour une maison individuelle.",
-      specs: ["Aluminium", "Multipoints", "Design"], color: "#5b6068", dark: "#34383d", style: "modern" },
-    { brand: "Toutes marques", name: "Porte blindée de cave / local technique", cert: "none", usage: ["immeuble"], type: "bloc-porte",
-      desc: "Porte métallique renforcée pour caves, locaux poubelles, locaux vélos ou locaux techniques en copropriété.",
-      specs: ["Acier", "Serrure 3 points", "Ferme-porte"], price: "à partir de 1 200 €", color: "#5b6678", dark: "#394150", style: "lines" },
-    { brand: "Toutes marques", name: "Porte blindée de hall d'immeuble", cert: "none", usage: ["immeuble"], type: "bloc-porte",
-      desc: "Remplacement de porte d'entrée d'immeuble avec contrôle d'accès (badge, interphone, ventouse).",
-      specs: ["Contrôle d'accès", "Ventouse", "Copropriété"], color: "#1f2937", dark: "#0b0f16", style: "glass" }
-  ];
+  var sim = document.getElementById("simulateur");
+  if (sim) {
+    var BASE = {
+      porte: { none: [1800, 3000], BP1: [3000, 5000], BP2: [4500, 7000], BP3: [7000, 10000] },
+      blindage: [1300, 2800],
+      serrure: { A2P1: [400, 800], A2P2: [600, 1000], A2P3: [800, 1400] },
+      cylindre: [150, 450]
+    };
+    var OPTS = { finition: [300, 900], dimensions: [400, 900], isolation: [300, 700], connectee: [250, 500] };
+    var LABELS = { porte: "Bloc-porte blindé", blindage: "Blindage de porte existante", serrure: "Serrure multipoints", cylindre: "Cylindre haute sécurité" };
+    var INCL = {
+      porte: ["Visite technique et prise de mesures", "Fabrication sur mesure", "Dépose et évacuation de l'ancienne porte", "Pose, réglages et certificat"],
+      blindage: ["Diagnostic de la porte", "Tôle acier et cornières anti-pince", "Serrure multipoints", "Pose et réglages"],
+      serrure: ["Fourniture de la serrure", "Pose et réglages", "Clés et carte de propriété"],
+      cylindre: ["Fourniture du cylindre", "Pose immédiate", "Clés et carte de propriété"]
+    };
+    var fmt = function (n) { return n.toLocaleString("fr-FR") + " €"; };
+    var val = function (n) { var el = sim.querySelector('input[name="' + n + '"]:checked'); return el ? el.value : null; };
+    var tracked = false;
+    var update = function () {
+      var projet = val("projet");
+      // afficher / masquer les étapes et les renuméroter
+      var n = 0;
+      sim.querySelectorAll(".sim-step").forEach(function (fs) {
+        var f = fs.getAttribute("data-for");
+        var show = !f || (" " + f + " ").indexOf(" " + projet + " ") !== -1;
+        fs.hidden = !show;
+        if (show) fs.querySelector(".step-n").textContent = ++n;
+      });
+      var r;
+      if (projet === "porte") r = BASE.porte[val("niveau")].slice();
+      else if (projet === "serrure") r = BASE.serrure[val("serrure")].slice();
+      else r = BASE[projet].slice();
+      var label = LABELS[projet] + (projet === "porte" && val("niveau") !== "none" ? " A2P " + val("niveau") : "");
+      if (projet === "porte" || projet === "blindage") {
+        sim.querySelectorAll('input[name="options"]:checked').forEach(function (o) {
+          r[0] += OPTS[o.value][0]; r[1] += OPTS[o.value][1];
+        });
+        if (projet === "porte" && val("logement") === "maison" && !sim.querySelector('input[value="isolation"]:checked')) {
+          r[0] += 200; r[1] += 400;
+        }
+      }
+      document.getElementById("sim-min").textContent = fmt(r[0]);
+      document.getElementById("sim-max").textContent = fmt(r[1]);
+      document.getElementById("sim-label").textContent = label + " · fourniture et pose, TTC";
+      document.getElementById("sim-incl").innerHTML = INCL[projet].map(function (t) { return "<li>" + t + "</li>"; }).join("");
+      var prest = projet === "porte" ? "remplacement" : projet === "blindage" ? "blindage" : "serrure";
+      var msg = label + " (" + val("logement") + ") – estimation simulateur : " + fmt(r[0]) + " à " + fmt(r[1]);
+      document.getElementById("sim-cta").href = "/?produit=" + encodeURIComponent(msg) + "&prestation=" + prest + "#devis";
+      if (tracked) track("simulateur_resultat", { projet: projet, min: r[0], max: r[1] });
+      tracked = true;
+    };
+    sim.addEventListener("change", update);
+    update();
+  }
 
-  var LOCKS = [
-    { brand: "Fichet", name: "Serrure multipoints 787 Z", kind: "multipoints", cert: "A2P3", pose: "encastree", points: 5,
-      desc: "Serrure de référence chez Fichet pour portes blindées, mécanisme haute sécurité à clé protégée.",
-      specs: ["A2P★★★", "Encastrée", "Clé protégée"], badge: "A2P★★★", color: "#1a2b4f" },
-    { brand: "Fichet", name: "Cylindre F3D", kind: "cylindre", cert: "A2P3", pose: "cylindre",
-      desc: "Cylindre haute sécurité à clé brevetée, compatible de nombreuses serrures multipoints.",
-      specs: ["A2P★★★", "Clé brevetée", "Carte de propriété"], badge: "A2P★★★" },
-    { brand: "Mul-T-Lock", name: "Cylindre MT5+", kind: "cylindre", cert: "A2P2", pose: "cylindre",
-      desc: "Cylindre réputé pour sa résistance au crochetage et sa clé à reproduction contrôlée.",
-      specs: ["A2P selon version", "Anti-crochetage", "Carte de propriété"], badge: "A2P", color: "#e8e8e8", dark: "#9aa1ab" },
-    { brand: "Mul-T-Lock", name: "Cylindre Interactive+", kind: "cylindre", cert: "A2P1", pose: "cylindre",
-      desc: "Bon compromis prix / sécurité, idéal pour un changement de cylindre sur serrure existante.",
-      specs: ["A2P selon version", "Anti-perçage", "Clé protégée"], badge: "A2P", color: "#e8e8e8", dark: "#9aa1ab" },
-    { brand: "Vachette", name: "Cylindre Radial NT", kind: "cylindre", cert: "A2P2", pose: "cylindre",
-      desc: "Cylindre de sécurité à clé réversible, protections anti-arrachement et anti-perçage.",
-      specs: ["A2P selon version", "Clé réversible", "Anti-arrachement"], badge: "A2P" },
-    { brand: "Bricard", name: "Serrure multipoints en applique", kind: "multipoints", cert: "A2P2", pose: "applique", points: 3,
-      desc: "Serrure 3 points posée en applique, solution efficace pour sécuriser une porte d'appartement sans la changer.",
-      specs: ["A2P★★", "En applique", "3 points"], badge: "A2P★★", color: "#33465f" },
-    { brand: "Bricard", name: "Cylindre haute sécurité", kind: "cylindre", cert: "A2P3", pose: "cylindre",
-      desc: "Cylindre haut de gamme avec clés à reproduction protégée, pour serrures multipoints.",
-      specs: ["A2P★★★", "Reproduction protégée"], badge: "A2P★★★" },
-    { brand: "Picard Serrures", name: "Serrure multipoints à encastrer", kind: "multipoints", cert: "A2P2", pose: "encastree", points: 5,
-      desc: "Serrure 5 points intégrée dans l'épaisseur de la porte, fabrication française.",
-      specs: ["A2P selon version", "Encastrée", "5 points"], badge: "A2P", color: "#2b2f36" },
-    { brand: "Abus", name: "Cylindre Bravus", kind: "cylindre", cert: "A2P2", pose: "cylindre",
-      desc: "Gamme de cylindres modulaires avec niveaux de sécurité adaptés à chaque porte.",
-      specs: ["A2P selon version", "Modulaire", "Anti-casse"], badge: "A2P", color: "#e8e8e8", dark: "#9aa1ab" },
-    { brand: "Iseo", name: "Cylindre R50", kind: "cylindre", cert: "hs", pose: "cylindre",
-      desc: "Cylindre européen à clé plate, bonne résistance aux techniques d'effraction courantes.",
-      specs: ["Haute sécurité", "Clé plate", "Anti-bumping"], badge: "Sécurité" },
-    { brand: "Cisa", name: "Cylindre AP4 S", kind: "cylindre", cert: "hs", pose: "cylindre",
-      desc: "Cylindre de sécurité avec protection anti-bumping et anti-perçage.",
-      specs: ["Anti-bumping", "Anti-perçage", "Carte de propriété"], badge: "Sécurité" },
-    { brand: "Kaba", name: "Cylindre ExperT", kind: "cylindre", cert: "hs", pose: "cylindre",
-      desc: "Cylindre à clé réversible à alvéoles, système breveté de reproduction contrôlée.",
-      specs: ["Clé à alvéoles", "Reproduction contrôlée"], badge: "Sécurité", color: "#e8e8e8", dark: "#9aa1ab" },
-    { brand: "Keso", name: "Cylindre Keso 8000", kind: "cylindre", cert: "hs", pose: "cylindre",
-      desc: "Cylindre très haute sécurité utilisé en résidentiel haut de gamme et en tertiaire.",
-      specs: ["Très haute sécurité", "Clé brevetée"], badge: "Sécurité", color: "#e8e8e8", dark: "#9aa1ab" },
-    { brand: "Evva", name: "Cylindre 4KS", kind: "cylindre", cert: "hs", pose: "cylindre",
-      desc: "Système à courbes de contrôle, conçu pour résister au crochetage et à la copie illicite.",
-      specs: ["Anti-crochetage", "Anti-copie"], badge: "Sécurité" },
-    { brand: "Mottura", name: "Serrure multipoints Champions", kind: "multipoints", cert: "hs", pose: "encastree", points: 5,
-      desc: "Serrure italienne pour porte blindée, déclinable avec cylindre européen haute sécurité.",
-      specs: ["Encastrée", "Cylindre européen", "5 points"], badge: "Sécurité", color: "#24272c" },
-    { brand: "Thirard", name: "Serrure multipoints en applique", kind: "multipoints", cert: "A2P2", pose: "applique", points: 3,
-      desc: "Fabricant français historique : serrures 3 points en applique pour sécuriser une porte d'entrée.",
-      specs: ["A2P selon version", "En applique", "Fabrication française"], badge: "A2P", color: "#3a3f46" },
-    { brand: "Ultion", name: "Cylindre haute sécurité", kind: "cylindre", cert: "hs", pose: "cylindre",
-      desc: "Cylindre réputé pour sa résistance au cassage, au crochetage et au perçage.",
-      specs: ["Anti-casse", "Anti-crochetage", "Clé protégée"], badge: "Sécurité" },
-    { brand: "Tesa", name: "Cylindre de sécurité", kind: "cylindre", cert: "hs", pose: "cylindre",
-      desc: "Cylindres européens à clé protégée, adaptés aux serrures de portes d'entrée et blindées.",
-      specs: ["Clé protégée", "Anti-perçage"], badge: "Sécurité", color: "#e8e8e8", dark: "#9aa1ab" },
-    { brand: "DOM", name: "Cylindre haute sécurité", kind: "cylindre", cert: "hs", pose: "cylindre",
-      desc: "Cylindres allemands à reproduction de clés contrôlée, pour portes d'appartement ou de maison.",
-      specs: ["Reproduction contrôlée", "Anti-crochetage"], badge: "Sécurité" },
-    { brand: "JPM", name: "Serrure multipoints", kind: "multipoints", cert: "A2P1", pose: "applique", points: 3,
-      desc: "Fabricant français de serrures : multipoints en applique et serrures de sûreté pour l'habitat.",
-      specs: ["A2P selon version", "Fabrication française"], badge: "A2P", color: "#7a1f1f" },
-    { brand: "Laperche", name: "Serrure en applique", kind: "multipoints", cert: "A2P1", pose: "applique", points: 3,
-      desc: "Serrures en applique robustes, solution éprouvée pour les portes d'appartement.",
-      specs: ["En applique", "Pose rapide"], badge: "A2P", color: "#5b2a2a" },
-    { brand: "Métalux", name: "Serrure multipoints", kind: "multipoints", cert: "A2P2", pose: "applique", points: 3,
-      desc: "Serrures et systèmes de verrouillage multipoints pour renforcer la porte d'entrée.",
-      specs: ["Multipoints", "Verrouillage renforcé"], badge: "A2P", color: "#4a4f57" },
-    { brand: "Pollux", name: "Verrou de sécurité", kind: "verrou", cert: "hs", pose: "applique",
-      desc: "Fabricant français de verrous et serrures : complément idéal à une serrure existante.",
-      specs: ["Fabrication française", "Complément"], badge: "Verrou" },
-    { brand: "Yale", name: "Serrure connectée", kind: "connectee", cert: "none", pose: "electronique",
-      desc: "Serrure connectée pilotable depuis le smartphone, avec accès temporaires pour vos proches.",
-      specs: ["Smartphone", "Accès partagés"], badge: "Connectée" },
-    { brand: "Nuki", name: "Smart Lock", kind: "connectee", cert: "none", pose: "electronique",
-      desc: "Se monte côté intérieur sur la serrure existante : ouverture automatique à votre arrivée.",
-      specs: ["Sans changer la serrure", "Smartphone"], badge: "Connectée" },
-    { brand: "Somfy", name: "Serrure connectée", kind: "connectee", cert: "none", pose: "electronique",
-      desc: "Serrure connectée intégrée à l'écosystème maison connectée, alarme et caméras.",
-      specs: ["Maison connectée", "Smartphone"], badge: "Connectée" },
-    { brand: "Netatmo", name: "Serrure intelligente", kind: "connectee", cert: "none", pose: "electronique",
-      desc: "Serrure connectée avec clés physiques intelligentes et application, sans abonnement.",
-      specs: ["Clés intelligentes", "Application"], badge: "Connectée" },
-    { brand: "Toutes marques", name: "Serrure 3 points en applique A2P★", kind: "multipoints", cert: "A2P1", pose: "applique", points: 3,
-      desc: "La solution la plus courante pour sécuriser une porte d'entrée en bois : pose rapide, certification A2P.",
-      specs: ["A2P★", "En applique", "3 points"], badge: "A2P★", color: "#4a4f57" },
-    { brand: "Toutes marques", name: "Verrou de sécurité", kind: "verrou", cert: "A2P1", pose: "applique",
-      desc: "Verrou additionnel à cylindre pour renforcer une serrure existante à moindre coût.",
-      specs: ["Complément", "Pose rapide"], badge: "Verrou" },
-    { brand: "Toutes marques", name: "Serrure connectée / électronique", kind: "connectee", cert: "none", pose: "electronique",
-      desc: "Ouverture par code, badge ou smartphone, compatible avec de nombreuses serrures et portes blindées.",
-      specs: ["Smartphone", "Code / badge", "Historique d'accès"], badge: "Connectée" }
-  ];
-
-  initCatalog({
-    rootId: "catalogue-portes",
-    data: DOORS.map(function (d, i) { d.id = "d" + i; return d; }),
-    filters: ["cert", "usage", "type"],
-    prestation: "remplacement",
-    visual: function (p) { return doorSVG(p); }
-  });
-
-  initCatalog({
-    rootId: "catalogue-serrures",
-    data: LOCKS.map(function (d, i) { d.id = "l" + i; return d; }),
-    filters: ["kind", "cert", "pose"],
-    prestation: "serrure",
-    visual: function (p) { return lockSVG(p); }
-  });
+  /* ======================================================
+     Comparateur avant / après
+     ====================================================== */
+  var ba = document.getElementById("ba");
+  if (ba) {
+    var range = ba.querySelector("input[type=range]");
+    var setBA = function () { ba.style.setProperty("--pos", range.value + "%"); };
+    range.addEventListener("input", setBA);
+    setBA();
+  }
 })();
