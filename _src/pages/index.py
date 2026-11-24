@@ -62,37 +62,25 @@ HTML = head(
 <main id="main">
 
 <!-- ================= HERO ================= -->
-<section class="hero">
-  <div class="container hero-grid">
-    <div>
-      <span class="kicker">Spécialiste porte blindée &amp; serrurerie</span>
-      <h1>La porte blindée certifiée, <em>posée en une journée.</em></h1>
-      <p class="lead">Remplacement de porte blindée, blindage de porte existante et serrures haute sécurité A2P. Nous installons toutes les grandes marques du marché français, avec un devis clair et gratuit.</p>
-      <div class="hero-actions">
-        <a class="btn btn-red" href="#devis">Demander mon devis gratuit {I["arrow"]}</a>
-        <a class="btn btn-line" href="/portes-blindees.html">Voir les portes blindées</a>
-      </div>
-      <div class="hero-facts">
-        <div><strong>{len(BRANDS)}+</strong><span>marques installées</span></div>
-        <div><strong>A2P</strong><span>BP1 · BP2 · BP3</span></div>
-        <div><strong>0 €</strong><span>visite &amp; devis</span></div>
-      </div>
+<section class="hero-brand">
+  <div class="hb-text">
+    <span class="kicker">Portes blindées · Serrures haute sécurité</span>
+    <h1>La porte blindée certifiée, posée en une journée</h1>
+    <p class="lead">Remplacement de porte blindée, blindage de porte existante et serrures haute sécurité A2P. Les grandes marques du marché français, installées par des spécialistes.</p>
+    <div class="hero-actions">
+      <a class="btn btn-red" href="#devis">Demander un devis {I["arrow"]}</a>
+      <a class="btn btn-line" href="/portes-blindees.html">Découvrir les portes</a>
     </div>
-    <div class="hero-media">
-      <figure class="hero-photo">
-        <img src="/assets/img/photos/serrure-multipoints-porte-blindee.webp" alt="Porte blindée équipée d'une serrure multipoints haute sécurité" width="903" height="1200" fetchpriority="high">
-        <figcaption>{I["shield"]} Serrure multipoints sur porte blindée</figcaption>
-      </figure>
-      <div class="float-card float-a"><span class="badge">{I["shield"]}</span><div><strong>Certifiées A2P</strong><small>Résistance testée par le CNPP</small><div class="bars"><i></i><i></i><i></i></div></div></div>
-      <div class="float-card float-b"><span class="badge">{I["clock"]}</span><div><strong>Pose en 1 journée</strong><small>Chantier propre, gravats évacués</small></div></div>
+    <div class="hero-facts">
+      <div><strong>{len(BRANDS)}</strong><span>marques installées</span></div>
+      <div><strong>BP1–BP3</strong><span>certification A2P</span></div>
+      <div><strong>1 jour</strong><span>de pose</span></div>
     </div>
   </div>
-</section>
-
-<!-- ================= LOGOS ================= -->
-<section class="logo-band">
-  <p>Nous installons les marques de référence</p>
-  {marquee}
+  <div class="hb-media">
+    <img src="/assets/img/photos/serrure-multipoints-porte-blindee.webp" alt="Porte blindée équipée d'une serrure multipoints haute sécurité" width="903" height="1200" fetchpriority="high">
+    <div class="hb-caption"><div><strong>Serrure 5 points</strong>Porte blindée palière</div><div><strong>A2P</strong>Certifiée CNPP</div></div>
+  </div>
 </section>
 
 <!-- ================= SERVICES ================= -->

@@ -66,17 +66,17 @@ def logo_img(slug, name, lazy=True, cls=""):
     c = f' class="{cls}"' if cls else ""
     return f'<img{c} src="/assets/img/marques/{slug}.webp" alt="{E(name)}"{" loading=\"lazy\"" if lazy else ""} decoding="async">'
 
-LOGO = '''<svg class="logo-mark" viewBox="0 0 48 48" aria-hidden="true">
-  <rect width="48" height="48" rx="12" fill="#0f1419"/>
-  <path d="M24 8 12 12.5v9c0 8 5.1 14.6 12 17.5 6.9-2.9 12-9.5 12-17.5v-9z" fill="none" stroke="#c8281e" stroke-width="2.4" stroke-linejoin="round"/>
-  <rect x="19" y="16" width="10" height="15" rx="1.5" fill="#fff"/>
-  <circle cx="26.3" cy="23.5" r="1.2" fill="#0f1419"/>
+LOGO = '''<svg class="logo-mark" viewBox="0 0 40 40" aria-hidden="true">
+  <rect width="40" height="40" fill="#141516"/>
+  <rect x="13" y="8" width="14" height="24" fill="none" stroke="#fff" stroke-width="1.6"/>
+  <line x1="13" y1="20" x2="27" y2="20" stroke="#b9bfc4" stroke-width="1.6"/>
+  <rect x="23" y="18" width="2" height="4" fill="#b9bfc4"/>
 </svg>'''
 
 def logo_block():
     return f'''<a class="logo" href="/" aria-label="{NAME} – accueil">
         {LOGO}
-        <span class="logo-text"><strong>{NAME}</strong><span>Portes blindées · Serrures A2P</span></span>
+        <span class="logo-text"><strong>Porte Blindée</strong><span>Spécialiste</span></span>
       </a>'''
 
 def gtm_head():
@@ -107,11 +107,11 @@ def head(title, desc, canonical, extra="", image="serrure-multipoints-porte-blin
   <meta property="og:url" content="{DOMAIN}{path}">
   <meta property="og:image" content="{DOMAIN}/assets/img/photos/{image}.webp">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="theme-color" content="#0f1419">
+  <meta name="theme-color" content="#141516">
   <link rel="icon" href="/assets/img/favicon.svg" type="image/svg+xml">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Inter+Tight:wght@600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@600;700;800&family=Public+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/assets/css/style.css">
 {gtm_head()}{extra}</head>
 <body>
@@ -125,7 +125,7 @@ def header(active):
     return f'''<div class="utility">
   <div class="container">
     <ul>
-      <li><span class="live" aria-hidden="true"></span> Techniciens disponibles aujourd'hui</li>
+      <li>Devis gratuit · Pose en une journée · Matériel certifié A2P</li>
       <li class="hide-sm">{I["pin"]} <a href="/zones/">{ZONE}</a></li>
       <li class="hide-sm">{I["clock"]} {HOURS}</li>
     </ul>
@@ -176,7 +176,8 @@ def footer():
     logos = "".join(f'<a href="/marques/{BRAND_SLUG[n]}.html" title="{E(n)}">{logo_img(s, n)}</a>' for s, n, c in BRANDS)
     zones = "".join(f'<li><a href="/zones/{z["slug"]}.html">Porte blindée {E(z["name"])}</a></li>' for z in ZONES[:6])
     guides = "".join(f'<li><a href="/guides/{g[0]}.html">{E(g[1].split(":")[0].split("?")[0].strip())}</a></li>' for g in GUIDES[:4])
-    wa = f'<a class="wa-float" href="https://wa.me/{WHATSAPP}" target="_blank" rel="noopener" data-track="clic_whatsapp" aria-label="Nous écrire sur WhatsApp">{I["whatsapp"]}<span>Envoyez une photo de votre porte</span></a>' if WHATSAPP else ""
+    wa = ""
+    _unused = f'<a class="wa-float" href="https://wa.me/{WHATSAPP}" target="_blank" rel="noopener" data-track="clic_whatsapp" aria-label="Nous écrire sur WhatsApp">{I["whatsapp"]}<span>Envoyez une photo de votre porte</span></a>' if WHATSAPP else ""
     return f'''<footer class="footer">
   <div class="container">
     <div class="footer-top">
@@ -271,6 +272,7 @@ def product_card(p):
 </article>'''
 
 def write(rel, content, priority="0.6", index=True):
+    content = re.sub(r"\.(\s*</h[12]>)", r"\1", content)
     out = ROOT / rel
     out.parent.mkdir(parents=True, exist_ok=True)
     out.write_text(content, encoding="utf-8")
