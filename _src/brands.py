@@ -2,7 +2,7 @@
 # logo = nom du fichier dans assets/img/marques/ (sans extension) ou None
 BRANDS = [
   ("fichet", "Fichet", "point-fort-fichet", ["portes", "serrures"], "France",
-   "Fabricant français historique de la haute sécurité, Fichet conçoit des blocs-portes blindés certifiés A2P, des serrures multipoints et des cylindres à clés protégées. Une référence pour les portes palières des immeubles parisiens."),
+   "Fabricant français historique de la haute sécurité, Fichet conçoit des blocs-portes blindés certifiés A2P, des serrures multipoints et des cylindres à clés protégées. Une référence pour les portes palières d'immeuble."),
   ("picard-serrures", "Picard Serrures", "picard", ["portes", "serrures"], "France",
    "Fabricant français de portes blindées et de serrures haute sécurité. Ses blocs-portes certifiés A2P se déclinent dans de nombreux habillages, du classique mouluré au contemporain."),
   ("bricard", "Bricard", "bricard", ["portes", "serrures"], "France",

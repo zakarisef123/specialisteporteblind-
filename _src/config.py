@@ -11,9 +11,9 @@ PHONE_TEL = "+33123456789"        # format international pour les liens tel:
 WHATSAPP = "33123456789"          # numéro WhatsApp sans + ni espaces ("" pour masquer le bouton)
 EMAIL = "contact@specialiste-porte-blindee.fr"
 STREET = "12 rue de l'Exemple"
-POSTCODE = "75000"
-CITY = "Paris"
-ZONE = "Paris & Île-de-France"
+POSTCODE = "83000"
+CITY = "Toulon"
+ZONE = "Var (83)"
 HOURS = "Lun – Sam : 8h – 20h"
 HOURS_SCHEMA = "Mo-Sa 08:00-20:00"
 

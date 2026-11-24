@@ -1,12 +1,34 @@
 FILENAME = "index.html"
+ZC = globals().get("ZONE_CTX")
+def loc_in(n):
+    if n.startswith("Le "): return "au " + n[3:]
+    if n.startswith("Les "): return "aux " + n[4:]
+    return "à " + n
+if ZC:
+    FILENAME = f"zones/{ZC['slug']}.html"
+    PRIORITY = "0.6"
+    L_IN = loc_in(ZC["name"]); L_NAME = ZC["name"]; L_CP = ZC["cp"]
+    NEAR = sorted((o for o in ZONES if o is not ZC), key=lambda o: dist(ZC, o))[:12]
+else:
+    L_IN = "dans le Var"; L_NAME = "Var"; L_CP = "83"
+    NEAR = sorted(ZONES, key=lambda z: -z["pop"])[:24]
+CANON = FILENAME if ZC else ""
 
 FAQ = [
+  ("Pouvez-vous ouvrir une porte blindée sans l'abîmer ?",
+   "<p>Oui, dans la grande majorité des cas. Nous utilisons des techniques d'ouverture fine, non destructives, adaptées à la serrure et au cylindre de votre porte blindée. Si la serrure est d'un niveau de sécurité qui ne permet pas une ouverture fine, nous vous l'expliquons <strong>avant</strong> d'intervenir et vous annonçons le prix de la solution (par exemple le remplacement du cylindre).</p>"),
+  ("Combien coûte l'ouverture d'une porte blindée ?",
+   "<p>Le prix dépend de la situation : porte simplement claquée ou fermée à clé, type de serrure et de cylindre. Le tarif vous est <strong>annoncé avant toute intervention</strong> et un devis écrit vous est remis sur place avant de commencer.</p>"),
+  ("Que faire si ma porte blindée est bloquée ?",
+   "<p>Ne forcez pas sur la clé ni sur la poignée : vous risquez de casser la clé dans le cylindre ou d'endommager le mécanisme. Appelez-nous : nous débloquons la serrure, identifions la cause (cylindre usé, pêne mal aligné, porte affaissée) et réglons la porte pour éviter que cela recommence.</p>"),
+  ("Faut-il un justificatif pour faire ouvrir sa porte ?",
+   "<p>Oui. Pour votre sécurité, nous demandons un justificatif de domicile et une pièce d'identité avant ou juste après l'ouverture. C'est une règle de base de la profession.</p>"),
   ("Quelle est la différence entre une porte blindée et un blindage de porte ?",
    "<p>Une <strong>porte blindée</strong> (ou bloc-porte blindé) remplace intégralement votre porte : le vantail <em>et</em> le bâti (huisserie) sont neufs, conçus et testés ensemble. C'est la seule solution qui peut obtenir la certification A2P BP1, BP2 ou BP3.</p><p>Le <strong>blindage</strong> consiste à renforcer votre porte actuelle (tôle d'acier, cornières anti-pince, paumelles renforcées, serrure multipoints). C'est plus économique, mais le niveau de résistance reste limité par l'huisserie existante.</p>"),
   ("Que signifient les certifications A2P BP1, BP2 et BP3 ?",
    "<p>La certification A2P est délivrée par le CNPP. Pour les blocs-portes, elle indique le temps de résistance face à une tentative d'effraction : <strong>5 minutes pour BP1</strong>, <strong>10 minutes pour BP2</strong> et <strong>15 minutes pour BP3</strong>. Pour les serrures, les niveaux vont de A2P★ à A2P★★★.</p>"),
   ("Mon assurance exige-t-elle une porte certifiée ?",
-   "<p>Certains contrats d'assurance habitation imposent un niveau minimum (souvent une serrure A2P★★ ou un bloc-porte A2P BP1), notamment à Paris, en rez-de-chaussée ou pour des biens de valeur. Vérifiez votre contrat : nous vous remettons le certificat et la facture nécessaires pour votre assureur.</p>"),
+   "<p>Certains contrats d'assurance habitation imposent un niveau minimum (souvent une serrure A2P★★ ou un bloc-porte A2P BP1), notamment en rez-de-chaussée, en maison ou pour des biens de valeur. Vérifiez votre contrat : nous vous remettons le certificat et la facture nécessaires pour votre assureur.</p>"),
   ("Combien de temps dure la pose d'une porte blindée ?",
    "<p>Le remplacement d'une porte blindée palière se fait généralement <strong>en une journée</strong>, avec dépose de l'ancienne porte, pose du bloc-porte, réglages et évacuation des gravats. La fabrication sur mesure demande en moyenne 3 à 6 semaines selon la marque.</p>"),
   ("Faut-il l'accord de la copropriété pour changer ma porte palière ?",
@@ -33,8 +55,8 @@ biz_ld = {
   "name": NAME, "url": DOMAIN + "/", "telephone": PHONE_TEL, "email": EMAIL,
   "address": {"@type": "PostalAddress", "streetAddress": ADDRESS.split(",")[0],
               "addressLocality": ADDRESS.split(",")[1].strip(), "addressCountry": "FR"},
-  "areaServed": ZONE, "openingHours": "Mo-Sa 08:00-20:00",
-  "description": "Remplacement de portes blindées, blindage de portes et installation de serrures haute sécurité certifiées A2P."
+  "areaServed": ({"@type": "City", "name": L_NAME, "postalCode": L_CP} if ZC else ZONE), "openingHours": HOURS_SCHEMA,
+  "description": "Ouverture de porte blindée sans dégâts, dépannage et déblocage, remplacement de portes blindées et serrures haute sécurité certifiées A2P."
 }
 LD = ('<script type="application/ld+json">' + json.dumps(biz_ld, ensure_ascii=False) + '</script>\n'
       '<script type="application/ld+json">' + json.dumps(faq_ld, ensure_ascii=False) + '</script>\n')
@@ -56,30 +78,69 @@ n_serr = sum(1 for b in BRANDS if "serrures" in b[2])
 n_conn = sum(1 for b in BRANDS if "connectees" in b[2])
 
 HTML = head(
-  "Porte blindée & serrure haute sécurité – Remplacement et installation | " + NAME,
-  "Remplacement de porte blindée, blindage de porte et changement de serrure A2P. Plus de 35 marques : Fichet, Picard, Bricard, Héraclès, Tordjman, Mul-T-Lock, Vachette… Devis gratuit.",
-  "", LD) + header("") + f'''
+  (f"Ouverture de porte blindée {L_IN} ({L_CP}) sans dégâts – dépannage, pose | {NAME}" if ZC else f"Ouverture de porte blindée sans dégâts – dépannage, pose, Var (83) | {NAME}"),
+  f"Spécialiste de la porte blindée {L_IN} : ouverture sans dégâts, dépannage et déblocage, remplacement de porte blindée et serrures A2P. Fichet, Picard, Bricard, Héraclès… Prix annoncé avant intervention.",
+  CANON, LD) + header("") + f'''
 <main id="main">
 
 <!-- ================= HERO ================= -->
 <section class="hero-brand">
   <div class="hb-text">
-    <span class="kicker">Portes blindées · Serrures haute sécurité</span>
-    <h1>La porte blindée certifiée, posée en une journée</h1>
-    <p class="lead">Remplacement de porte blindée, blindage de porte existante et serrures haute sécurité A2P. Les grandes marques du marché français, installées par des spécialistes.</p>
+    <span class="kicker">Spécialiste porte blindée · {E(L_NAME) + " (" + L_CP + ")" if ZC else "Var (83)"}</span>
+    <h1>Ouverture de porte blindée sans dégâts{(" " + E(L_IN)) if ZC else ""}</h1>
+    <p class="lead">Porte claquée, clés perdues, serrure bloquée : nous ouvrons votre porte blindée par des techniques fines, sans casse, dans la grande majorité des cas. Dépannage, déblocage, pose et remplacement de portes blindées {E(L_IN)}.</p>
     <div class="hero-actions">
-      <a class="btn btn-red" href="#devis">Demander un devis {I["arrow"]}</a>
-      <a class="btn btn-line" href="/portes-blindees.html">Découvrir les portes</a>
+      <a class="btn btn-red" href="tel:{PHONE_TEL}" data-track="clic_appel">{I["phone"]} Appeler le {PHONE}</a>
+      <a class="btn btn-line" href="/ouverture-porte-blindee.html">Ouverture sans dégâts</a>
     </div>
     <div class="hero-facts">
-      <div><strong>{len(BRANDS)}</strong><span>marques installées</span></div>
-      <div><strong>BP1–BP3</strong><span>certification A2P</span></div>
-      <div><strong>1 jour</strong><span>de pose</span></div>
+      <div><strong>Sans casse</strong><span>ouverture fine</span></div>
+      <div><strong>Prix annoncé</strong><span>avant intervention</span></div>
+      <div><strong>Toutes marques</strong><span>Fichet, Picard, Bricard…</span></div>
     </div>
   </div>
   <div class="hb-media">
-    <img src="/assets/img/photos/serrure-multipoints-porte-blindee.webp" alt="Porte blindée équipée d'une serrure multipoints haute sécurité" width="903" height="1200" fetchpriority="high">
-    <div class="hb-caption"><div><strong>Serrure 5 points</strong>Porte blindée palière</div><div><strong>A2P</strong>Certifiée CNPP</div></div>
+    <img src="/assets/img/photos/serrurier-ouverture-porte.webp" alt="Technicien ouvrant une porte blindée sans la dégrader" width="1200" height="799" fetchpriority="high">
+    <div class="hb-caption"><div><strong>Ouverture fine</strong>Sans dégâts sur la porte</div><div><strong>Toutes serrures</strong>Multipoints, cylindres</div></div>
+  </div>
+</section>
+
+<!-- ================= URGENCE ================= -->
+<section class="section urgent" id="ouverture">
+  <div class="container">
+    <div class="head reveal">
+      <div><span class="kicker">Dépannage porte blindée</span><h2>Le spécialiste de l'ouverture de porte blindée{(" " + E(L_IN)) if ZC else ""}</h2></div>
+      <p>Une porte blindée ne s'ouvre pas comme une porte classique : il faut connaître les serrures multipoints, les cylindres haute sécurité et les blindages. C'est notre spécialité.</p>
+    </div>
+    <div class="urgent-grid">
+      <a class="urgent-card reveal" href="/ouverture-porte-blindee.html">
+        <span class="uc-num">01</span>
+        <h3>Ouverture de porte blindée</h3>
+        <p>Porte claquée ou fermée à clé, clés perdues ou volées : ouverture fine, sans casse ni dégradation de la porte.</p>
+        <span class="go">En savoir plus {I["arrow"]}</span>
+      </a>
+      <a class="urgent-card reveal" href="/depannage-porte-blindee.html">
+        <span class="uc-num">02</span>
+        <h3>Dépannage de porte blindée</h3>
+        <p>Serrure qui force, clé cassée dans le cylindre, porte qui frotte ou ne ferme plus : diagnostic et réparation.</p>
+        <span class="go">En savoir plus {I["arrow"]}</span>
+      </a>
+      <a class="urgent-card reveal" href="/deblocage-porte-blindee.html">
+        <span class="uc-num">03</span>
+        <h3>Déblocage de porte blindée</h3>
+        <p>Serrure multipoints bloquée, pênes coincés, cylindre grippé : déblocage sans dégâts et réglage de la porte.</p>
+        <span class="go">En savoir plus {I["arrow"]}</span>
+      </a>
+    </div>
+    <div class="method reveal">
+      <div class="method-head"><span class="kicker">Notre méthode</span><h3>Ouvrir sans dégâts, c'est une méthode</h3></div>
+      <ol>
+        <li><strong>Diagnostic</strong><span>Identification de la porte, de la serrure et du cylindre.</span></li>
+        <li><strong>Prix annoncé</strong><span>Tarif et devis écrit avant de commencer.</span></li>
+        <li><strong>Ouverture fine</strong><span>Techniques non destructives adaptées à votre serrure.</span></li>
+        <li><strong>Vérification</strong><span>Contrôle du fonctionnement et conseils de sécurité.</span></li>
+      </ol>
+    </div>
   </div>
 </section>
 
@@ -87,7 +148,7 @@ HTML = head(
 <section class="section" id="services">
   <div class="container">
     <div class="head reveal">
-      <div><span class="kicker">Nos prestations</span><h2>Tout pour sécuriser votre porte d'entrée.</h2></div>
+      <div><span class="kicker">Pose &amp; sécurisation</span><h2>Remplacer ou renforcer votre porte blindée</h2></div>
       <p>Du simple cylindre au bloc-porte certifié BP3, nous vous conseillons la solution adaptée à votre logement, à votre budget et aux exigences de votre assurance.</p>
     </div>
     <div class="bento">
@@ -119,7 +180,7 @@ HTML = head(
           <span class="go">Demander un devis {I["arrow"]}</span>
         </div>
       </a>
-      <a class="tile tile-photo t-4 reveal" href="/?prestation=effraction#devis">
+      <a class="tile tile-photo t-4 reveal" href="/depannage-porte-blindee.html">
         <img src="/assets/img/photos/porte-effraction.webp" alt="" loading="lazy">
         <div class="tile-body">
           <span class="num">04</span>
@@ -295,10 +356,10 @@ HTML = head(
 <section class="section section-ink on-dark zones-band">
   <div class="container">
     <div class="head reveal">
-      <div><span class="kicker">Zones d'intervention</span><h2>{ZONE}.</h2></div>
-      <p>Nous intervenons dans {len(ZONES)} arrondissements et villes. Visite technique et devis gratuits partout dans notre zone.</p>
+      <div><span class="kicker">Zones d'intervention</span><h2>{("Autour " + ("de " + E(L_NAME) if not L_NAME.startswith(("Le ", "Les ")) else ("du " + E(L_NAME[3:]) if L_NAME.startswith("Le ") else "des " + E(L_NAME[4:])))) if ZC else "Tout le Var (83)"}</h2></div>
+      <p>Nous intervenons dans les {len(ZONES)} communes du Var, du littoral au haut Var : ouverture, dépannage, pose et remplacement de portes blindées.</p>
     </div>
-    <div class="zone-list reveal">{"".join(zone_link(z) for z in ZONES[:24])}<a class="zone-chip more" href="/zones/">Toutes les villes {I["arrow"]}</a></div>
+    <div class="zone-list reveal">{"".join(zone_link(z) for z in NEAR)}<a class="zone-chip more" href="/zones/">Les {len(ZONES)} communes du Var {I["arrow"]}</a></div>
   </div>
 </section>
 
@@ -348,7 +409,7 @@ HTML = head(
             <label><input type="radio" name="prestation" value="remplacement" checked><span>{I["door"]}Porte blindée</span></label>
             <label><input type="radio" name="prestation" value="blindage"><span>{I["shield"]}Blindage</span></label>
             <label><input type="radio" name="prestation" value="serrure"><span>{I["lock"]}Serrure</span></label>
-            <label><input type="radio" name="prestation" value="effraction"><span>{I["tool"]}Effraction</span></label>
+            <label><input type="radio" name="prestation" value="ouverture"><span>{I["key"]}Ouverture</span></label>
           </div>
         </div>
         <div class="form-row">
@@ -364,7 +425,7 @@ HTML = head(
             <select id="logement" name="logement"><option>Appartement</option><option>Maison</option><option>Immeuble / copropriété</option><option>Local professionnel</option></select>
           </div>
           <div class="field"><label for="niveau">Niveau souhaité</label>
-            <select id="niveau" name="niveau"><option>Conseillez-moi</option><option>A2P BP1</option><option>A2P BP2</option><option>A2P BP3</option><option>Serrure A2P★ à ★★★</option></select>
+            <select id="niveau" name="niveau"><option>Conseillez-moi</option><option>Ouverture / dépannage</option><option>A2P BP1</option><option>A2P BP2</option><option>A2P BP3</option><option>Serrure A2P★ à ★★★</option></select>
           </div>
         </div>
         <div class="field"><label for="message">Votre message</label><textarea id="message" name="message" placeholder="Marque souhaitée, dimensions approximatives, délai…"></textarea></div>

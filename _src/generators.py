@@ -41,7 +41,7 @@ def brand_finishes(name):
 </section>"""
 
 CAT_LABEL = {"portes": "Portes blindées", "serrures": "Serrures & cylindres", "connectees": "Serrures connectées"}
-DEP_LABEL = {"75": "Paris (75)", "92": "Hauts-de-Seine (92)", "93": "Seine-Saint-Denis (93)"}
+DEP_LABEL = {"83": "Var (83)"}
 
 def products_of(name):
     return [p for p in ALL_PRODUCTS if p["brand"] == name]
@@ -277,79 +277,101 @@ for g in GUIDES:
 def zone_link(z):
     return f'<a class="zone-chip" href="/zones/{z["slug"]}.html">{E(z["name"])} <small>{z["cp"]}</small></a>'
 
-groups = {}
-for z in ZONES:
-    groups.setdefault(z["dep"], []).append(z)
-zones_html = "".join(f'<div class="zone-group"><h2>{DEP_LABEL.get(d, d)}</h2><div class="zone-list">{"".join(zone_link(z) for z in sorted(zs, key=lambda z: (len(z["name"]) if d == "75" else 0, z["name"])))}</div></div>' for d, zs in groups.items())
-html_ = head(f"Zones d'intervention – porte blindée {ZONE} | {NAME}",
-             f"Remplacement de porte blindée et changement de serrure à {ZONE} : {len(ZONES)} villes et arrondissements desservis. Devis gratuit.",
+letters = {}
+for z in sorted(ZONES, key=lambda z: slugify(z["name"])):
+    letters.setdefault(slugify(z["name"])[0].upper(), []).append(z)
+big = sorted(ZONES, key=lambda z: -z["pop"])[:12]
+zones_html = (f'<div class="zone-group"><h2>Principales villes</h2><div class="zone-list">{"".join(zone_link(z) for z in big)}</div></div>' +
+              "".join(f'<div class="zone-group"><h2>{l}</h2><div class="zone-list">{"".join(zone_link(z) for z in zs)}</div></div>' for l, zs in letters.items()))
+html_ = head(f"Porte blindée dans le Var (83) : les {len(ZONES)} communes | {NAME}",
+             f"Ouverture de porte blindée sans dégâts, dépannage, déblocage et pose de portes blindées dans les {len(ZONES)} communes du Var (83). Prix annoncé avant intervention.",
              "zones/", crumbs_ld([("Accueil", "/"), ("Zones d'intervention", "/zones/")])) + header("") + page_hero(
-    "Zones d'intervention", "Nos zones d'intervention.", f"Nous intervenons dans {len(ZONES)} arrondissements et villes : {ZONE}. Votre ville n'est pas listée ? Appelez-nous.", "serrurier-ouverture-porte") + f'''
+    "Zones d'intervention", "Tout le Var (83)", f"Ouverture, dépannage, déblocage et pose de portes blindées dans les {len(ZONES)} communes du Var, de Toulon à Fréjus, de Hyères à Draguignan.", "serrurier-ouverture-porte") + f'''
 <main id="main"><section class="section"><div class="container">{zones_html}</div></section>
 ''' + cta_block() + "</main>\n" + footer()
-write("zones/index.html", html_, "0.7")
+write("zones/index.html", html_, "0.8")
 
-PARIS_TXT = ("Dans les immeubles parisiens, la porte palière est souvent d'origine : bois massif, huisserie ancienne, serrure en applique fatiguée. "
-             "Le remplacement par un bloc-porte blindé certifié permet de conserver un habillage extérieur conforme au style de l'immeuble tout en atteignant le niveau A2P BP1 ou BP2.")
-HDS_TXT = ("Entre appartements en résidence, pavillons et maisons de ville, les besoins varient : porte palière à remplacer, porte d'entrée de maison à isoler "
-           "et sécuriser, ou simple renforcement de la serrure. Nous vous conseillons la solution adaptée à votre logement.")
-
-for z in ZONES:
-    near = sorted((o for o in ZONES if o is not z), key=lambda o: dist(z, o))[:8]
-    is_paris = z["dep"] == "75"
-    local = ""
-    if z["quartiers"]:
-        local = (f"<p>Nous intervenons dans tous les quartiers du {E(z['name'])} — {', '.join(z['quartiers'][:-1])} et {z['quartiers'][-1]} — "
-                 f"notamment autour de {', '.join(z['lieux'][:-1])} et {z['lieux'][-1]}.</p>")
-    pop = f"{z['pop']:,}".replace(",", " ")
-    feats = [p for p in PRODUCTS["doors"] if p.get("cert") in ("BP1", "BP2")][:3]
-    zone_ld = '<script type="application/ld+json">' + json.dumps({
-        "@context": "https://schema.org", "@type": "Service", "serviceType": "Remplacement de porte blindée et installation de serrure",
-        "provider": {"@type": "Locksmith", "name": NAME, "telephone": PHONE_TEL, "url": DOMAIN + "/"},
-        "areaServed": {"@type": "City", "name": z["name"], "postalCode": z["cp"]}}, ensure_ascii=False) + "</script>\n"
-    html_ = head(f"Porte blindée {z['name']} ({z['cp']}) – pose et serrure A2P | {NAME}",
-                 f"Remplacement de porte blindée, blindage de porte et changement de serrure à {z['name']} ({z['cp']}). Portes certifiées A2P, toutes marques. Visite et devis gratuits.",
-                 f"zones/{z['slug']}.html", zone_ld + crumbs_ld([("Accueil", "/"), ("Zones", "/zones/"), (z["name"], f"/zones/{z['slug']}.html")])) + header("") + page_hero(
-        z["name"], f"Porte blindée à {E(z['name'])}.",
-        f"Remplacement de porte blindée, blindage de porte et serrures haute sécurité à {E(z['name'])} ({z['cp']}). Visite technique et devis gratuits.",
-        "cle-serrure-porte-blindee" if is_paris else "pose-serrure-porte-blindee", trail=[("Zones", "/zones/")]) + f'''
+# ======================================================== SERVICES D'URGENCE
+URGENCES = [
+  ("ouverture-porte-blindee", "Ouverture de porte blindée", "Ouverture de porte blindée sans dégâts",
+   "Porte claquée, clés perdues, volées ou oubliées à l'intérieur : nous ouvrons votre porte blindée par des techniques fines, sans casse, dans la grande majorité des cas.",
+   "serrurier-ouverture-porte", "ouverture",
+   [("Porte claquée", "La porte s'est refermée derrière vous, sans être verrouillée à clé : c'est la situation la plus simple, l'ouverture est presque toujours possible sans aucune trace."),
+    ("Porte fermée à clé", "Les pênes de la serrure multipoints sont sortis : l'ouverture se fait par le cylindre ou la serrure, avec des techniques adaptées à leur niveau de sécurité."),
+    ("Clés perdues ou volées", "Après l'ouverture, nous vous conseillons de remplacer le cylindre : quelqu'un pourrait posséder vos clés."),
+    ("Clé cassée ou tournant dans le vide", "Extraction du morceau de clé et ouverture, puis remplacement du cylindre si nécessaire.")],
+   [("Pourquoi faire appel à un spécialiste ?", "Une porte blindée associe une serrure multipoints, un cylindre haute sécurité et un bâti renforcé. Une ouverture en force abîme la porte et le bâti, et peut coûter bien plus cher que l'intervention elle-même. Un spécialiste connaît les serrures Fichet, Picard, Bricard, Vachette, Mul-T-Lock et les autres marques du marché, et choisit la technique adaptée."),
+    ("Sans dégâts : dans quels cas ?", "Dans la grande majorité des situations, l'ouverture se fait sans aucune dégradation de la porte. Certains cylindres très haute sécurité ne permettent pas d'ouverture fine : dans ce cas, nous vous l'expliquons avant d'intervenir et la solution (en général le remplacement du cylindre) vous est chiffrée avant de commencer."),
+    ("Prix annoncé avant l'intervention", "Le tarif dépend de la situation (porte claquée ou fermée à clé) et du type de serrure. Il vous est annoncé au téléphone, puis confirmé par un devis écrit sur place avant de commencer. Aucune surprise sur la facture."),
+    ("Justificatif de domicile", "Pour votre sécurité, nous demandons une pièce d'identité et un justificatif de domicile. C'est une règle de base de la profession.")]),
+  ("depannage-porte-blindee", "Dépannage de porte blindée", "Dépannage de porte blindée",
+   "Serrure qui force, clé qui tourne mal, porte qui frotte ou ne ferme plus correctement : nous diagnostiquons et réparons votre porte blindée, toutes marques.",
+   "changement-cylindre", "ouverture",
+   [("Serrure qui force", "Pênes mal alignés avec les gâches, mécanisme encrassé ou usé : réglage et entretien de la serrure multipoints."),
+    ("Clé cassée dans le cylindre", "Extraction sans démontage de la porte, puis remplacement du cylindre si besoin."),
+    ("Porte qui frotte ou s'affaisse", "Réglage des paumelles et du vantail : une porte blindée est lourde, elle doit être réglée régulièrement."),
+    ("Cylindre usé ou endommagé", "Remplacement par un cylindre haute sécurité adapté à votre serrure, avec carte de propriété.")],
+   [("Toutes marques de portes blindées", "Nous intervenons sur les portes et serrures Fichet, Picard Serrures, Bricard, Héraclès, Tordjman, Vachette, Mul-T-Lock, Mottura et les autres marques du marché. Nous disposons des cylindres les plus courants."),
+    ("Réparer plutôt que remplacer", "La plupart des pannes se règlent par un réglage, un entretien ou le remplacement d'une pièce. Nous ne vous proposons le remplacement de la serrure ou de la porte que lorsqu'il est réellement nécessaire."),
+    ("Après une effraction", "Mise en sécurité provisoire, remplacement du cylindre ou de la serrure, et devis détaillé à transmettre à votre assurance."),
+    ("Prix annoncé avant l'intervention", "Diagnostic, tarif annoncé et devis écrit avant toute réparation.")]),
+  ("deblocage-porte-blindee", "Déblocage de porte blindée", "Déblocage de porte blindée sans dégâts",
+   "Serrure multipoints bloquée, pênes coincés, cylindre grippé, porte qui ne s'ouvre plus de l'intérieur ou de l'extérieur : nous débloquons votre porte blindée sans la dégrader.",
+   "serrure-multipoints-porte-blindee", "ouverture",
+   [("Serrure multipoints bloquée", "Un pêne coincé dans sa gâche ou une tringle grippée peut bloquer toute la serrure : déblocage puis réglage."),
+    ("Cylindre grippé", "Clé qui n'entre plus ou ne tourne plus : déblocage, nettoyage ou remplacement du cylindre."),
+    ("Porte bloquée de l'intérieur", "Vous êtes enfermé ? Nous intervenons de l'extérieur pour libérer la porte."),
+    ("Porte voilée ou affaissée", "Les pênes frottent et la porte se bloque : réglage des paumelles et des gâches.")],
+   [("Ne forcez pas", "Forcer sur la clé ou la poignée peut casser la clé dans le cylindre ou endommager la serrure. Appelez-nous avant d'en arriver là : un déblocage est souvent simple pour un spécialiste."),
+    ("Comprendre la cause", "Après le déblocage, nous identifions l'origine du problème (usure, réglage, encrassement) et la corrigeons pour éviter que la porte se bloque à nouveau."),
+    ("Toutes marques", "Serrures Fichet, Picard, Bricard, Vachette, Mul-T-Lock, Mottura et autres : nous connaissons leurs mécanismes."),
+    ("Prix annoncé avant l'intervention", "Tarif annoncé au téléphone et devis écrit sur place avant de commencer.")]),
+]
+for slug, crumb, h1, lead, photo, prest, cases, blocks in URGENCES:
+    others = [u for u in URGENCES if u[0] != slug]
+    big = sorted(ZONES, key=lambda z: -z["pop"])[:16]
+    cases_html = "".join(f'<div class="feature"><h3>{t}</h3><p>{d}</p></div>' for t, d in cases)
+    blocks_html = "".join(f"<h2>{t}</h2><p>{d}</p>" for t, d in blocks)
+    ld = '<script type="application/ld+json">' + json.dumps({
+        "@context": "https://schema.org", "@type": "Service", "serviceType": crumb, "areaServed": ZONE,
+        "provider": {"@type": "Locksmith", "name": NAME, "telephone": PHONE_TEL, "url": DOMAIN + "/"}}, ensure_ascii=False) + "</script>\n"
+    html_ = head(f"{h1} dans le Var (83) | {NAME}", f"{lead} Intervention dans tout le Var (83), prix annoncé avant intervention.",
+                 f"{slug}.html", ld + crumbs_ld([("Accueil", "/"), (crumb, f"/{slug}.html")]), image=photo) + header("ouverture" if slug.startswith("ouverture") else "") + f'''
+<section class="page-hero">
+  <img class="bg" src="/assets/img/photos/{photo}.webp" alt="" aria-hidden="true">
+  <div class="container">
+    <nav class="crumbs" aria-label="Fil d'Ariane"><a href="/">Accueil</a><span>/</span><span>{crumb}</span></nav>
+    <h1>{h1}</h1>
+    <p>{lead}</p>
+    <div class="hero-actions" style="margin:32px 0 0">
+      <a class="btn btn-white" href="tel:{PHONE_TEL}" data-track="clic_appel">{I["phone"]} Appeler le {PHONE}</a>
+      {wa_btn("btn btn-ghost", "Envoyer une photo")}
+    </div>
+  </div>
+</section>
 <main id="main">
 <section class="section">
-  <div class="container article-layout">
-    <div class="prose">
-      <h2>Votre spécialiste porte blindée à {E(z["name"])}</h2>
-      <p>{PARIS_TXT if is_paris else HDS_TXT}</p>
-      {local}
-      <p>Avec environ {pop} habitants, {E(z["name"])} fait partie de notre zone d'intervention régulière : la visite technique et le devis sont gratuits, et la pose d'une porte blindée se fait en une journée.</p>
-      <h2>Nos prestations à {E(z["name"])}</h2>
-      <ul>
-        <li><strong><a href="/portes-blindees.html">Remplacement de porte blindée</a></strong> : bloc-porte certifié A2P BP1, BP2 ou BP3, sur mesure.</li>
-        <li><strong>Blindage de porte existante</strong> : tôle d'acier, cornières anti-pince et serrure multipoints.</li>
-        <li><strong><a href="/serrures.html">Installation et changement de serrure</a></strong> : serrures multipoints A2P, cylindres haute sécurité.</li>
-        <li><strong>Mise en sécurité après effraction</strong> et devis pour votre assurance.</li>
-      </ul>
-      <h2>Combien coûte une porte blindée à {E(z["name"])} ?</h2>
-      <p>Les prix sont les mêmes sur toute notre zone : comptez en moyenne de 3 000 à 5 000 € posé pour un bloc-porte A2P BP1, et de 1 300 à 2 800 € pour le blindage d'une porte existante. Pour une estimation adaptée à votre logement, utilisez notre <a href="/simulateur.html">simulateur de prix</a> ou consultez notre <a href="/guides/prix-porte-blindee.html">guide des prix</a>.</p>
-      <h2>Les marques que nous posons</h2>
-      <p>Fichet, Picard Serrures, Bricard, Héraclès, Tordjman Métal, Zilten, Dierre, Gardesa pour les portes ; Mul-T-Lock, Vachette, Abus, Thirard et bien d'autres pour les serrures. <a href="/marques/">Voir toutes les marques</a>.</p>
-    </div>
-    <div class="article-aside">{aside_card(f"Un projet à {E(z['name'])} ?")}</div>
+  <div class="container">
+    <div class="head"><div><span class="kicker">Situations</span><h2>Nous intervenons pour</h2></div><p>Toutes marques de portes blindées et de serrures, dans tout le Var.</p></div>
+    <div class="feature-row">{cases_html}</div>
   </div>
 </section>
 <section class="section section-sand">
-  <div class="container">
-    <div class="head"><div><span class="kicker">Les plus demandées</span><h2>Portes blindées certifiées.</h2></div><p>Une sélection de blocs-portes A2P adaptés aux appartements et maisons.</p></div>
-    <div class="products cols-3">{"".join(product_card(p) for p in feats)}</div>
+  <div class="container article-layout">
+    <div class="prose">{blocks_html}</div>
+    <div class="article-aside">{aside_card("Besoin d'une intervention ?", "Tarif annoncé au téléphone, devis écrit avant de commencer.")}</div>
   </div>
 </section>
 <section class="section">
   <div class="container">
-    <div class="head"><div><span class="kicker">À proximité</span><h2>Nous intervenons aussi à…</h2></div><p></p></div>
-    <div class="zone-list">{"".join(zone_link(o) for o in near)}</div>
+    <div class="head"><div><span class="kicker">Aussi</span><h2>Nos autres interventions</h2></div><p></p></div>
+    <div class="urgent-grid two">{"".join(f'<a class="urgent-card" href="/{u[0]}.html"><h3>{u[1]}</h3><p>{u[3]}</p><span class="go">En savoir plus {I["arrow"]}</span></a>' for u in others)}</div>
+    <div class="head" style="margin-top:80px"><div><span class="kicker">Dans tout le Var</span><h2>{crumb} près de chez vous</h2></div><p></p></div>
+    <div class="zone-list">{"".join(zone_link(z) for z in big)}<a class="zone-chip more" href="/zones/">Les {len(ZONES)} communes {I["arrow"]}</a></div>
   </div>
 </section>
-''' + cta_block() + "</main>\n" + footer()
-    write(f"zones/{z['slug']}.html", html_, "0.6")
+''' + cta_block("Porte blindée bloquée ou claquée ?", "Appelez-nous : tarif annoncé avant intervention, ouverture sans dégâts.") + "</main>\n" + footer()
+    write(f"{slug}.html", html_, "0.9")
 
 # ======================================================== SIMULATEUR
 def radio(name, value, label, sub="", icon=None, checked=False):

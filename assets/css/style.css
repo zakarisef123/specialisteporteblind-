@@ -929,3 +929,48 @@ h2 { font-size: clamp(1.8rem, 3.2vw, 2.6rem); line-height: 1.12; }
 .cfg-preview svg { height: 100%; max-height: 540px; }
 @media (max-width: 960px) { .cfg-preview { height: 32vh; } .cfg-preview svg { height: 100%; } }
 @media (max-width: 960px) { .cfg-preview { flex: 0 0 30vh; height: 30vh; padding: 12px; } .cfg-preview svg { height: 100%; max-height: none; } }
+
+/* ==========================================================
+   v6 — bandeau marques, ouverture / dépannage
+   ========================================================== */
+.ticker { display: flex; align-items: center; background: #fff; border-bottom: 1px solid var(--line); height: 56px; overflow: hidden; }
+.ticker-label { flex: none; height: 100%; display: flex; align-items: center; padding: 0 24px 0 max(16px, calc((100vw - var(--container)) / 2 + 24px)); font-size: .7rem; font-weight: 600; letter-spacing: .16em; text-transform: uppercase; color: var(--muted); background: #fff; position: relative; z-index: 1; box-shadow: 12px 0 16px -8px #fff; white-space: nowrap; }
+.ticker-viewport { display: flex; overflow: hidden; flex: 1; mask-image: linear-gradient(90deg, transparent, #000 4%, #000 96%, transparent); -webkit-mask-image: linear-gradient(90deg, transparent, #000 4%, #000 96%, transparent); }
+.ticker-track { display: flex; align-items: center; gap: 48px; padding-right: 48px; flex: none; animation: scroll 55s linear infinite; }
+.ticker:hover .ticker-track { animation-play-state: paused; }
+.ticker-track a { display: flex; align-items: center; height: 56px; }
+.ticker-track img { height: 26px; width: auto; max-width: 130px; object-fit: contain; filter: grayscale(1); opacity: .7; transition: filter .2s, opacity .2s; mix-blend-mode: multiply; }
+.ticker-track a:hover img { filter: none; opacity: 1; }
+.ticker-track img[alt="Picard Serrures"], .ticker-track img[alt="Dierre"], .ticker-track img[alt="Tryba"], .ticker-track img[alt="Hörmann"], .ticker-track img[alt="Mul-T-Lock"] { height: 38px; }
+.ticker-track img[alt="Héraclès"] { max-width: 180px; height: 16px; }
+@media (max-width: 760px) { .ticker-label { display: none; } .ticker { height: 48px; } .ticker-track { gap: 36px; } .ticker-track img { height: 22px; } }
+@media (prefers-reduced-motion: reduce) { .ticker-viewport { overflow-x: auto; } }
+
+.urgent { background: var(--ink); color: #fff; }
+.urgent .head p { color: #a9b0b6; }
+.urgent .kicker { color: var(--alu-light); }
+.urgent-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: rgba(255,255,255,.12); border: 1px solid rgba(255,255,255,.12); }
+.urgent-grid.two { grid-template-columns: 1fr 1fr; background: var(--line); border-color: var(--line); }
+.urgent-card { background: var(--ink); color: #fff; padding: 40px 36px; text-decoration: none; display: flex; flex-direction: column; gap: 12px; transition: background .2s; }
+.urgent-card:hover { background: var(--ink-2); }
+.urgent-grid.two .urgent-card { background: #fff; color: var(--ink); }
+.urgent-grid.two .urgent-card:hover { background: var(--sand); }
+.urgent-grid.two .urgent-card p { color: var(--muted); }
+.uc-num { font-size: .78rem; letter-spacing: .14em; color: var(--alu-light); font-weight: 600; }
+.urgent-card h3 { font-size: 1.45rem; margin: 0; }
+.urgent-card p { color: #a9b0b6; margin: 0; flex: 1; }
+.urgent-card .go { display: inline-flex; align-items: center; gap: 8px; font-weight: 600; font-size: .92rem; margin-top: 8px; }
+.urgent-card .go svg { width: 16px; height: 16px; }
+.method { margin-top: 64px; display: grid; grid-template-columns: 1fr 2fr; gap: 48px; align-items: start; border-top: 1px solid rgba(255,255,255,.12); padding-top: 48px; }
+.method h3 { font-size: 1.6rem; margin: 0; }
+.method ol { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; counter-reset: m; }
+.method li { counter-increment: m; display: flex; flex-direction: column; gap: 6px; }
+.method li::before { content: counter(m, decimal-leading-zero); font-family: var(--display); font-size: 1.6rem; font-weight: 600; color: var(--alu-light); margin-bottom: 6px; }
+.method li strong { font-size: 1rem; }
+.method li span { color: #a9b0b6; font-size: .92rem; }
+@media (max-width: 960px) { .urgent-grid { grid-template-columns: 1fr; } .method { grid-template-columns: 1fr; } .method ol { grid-template-columns: 1fr 1fr; } }
+@media (max-width: 640px) { .urgent-grid.two { grid-template-columns: 1fr; } .urgent-card { padding: 32px 24px; } }
+.utility ul { min-width: 0; }
+.utility li { min-width: 0; }
+@media (max-width: 760px) { .utility ul:first-child { overflow: hidden; } .utility li:first-child { display: block; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; font-size: .74rem; } }
+.hero-brand .hero-facts strong { font-size: 1.3rem; }

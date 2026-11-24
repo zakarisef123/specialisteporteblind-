@@ -18,7 +18,7 @@ Python (sans dépendance) puis versionnées : le site se publie tel quel, sans �
 | `_src/brands.py` | Les marques (logo, catégories, description) → pages `/marques/` |
 | `_src/finitions.py` | Coloris RAL, habillages, poignées, options et prix de base du configurateur |
 | `_src/guides.py` | Les guides de conseil → pages `/guides/` |
-| `_src/zones.json` | Villes et arrondissements desservis → pages `/zones/` |
+| `_src/zones.json` | Les 153 communes du Var (source : geo.api.gouv.fr) → une page d'accueil localisée par commune dans `/zones/` |
 | `_src/pages/*.py` | Accueil, catalogues, mentions légales, page merci |
 | `_src/generators.py` | Pages marques, produits, guides, zones, simulateur, réalisations, à propos, plan du site, 404 |
 | `assets/css/style.css` | Styles |
@@ -28,7 +28,8 @@ Python (sans dépendance) puis versionnées : le site se publie tel quel, sans �
 
 - Accueil, catalogues **Portes blindées** et **Serrures** (filtres + recherche)
 - **52 fiches produits** (`/produits/`) et **40 pages marques** (`/marques/`)
-- **57 pages zones** (`/zones/`, Paris par arrondissement + Hauts-de-Seine)
+- **153 pages commune** (`/zones/`) : la page d'accueil déclinée pour chaque commune du Var
+- **Ouverture, dépannage et déblocage de porte blindée** : 3 pages de service
 - **5 guides** (`/guides/`) : prix, certification A2P, blindage ou bloc-porte, assurance, serrure
 - **Configurateur de porte** (aperçu en direct + estimation), **Finitions & coloris**, **Comparateur** (3 modèles), **Professionnels & syndics**
 - Pages marques avec tableau comparatif de la gamme, finitions et catalogue PDF (impression)
@@ -39,7 +40,7 @@ Python (sans dépendance) puis versionnées : le site se publie tel quel, sans �
 
 Tout se trouve dans `_src/config.py` : nom, téléphone, WhatsApp, e-mail, adresse, zone, horaires,
 domaine, mentions légales (SIRET, assurance décennale, médiateur…), identifiant Google Tag Manager.
-Si votre zone d'intervention n'est pas Paris / Hauts-de-Seine, modifiez `_src/zones.json`.
+La zone d'intervention est le Var (83) : pour la modifier, remplacez `_src/zones.json`.
 
 Vérifiez aussi que les engagements affichés correspondent à votre activité réelle (assurance décennale,
 devis gratuit, pose en une journée, budgets indicatifs). N'ajoutez des avis clients que s'ils sont

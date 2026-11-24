@@ -118,6 +118,16 @@ def head(title, desc, canonical, extra="", image="serrure-multipoints-porte-blin
 {gtm_body()}<a class="skip-link" href="#main">Aller au contenu</a>
 '''
 
+TICKER = [b for b in BRANDS if "portes" in b[2]] + [b for b in BRANDS if b[1] in ("Vachette", "Mul-T-Lock", "Thirard", "Abus", "Mottura", "Keso")]
+
+def ticker():
+    items = "".join(f'<a href="/marques/{BRAND_SLUG[n]}.html">{logo_img(s, n, lazy=False)}</a>' for s, n, c in TICKER)
+    return f'''<div class="ticker" aria-label="Marques de portes blindées">
+  <span class="ticker-label">Toutes marques de portes blindées</span>
+  <div class="ticker-viewport"><div class="ticker-track">{items}</div><div class="ticker-track" aria-hidden="true">{items}</div></div>
+</div>
+'''
+
 def header(active):
     def a(href, label, key):
         cur = ' aria-current="page"' if key == active else ''
@@ -125,7 +135,7 @@ def header(active):
     return f'''<div class="utility">
   <div class="container">
     <ul>
-      <li>Devis gratuit · Pose en une journée · Matériel certifié A2P</li>
+      <li>Ouverture de porte blindée sans dégâts · Prix annoncé avant intervention</li>
       <li class="hide-sm">{I["pin"]} <a href="/zones/">{ZONE}</a></li>
       <li class="hide-sm">{I["clock"]} {HOURS}</li>
     </ul>
@@ -141,12 +151,12 @@ def header(active):
   <div class="container">
     {logo_block()}
     <nav class="nav" id="nav" aria-label="Navigation principale">
+      {a("/ouverture-porte-blindee.html", "Ouverture", "ouverture")}
       {a("/portes-blindees.html", "Portes blindées", "portes")}
       {a("/serrures.html", "Serrures", "serrures")}
       {a("/marques/", "Marques", "marques")}
       {a("/configurateur.html", "Configurateur", "config")}
       {a("/simulateur.html", "Prix", "prix")}
-      {a("/realisations.html", "Réalisations", "realisations")}
     </nav>
     <div class="header-cta">
       <a class="phone-pill" href="tel:{PHONE_TEL}" data-track="clic_appel" aria-label="Appeler le {PHONE}"><span class="ring">{I["phone"]}</span><span><small>Devis gratuit</small><strong>{PHONE}</strong></span></a>
@@ -155,7 +165,7 @@ def header(active):
     </div>
   </div>
 </header>
-'''
+''' + ticker()
 
 def cta_block(title="Porte fracturée, serrure bloquée ?", text="Un technicien vous rappelle rapidement pour sécuriser votre logement."):
     wa = f'<a class="btn btn-ghost" href="https://wa.me/{WHATSAPP}" target="_blank" rel="noopener" data-track="clic_whatsapp">{I["whatsapp"]} WhatsApp</a>' if WHATSAPP else f'<a class="btn btn-ghost" href="/#devis">Devis en ligne</a>'
@@ -177,7 +187,7 @@ def cta_block(title="Porte fracturée, serrure bloquée ?", text="Un technicien 
 
 def footer():
     logos = "".join(f'<a href="/marques/{BRAND_SLUG[n]}.html" title="{E(n)}">{logo_img(s, n)}</a>' for s, n, c in BRANDS)
-    zones = "".join(f'<li><a href="/zones/{z["slug"]}.html">Porte blindée {E(z["name"])}</a></li>' for z in ZONES[:6])
+    zones = "".join(f'<li><a href="/zones/{z["slug"]}.html">Porte blindée {E(z["name"])}</a></li>' for z in sorted(ZONES, key=lambda z: -z["pop"])[:8])
     guides = "".join(f'<li><a href="/guides/{g[0]}.html">{E(g[1].split(":")[0].split("?")[0].strip())}</a></li>' for g in GUIDES[:4])
     wa = ""
     _unused = f'<a class="wa-float" href="https://wa.me/{WHATSAPP}" target="_blank" rel="noopener" data-track="clic_whatsapp" aria-label="Nous écrire sur WhatsApp">{I["whatsapp"]}<span>Envoyez une photo de votre porte</span></a>' if WHATSAPP else ""
@@ -192,6 +202,9 @@ def footer():
       <div>
         <h4>Prestations</h4>
         <ul>
+          <li><a href="/ouverture-porte-blindee.html">Ouverture de porte blindée</a></li>
+          <li><a href="/depannage-porte-blindee.html">Dépannage de porte blindée</a></li>
+          <li><a href="/deblocage-porte-blindee.html">Déblocage de porte blindée</a></li>
           <li><a href="/portes-blindees.html">Remplacement de porte blindée</a></li>
           <li><a href="/?prestation=blindage#devis">Blindage de porte existante</a></li>
           <li><a href="/serrures.html">Changement de serrure</a></li>
@@ -216,7 +229,7 @@ def footer():
         </ul>
       </div>
     </div>
-    <div class="footer-zones"><h4>Zones d'intervention</h4><ul>{zones}<li><a href="/zones/">Toutes les villes ({len(ZONES)})</a></li></ul></div>
+    <div class="footer-zones"><h4>Zones d'intervention</h4><ul>{zones}<li><a href="/zones/">Les {len(ZONES)} communes du Var</a></li></ul></div>
     <div class="footer-logos"><small>Marques installées</small>{logos}</div>
     <div class="footer-bottom">
       <span>© <span data-year>2026</span> {NAME}. Installateur indépendant — les marques et logos cités appartiennent à leurs propriétaires respectifs.</span>
@@ -301,6 +314,13 @@ for tpl in sorted((SRC / "pages").glob("*.py")):
     ns.update({k: v for k, v in globals().items() if k not in ns})
     exec(tpl.read_text(encoding="utf-8"), ns)
     write(ns["FILENAME"], ns["HTML"], ns.get("PRIORITY", "0.8"), ns.get("INDEX", True))
+
+# Pages commune : la page d'accueil déclinée pour chaque commune de la zone
+home_tpl = (SRC / "pages" / "index.py").read_text(encoding="utf-8")
+for z in ZONES:
+    ns = dict(ctx); ns.update({k: v for k, v in globals().items() if k not in ns}); ns["ZONE_CTX"] = z
+    exec(home_tpl, ns)
+    write(ns["FILENAME"], ns["HTML"], ns.get("PRIORITY", "0.6"))
 
 # ---------------------------------------------------------------- data.js
 data = {

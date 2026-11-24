@@ -1,808 +1,2148 @@
 [
  {
-  "slug": "paris-1",
-  "name": "Paris 1er",
-  "cp": "75001",
-  "dep": "75",
-  "pop": 15114,
-  "lat": 48.8625,
-  "lng": 2.3363,
-  "quartiers": [
-   "Saint-Germain-l'Auxerrois",
-   "Les Halles",
-   "Palais-Royal",
-   "Place Vendôme"
+  "slug": "aiguines",
+  "name": "Aiguines",
+  "cp": "83630",
+  "cps": [
+   "83630"
   ],
-  "lieux": [
-   "le Louvre",
-   "Châtelet",
-   "la rue de Rivoli"
-  ]
+  "dep": "83",
+  "pop": 274,
+  "lat": 43.7365,
+  "lng": 6.3197,
+  "quartiers": [],
+  "lieux": []
  },
  {
-  "slug": "paris-2",
-  "name": "Paris 2e",
-  "cp": "75002",
-  "dep": "75",
-  "pop": 19847,
-  "lat": 48.8683,
-  "lng": 2.3428,
-  "quartiers": [
-   "Gaillon",
-   "Vivienne",
-   "Mail",
-   "Bonne-Nouvelle"
+  "slug": "ampus",
+  "name": "Ampus",
+  "cp": "83111",
+  "cps": [
+   "83111"
   ],
-  "lieux": [
-   "la Bourse",
-   "le Sentier",
-   "la rue Montorgueil"
-  ]
+  "dep": "83",
+  "pop": 919,
+  "lat": 43.6218,
+  "lng": 6.3683,
+  "quartiers": [],
+  "lieux": []
  },
  {
-  "slug": "paris-3",
-  "name": "Paris 3e",
-  "cp": "75003",
-  "dep": "75",
-  "pop": 32179,
-  "lat": 48.863,
-  "lng": 2.36,
-  "quartiers": [
-   "Arts-et-Métiers",
-   "Enfants-Rouges",
-   "Archives",
-   "Sainte-Avoye"
+  "slug": "artignosc-sur-verdon",
+  "name": "Artignosc-sur-Verdon",
+  "cp": "83630",
+  "cps": [
+   "83630"
   ],
-  "lieux": [
-   "le Haut-Marais",
-   "la place de la République",
-   "le Temple"
-  ]
+  "dep": "83",
+  "pop": 311,
+  "lat": 43.6991,
+  "lng": 6.1087,
+  "quartiers": [],
+  "lieux": []
  },
  {
-  "slug": "paris-4",
-  "name": "Paris 4e",
-  "cp": "75004",
-  "dep": "75",
-  "pop": 27332,
-  "lat": 48.8543,
-  "lng": 2.3576,
-  "quartiers": [
-   "Saint-Merri",
-   "Saint-Gervais",
-   "Arsenal",
-   "Notre-Dame"
+  "slug": "artigues",
+  "name": "Artigues",
+  "cp": "83560",
+  "cps": [
+   "83560"
   ],
-  "lieux": [
-   "l'Hôtel de Ville",
-   "l'île Saint-Louis",
-   "le Marais"
-  ]
+  "dep": "83",
+  "pop": 282,
+  "lat": 43.5802,
+  "lng": 5.8,
+  "quartiers": [],
+  "lieux": []
  },
  {
-  "slug": "paris-5",
-  "name": "Paris 5e",
-  "cp": "75005",
-  "dep": "75",
-  "pop": 55252,
-  "lat": 48.8445,
-  "lng": 2.3507,
-  "quartiers": [
-   "Saint-Victor",
-   "Jardin-des-Plantes",
-   "Val-de-Grâce",
-   "Sorbonne"
+  "slug": "aups",
+  "name": "Aups",
+  "cp": "83630",
+  "cps": [
+   "83630"
   ],
-  "lieux": [
-   "le Quartier latin",
-   "le Panthéon",
-   "la rue Mouffetard"
-  ]
+  "dep": "83",
+  "pop": 2192,
+  "lat": 43.6283,
+  "lng": 6.2139,
+  "quartiers": [],
+  "lieux": []
  },
  {
-  "slug": "paris-6",
-  "name": "Paris 6e",
-  "cp": "75006",
-  "dep": "75",
-  "pop": 40389,
-  "lat": 48.8491,
-  "lng": 2.3329,
-  "quartiers": [
-   "Monnaie",
-   "Odéon",
-   "Notre-Dame-des-Champs",
-   "Saint-Germain-des-Prés"
+  "slug": "bagnols-en-foret",
+  "name": "Bagnols-en-Forêt",
+  "cp": "83600",
+  "cps": [
+   "83600"
   ],
-  "lieux": [
-   "le jardin du Luxembourg",
-   "Saint-Sulpice",
-   "Vavin"
-  ]
+  "dep": "83",
+  "pop": 3194,
+  "lat": 43.5328,
+  "lng": 6.7089,
+  "quartiers": [],
+  "lieux": []
  },
  {
-  "slug": "paris-7",
-  "name": "Paris 7e",
-  "cp": "75007",
-  "dep": "75",
-  "pop": 48015,
-  "lat": 48.8562,
-  "lng": 2.3121,
-  "quartiers": [
-   "Saint-Thomas-d'Aquin",
-   "Invalides",
-   "École-Militaire",
-   "Gros-Caillou"
+  "slug": "bandol",
+  "name": "Bandol",
+  "cp": "83150",
+  "cps": [
+   "83150"
   ],
-  "lieux": [
-   "la tour Eiffel",
-   "les Invalides",
-   "la rue du Bac"
-  ]
+  "dep": "83",
+  "pop": 8267,
+  "lat": 43.147,
+  "lng": 5.7488,
+  "quartiers": [],
+  "lieux": []
  },
  {
-  "slug": "paris-8",
-  "name": "Paris 8e",
-  "cp": "75008",
-  "dep": "75",
-  "pop": 35317,
-  "lat": 48.8727,
-  "lng": 2.3125,
-  "quartiers": [
-   "Champs-Élysées",
-   "Faubourg-du-Roule",
-   "Madeleine",
-   "Europe"
+  "slug": "bargemon",
+  "name": "Bargemon",
+  "cp": "83830",
+  "cps": [
+   "83830"
   ],
-  "lieux": [
-   "les Champs-Élysées",
-   "la gare Saint-Lazare",
-   "le parc Monceau"
-  ]
+  "dep": "83",
+  "pop": 1433,
+  "lat": 43.6344,
+  "lng": 6.5439,
+  "quartiers": [],
+  "lieux": []
  },
  {
-  "slug": "paris-9",
-  "name": "Paris 9e",
-  "cp": "75009",
-  "dep": "75",
-  "pop": 57271,
-  "lat": 48.8771,
-  "lng": 2.3375,
-  "quartiers": [
-   "Saint-Georges",
-   "Chaussée-d'Antin",
-   "Faubourg-Montmartre",
-   "Rochechouart"
+  "slug": "bargeme",
+  "name": "Bargème",
+  "cp": "83840",
+  "cps": [
+   "83840"
   ],
-  "lieux": [
-   "l'Opéra",
-   "les Grands Boulevards",
-   "South Pigalle"
-  ]
+  "dep": "83",
+  "pop": 207,
+  "lat": 43.7279,
+  "lng": 6.5697,
+  "quartiers": [],
+  "lieux": []
  },
  {
-  "slug": "paris-10",
-  "name": "Paris 10e",
-  "cp": "75010",
-  "dep": "75",
-  "pop": 83873,
-  "lat": 48.8761,
-  "lng": 2.3607,
-  "quartiers": [
-   "Saint-Vincent-de-Paul",
-   "Porte-Saint-Denis",
-   "Porte-Saint-Martin",
-   "Hôpital-Saint-Louis"
+  "slug": "barjols",
+  "name": "Barjols",
+  "cp": "83670",
+  "cps": [
+   "83670"
   ],
-  "lieux": [
-   "la gare du Nord",
-   "la gare de l'Est",
-   "le canal Saint-Martin"
-  ]
+  "dep": "83",
+  "pop": 2984,
+  "lat": 43.5484,
+  "lng": 5.973,
+  "quartiers": [],
+  "lieux": []
  },
  {
-  "slug": "paris-11",
-  "name": "Paris 11e",
-  "cp": "75011",
-  "dep": "75",
-  "pop": 138170,
-  "lat": 48.8591,
-  "lng": 2.38,
-  "quartiers": [
-   "Folie-Méricourt",
-   "Roquette",
-   "Sainte-Marguerite",
-   "Saint-Ambroise"
+  "slug": "baudinard-sur-verdon",
+  "name": "Baudinard-sur-Verdon",
+  "cp": "83630",
+  "cps": [
+   "83630"
   ],
-  "lieux": [
-   "Bastille",
-   "Oberkampf",
-   "la place Léon-Blum"
-  ]
+  "dep": "83",
+  "pop": 235,
+  "lat": 43.714,
+  "lng": 6.1351,
+  "quartiers": [],
+  "lieux": []
  },
  {
-  "slug": "paris-12",
-  "name": "Paris 12e",
-  "cp": "75012",
-  "dep": "75",
-  "pop": 138024,
-  "lat": 48.84,
-  "lng": 2.388,
-  "quartiers": [
-   "Bel-Air",
-   "Picpus",
-   "Bercy",
-   "Quinze-Vingts"
+  "slug": "bauduen",
+  "name": "Bauduen",
+  "cp": "83630",
+  "cps": [
+   "83630"
   ],
-  "lieux": [
-   "la gare de Lyon",
-   "Bercy",
-   "Daumesnil"
-  ]
+  "dep": "83",
+  "pop": 308,
+  "lat": 43.7203,
+  "lng": 6.2048,
+  "quartiers": [],
+  "lieux": []
  },
  {
-  "slug": "paris-13",
-  "name": "Paris 13e",
-  "cp": "75013",
-  "dep": "75",
-  "pop": 181271,
-  "lat": 48.8283,
-  "lng": 2.3622,
-  "quartiers": [
-   "Salpêtrière",
-   "Gare",
-   "Maison-Blanche",
-   "Croulebarbe"
+  "slug": "belgentier",
+  "name": "Belgentier",
+  "cp": "83210",
+  "cps": [
+   "83210"
   ],
-  "lieux": [
-   "la place d'Italie",
-   "la Butte-aux-Cailles",
-   "la BnF"
-  ]
+  "dep": "83",
+  "pop": 2373,
+  "lat": 43.2416,
+  "lng": 5.9972,
+  "quartiers": [],
+  "lieux": []
  },
  {
-  "slug": "paris-14",
-  "name": "Paris 14e",
-  "cp": "75014",
-  "dep": "75",
-  "pop": 136455,
-  "lat": 48.8292,
-  "lng": 2.3266,
-  "quartiers": [
-   "Montparnasse",
-   "Parc-de-Montsouris",
-   "Petit-Montrouge",
-   "Plaisance"
+  "slug": "besse-sur-issole",
+  "name": "Besse-sur-Issole",
+  "cp": "83890",
+  "cps": [
+   "83890"
   ],
-  "lieux": [
-   "Montparnasse",
-   "Denfert-Rochereau",
-   "Alésia"
-  ]
+  "dep": "83",
+  "pop": 3125,
+  "lat": 43.339,
+  "lng": 6.1839,
+  "quartiers": [],
+  "lieux": []
  },
  {
-  "slug": "paris-15",
-  "name": "Paris 15e",
-  "cp": "75015",
-  "dep": "75",
-  "pop": 229713,
-  "lat": 48.8401,
-  "lng": 2.2934,
-  "quartiers": [
-   "Saint-Lambert",
-   "Necker",
-   "Grenelle",
-   "Javel"
+  "slug": "bormes-les-mimosas",
+  "name": "Bormes-les-Mimosas",
+  "cp": "83230",
+  "cps": [
+   "83230"
   ],
-  "lieux": [
-   "Convention",
-   "Beaugrenelle",
-   "la rue de Vaugirard"
-  ]
+  "dep": "83",
+  "pop": 8545,
+  "lat": 43.1575,
+  "lng": 6.3615,
+  "quartiers": [],
+  "lieux": []
  },
  {
-  "slug": "paris-16",
-  "name": "Paris 16e",
-  "cp": "75016",
-  "dep": "75",
-  "pop": 159386,
-  "lat": 48.8637,
-  "lng": 2.2769,
-  "quartiers": [
-   "Auteuil",
-   "Muette",
-   "Porte-Dauphine",
-   "Chaillot"
+  "slug": "bras",
+  "name": "Bras",
+  "cp": "83149",
+  "cps": [
+   "83149"
   ],
-  "lieux": [
-   "le Trocadéro",
-   "Passy",
-   "Auteuil"
-  ]
+  "dep": "83",
+  "pop": 2637,
+  "lat": 43.4723,
+  "lng": 5.9558,
+  "quartiers": [],
+  "lieux": []
  },
  {
-  "slug": "paris-17",
-  "name": "Paris 17e",
-  "cp": "75017",
-  "dep": "75",
-  "pop": 159212,
-  "lat": 48.8873,
-  "lng": 2.3067,
-  "quartiers": [
-   "Ternes",
-   "Plaine-de-Monceaux",
-   "Batignolles",
-   "Épinettes"
+  "slug": "brenon",
+  "name": "Brenon",
+  "cp": "83840",
+  "cps": [
+   "83840"
   ],
-  "lieux": [
-   "les Batignolles",
-   "les Ternes",
-   "la place de Clichy"
-  ]
+  "dep": "83",
+  "pop": 24,
+  "lat": 43.7691,
+  "lng": 6.5365,
+  "quartiers": [],
+  "lieux": []
  },
  {
-  "slug": "paris-18",
-  "name": "Paris 18e",
-  "cp": "75018",
-  "dep": "75",
-  "pop": 183127,
-  "lat": 48.8925,
-  "lng": 2.3484,
-  "quartiers": [
-   "Grandes-Carrières",
-   "Clignancourt",
-   "Goutte-d'Or",
-   "La Chapelle"
+  "slug": "brignoles",
+  "name": "Brignoles",
+  "cp": "83170",
+  "cps": [
+   "83170"
   ],
-  "lieux": [
-   "Montmartre",
-   "Barbès",
-   "la porte de Clignancourt"
-  ]
+  "dep": "83",
+  "pop": 17850,
+  "lat": 43.3878,
+  "lng": 6.0759,
+  "quartiers": [],
+  "lieux": []
  },
  {
-  "slug": "paris-19",
-  "name": "Paris 19e",
-  "cp": "75019",
-  "dep": "75",
-  "pop": 178691,
-  "lat": 48.8871,
-  "lng": 2.3848,
-  "quartiers": [
-   "La Villette",
-   "Pont-de-Flandre",
-   "Amérique",
-   "Combat"
+  "slug": "brue-auriac",
+  "name": "Brue-Auriac",
+  "cp": "83119",
+  "cps": [
+   "83119"
   ],
-  "lieux": [
-   "les Buttes-Chaumont",
-   "le parc de la Villette",
-   "Jaurès"
-  ]
+  "dep": "83",
+  "pop": 1463,
+  "lat": 43.5259,
+  "lng": 5.9402,
+  "quartiers": [],
+  "lieux": []
  },
  {
-  "slug": "paris-20",
-  "name": "Paris 20e",
-  "cp": "75020",
-  "dep": "75",
-  "pop": 185140,
-  "lat": 48.8634,
-  "lng": 2.4012,
-  "quartiers": [
-   "Belleville",
-   "Saint-Fargeau",
-   "Père-Lachaise",
-   "Charonne"
+  "slug": "cabasse",
+  "name": "Cabasse",
+  "cp": "83340",
+  "cps": [
+   "83340"
   ],
-  "lieux": [
-   "Belleville",
-   "le Père-Lachaise",
-   "Gambetta"
-  ]
- },
- {
-  "slug": "antony",
-  "name": "Antony",
-  "cp": "92160",
-  "dep": "92",
-  "pop": 64263,
-  "lat": 48.7543,
-  "lng": 2.2977,
+  "dep": "83",
+  "pop": 2020,
+  "lat": 43.4275,
+  "lng": 6.2303,
   "quartiers": [],
   "lieux": []
  },
  {
-  "slug": "asnieres-sur-seine",
-  "name": "Asnières-sur-Seine",
-  "cp": "92600",
-  "dep": "92",
-  "pop": 93941,
-  "lat": 48.9145,
-  "lng": 2.2876,
+  "slug": "callas",
+  "name": "Callas",
+  "cp": "83830",
+  "cps": [
+   "83830"
+  ],
+  "dep": "83",
+  "pop": 2124,
+  "lat": 43.5687,
+  "lng": 6.5735,
   "quartiers": [],
   "lieux": []
  },
  {
-  "slug": "bagneux",
-  "name": "Bagneux",
-  "cp": "92220",
-  "dep": "92",
-  "pop": 44572,
-  "lat": 48.796,
-  "lng": 2.309,
+  "slug": "callian",
+  "name": "Callian",
+  "cp": "83440",
+  "cps": [
+   "83440"
+  ],
+  "dep": "83",
+  "pop": 3823,
+  "lat": 43.6069,
+  "lng": 6.7601,
   "quartiers": [],
   "lieux": []
  },
  {
-  "slug": "bois-colombes",
-  "name": "Bois-Colombes",
-  "cp": "92270",
-  "dep": "92",
-  "pop": 28909,
-  "lat": 48.9177,
-  "lng": 2.2683,
+  "slug": "camps-la-source",
+  "name": "Camps-la-Source",
+  "cp": "83170",
+  "cps": [
+   "83170"
+  ],
+  "dep": "83",
+  "pop": 1941,
+  "lat": 43.3719,
+  "lng": 6.1261,
   "quartiers": [],
   "lieux": []
  },
  {
-  "slug": "boulogne-billancourt",
-  "name": "Boulogne-Billancourt",
-  "cp": "92100",
-  "dep": "92",
-  "pop": 119019,
-  "lat": 48.8352,
-  "lng": 2.241,
+  "slug": "carces",
+  "name": "Carcès",
+  "cp": "83570",
+  "cps": [
+   "83570"
+  ],
+  "dep": "83",
+  "pop": 3540,
+  "lat": 43.4738,
+  "lng": 6.1752,
   "quartiers": [],
   "lieux": []
  },
  {
-  "slug": "bourg-la-reine",
-  "name": "Bourg-la-Reine",
-  "cp": "92340",
-  "dep": "92",
-  "pop": 21019,
-  "lat": 48.7797,
-  "lng": 2.3165,
+  "slug": "carnoules",
+  "name": "Carnoules",
+  "cp": "83660",
+  "cps": [
+   "83660"
+  ],
+  "dep": "83",
+  "pop": 4388,
+  "lat": 43.2921,
+  "lng": 6.1978,
   "quartiers": [],
   "lieux": []
  },
  {
-  "slug": "chatenay-malabry",
-  "name": "Châtenay-Malabry",
-  "cp": "92290",
-  "dep": "92",
-  "pop": 35825,
-  "lat": 48.7652,
-  "lng": 2.2638,
+  "slug": "carqueiranne",
+  "name": "Carqueiranne",
+  "cp": "83320",
+  "cps": [
+   "83320"
+  ],
+  "dep": "83",
+  "pop": 9408,
+  "lat": 43.0975,
+  "lng": 6.0714,
   "quartiers": [],
   "lieux": []
  },
  {
-  "slug": "chatillon",
-  "name": "Châtillon",
-  "cp": "92320",
-  "dep": "92",
-  "pop": 36705,
-  "lat": 48.8024,
-  "lng": 2.2905,
+  "slug": "cavalaire-sur-mer",
+  "name": "Cavalaire-sur-Mer",
+  "cp": "83240",
+  "cps": [
+   "83240"
+  ],
+  "dep": "83",
+  "pop": 8121,
+  "lat": 43.1797,
+  "lng": 6.5215,
   "quartiers": [],
   "lieux": []
  },
  {
-  "slug": "chaville",
-  "name": "Chaville",
-  "cp": "92370",
-  "dep": "92",
-  "pop": 20594,
-  "lat": 48.8085,
-  "lng": 2.1886,
+  "slug": "chateaudouble",
+  "name": "Châteaudouble",
+  "cp": "83300",
+  "cps": [
+   "83300"
+  ],
+  "dep": "83",
+  "pop": 476,
+  "lat": 43.6259,
+  "lng": 6.442,
   "quartiers": [],
   "lieux": []
  },
  {
-  "slug": "clamart",
-  "name": "Clamart",
-  "cp": "92140",
-  "dep": "92",
-  "pop": 58576,
-  "lat": 48.8003,
-  "lng": 2.2668,
+  "slug": "chateauvert",
+  "name": "Châteauvert",
+  "cp": "83670",
+  "cps": [
+   "83670"
+  ],
+  "dep": "83",
+  "pop": 141,
+  "lat": 43.4992,
+  "lng": 6.0088,
   "quartiers": [],
   "lieux": []
  },
  {
-  "slug": "clichy",
-  "name": "Clichy",
-  "cp": "92110",
-  "dep": "92",
-  "pop": 64410,
-  "lat": 48.9045,
-  "lng": 2.3062,
+  "slug": "chateauvieux",
+  "name": "Châteauvieux",
+  "cp": "83840",
+  "cps": [
+   "83840"
+  ],
+  "dep": "83",
+  "pop": 78,
+  "lat": 43.7874,
+  "lng": 6.5959,
   "quartiers": [],
   "lieux": []
  },
  {
-  "slug": "colombes",
-  "name": "Colombes",
-  "cp": "92700",
-  "dep": "92",
-  "pop": 91053,
-  "lat": 48.9226,
-  "lng": 2.2522,
+  "slug": "claviers",
+  "name": "Claviers",
+  "cp": "83830",
+  "cps": [
+   "83830"
+  ],
+  "dep": "83",
+  "pop": 727,
+  "lat": 43.5998,
+  "lng": 6.5845,
   "quartiers": [],
   "lieux": []
  },
  {
-  "slug": "courbevoie",
-  "name": "Courbevoie",
-  "cp": "92400",
-  "dep": "92",
-  "pop": 82902,
-  "lat": 48.8973,
-  "lng": 2.253,
+  "slug": "cogolin",
+  "name": "Cogolin",
+  "cp": "83310",
+  "cps": [
+   "83310"
+  ],
+  "dep": "83",
+  "pop": 12301,
+  "lat": 43.2406,
+  "lng": 6.5319,
   "quartiers": [],
   "lieux": []
  },
  {
-  "slug": "fontenay-aux-roses",
-  "name": "Fontenay-aux-Roses",
-  "cp": "92260",
-  "dep": "92",
-  "pop": 24070,
-  "lat": 48.7893,
-  "lng": 2.287,
+  "slug": "collobrieres",
+  "name": "Collobrières",
+  "cp": "83610",
+  "cps": [
+   "83610"
+  ],
+  "dep": "83",
+  "pop": 1870,
+  "lat": 43.2446,
+  "lng": 6.3454,
   "quartiers": [],
   "lieux": []
  },
  {
-  "slug": "garches",
-  "name": "Garches",
-  "cp": "92380",
-  "dep": "92",
-  "pop": 17743,
-  "lat": 48.8456,
-  "lng": 2.1873,
+  "slug": "comps-sur-artuby",
+  "name": "Comps-sur-Artuby",
+  "cp": "83840",
+  "cps": [
+   "83840"
+  ],
+  "dep": "83",
+  "pop": 339,
+  "lat": 43.7075,
+  "lng": 6.506,
   "quartiers": [],
   "lieux": []
  },
  {
-  "slug": "la-garenne-colombes",
-  "name": "La Garenne-Colombes",
-  "cp": "92250",
-  "dep": "92",
-  "pop": 30197,
-  "lat": 48.9067,
-  "lng": 2.2447,
+  "slug": "correns",
+  "name": "Correns",
+  "cp": "83570",
+  "cps": [
+   "83570"
+  ],
+  "dep": "83",
+  "pop": 886,
+  "lat": 43.4884,
+  "lng": 6.0543,
   "quartiers": [],
   "lieux": []
  },
  {
-  "slug": "gennevilliers",
-  "name": "Gennevilliers",
-  "cp": "92230",
-  "dep": "92",
-  "pop": 50979,
-  "lat": 48.9333,
-  "lng": 2.2933,
+  "slug": "cotignac",
+  "name": "Cotignac",
+  "cp": "83570",
+  "cps": [
+   "83570"
+  ],
+  "dep": "83",
+  "pop": 2197,
+  "lat": 43.5246,
+  "lng": 6.1436,
   "quartiers": [],
   "lieux": []
  },
  {
-  "slug": "issy-les-moulineaux",
-  "name": "Issy-les-Moulineaux",
-  "cp": "92130",
-  "dep": "92",
-  "pop": 67669,
-  "lat": 48.824,
-  "lng": 2.27,
+  "slug": "cuers",
+  "name": "Cuers",
+  "cp": "83390",
+  "cps": [
+   "83390"
+  ],
+  "dep": "83",
+  "pop": 13271,
+  "lat": 43.2429,
+  "lng": 6.0654,
   "quartiers": [],
   "lieux": []
  },
  {
-  "slug": "levallois-perret",
-  "name": "Levallois-Perret",
-  "cp": "92300",
-  "dep": "92",
-  "pop": 68092,
-  "lat": 48.895,
-  "lng": 2.287,
+  "slug": "draguignan",
+  "name": "Draguignan",
+  "cp": "83300",
+  "cps": [
+   "83300"
+  ],
+  "dep": "83",
+  "pop": 40826,
+  "lat": 43.5346,
+  "lng": 6.4651,
   "quartiers": [],
   "lieux": []
  },
  {
-  "slug": "malakoff",
-  "name": "Malakoff",
-  "cp": "92240",
-  "dep": "92",
-  "pop": 30557,
-  "lat": 48.8169,
-  "lng": 2.299,
+  "slug": "entrecasteaux",
+  "name": "Entrecasteaux",
+  "cp": "83570",
+  "cps": [
+   "83570"
+  ],
+  "dep": "83",
+  "pop": 1118,
+  "lat": 43.5085,
+  "lng": 6.2324,
   "quartiers": [],
   "lieux": []
  },
  {
-  "slug": "marnes-la-coquette",
-  "name": "Marnes-la-Coquette",
-  "cp": "92430",
-  "dep": "92",
-  "pop": 1752,
-  "lat": 48.829,
-  "lng": 2.172,
+  "slug": "esparron-de-pallieres",
+  "name": "Esparron-de-Pallières",
+  "cp": "83560",
+  "cps": [
+   "83560"
+  ],
+  "dep": "83",
+  "pop": 377,
+  "lat": 43.5881,
+  "lng": 5.851,
   "quartiers": [],
   "lieux": []
  },
  {
-  "slug": "meudon",
-  "name": "Meudon",
-  "cp": "92190",
-  "dep": "92",
-  "pop": 46334,
-  "lat": 48.813,
-  "lng": 2.235,
+  "slug": "fayence",
+  "name": "Fayence",
+  "cp": "83440",
+  "cps": [
+   "83440"
+  ],
+  "dep": "83",
+  "pop": 6157,
+  "lat": 43.6118,
+  "lng": 6.6762,
   "quartiers": [],
   "lieux": []
  },
  {
-  "slug": "montrouge",
-  "name": "Montrouge",
-  "cp": "92120",
-  "dep": "92",
-  "pop": 46324,
-  "lat": 48.8162,
-  "lng": 2.3168,
+  "slug": "figanieres",
+  "name": "Figanières",
+  "cp": "83830",
+  "cps": [
+   "83830"
+  ],
+  "dep": "83",
+  "pop": 2762,
+  "lat": 43.5642,
+  "lng": 6.4915,
   "quartiers": [],
   "lieux": []
  },
  {
-  "slug": "nanterre",
-  "name": "Nanterre",
-  "cp": "92000",
-  "dep": "92",
-  "pop": 97783,
-  "lat": 48.8924,
-  "lng": 2.2066,
+  "slug": "flassans-sur-issole",
+  "name": "Flassans-sur-Issole",
+  "cp": "83340",
+  "cps": [
+   "83340"
+  ],
+  "dep": "83",
+  "pop": 3706,
+  "lat": 43.372,
+  "lng": 6.2169,
   "quartiers": [],
   "lieux": []
  },
  {
-  "slug": "neuilly-sur-seine",
-  "name": "Neuilly-sur-Seine",
-  "cp": "92200",
-  "dep": "92",
-  "pop": 59538,
-  "lat": 48.8846,
-  "lng": 2.2697,
+  "slug": "flayosc",
+  "name": "Flayosc",
+  "cp": "83780",
+  "cps": [
+   "83780"
+  ],
+  "dep": "83",
+  "pop": 4673,
+  "lat": 43.5441,
+  "lng": 6.3577,
   "quartiers": [],
   "lieux": []
  },
  {
-  "slug": "le-plessis-robinson",
-  "name": "Le Plessis-Robinson",
-  "cp": "92350",
-  "dep": "92",
-  "pop": 28848,
-  "lat": 48.781,
-  "lng": 2.263,
+  "slug": "forcalqueiret",
+  "name": "Forcalqueiret",
+  "cp": "83136",
+  "cps": [
+   "83136"
+  ],
+  "dep": "83",
+  "pop": 3389,
+  "lat": 43.3357,
+  "lng": 6.0884,
   "quartiers": [],
   "lieux": []
  },
  {
-  "slug": "puteaux",
-  "name": "Puteaux",
-  "cp": "92800",
-  "dep": "92",
-  "pop": 44002,
-  "lat": 48.884,
-  "lng": 2.238,
+  "slug": "fox-amphoux",
+  "name": "Fox-Amphoux",
+  "cp": "83670",
+  "cps": [
+   "83670"
+  ],
+  "dep": "83",
+  "pop": 504,
+  "lat": 43.5944,
+  "lng": 6.1165,
   "quartiers": [],
   "lieux": []
  },
  {
-  "slug": "rueil-malmaison",
-  "name": "Rueil-Malmaison",
-  "cp": "92500",
-  "dep": "92",
-  "pop": 82874,
-  "lat": 48.877,
-  "lng": 2.18,
+  "slug": "frejus",
+  "name": "Fréjus",
+  "cp": "83370",
+  "cps": [
+   "83370",
+   "83600"
+  ],
+  "dep": "83",
+  "pop": 59719,
+  "lat": 43.4553,
+  "lng": 6.7848,
   "quartiers": [],
   "lieux": []
  },
  {
-  "slug": "saint-cloud",
-  "name": "Saint-Cloud",
-  "cp": "92210",
-  "dep": "92",
-  "pop": 29855,
-  "lat": 48.844,
-  "lng": 2.219,
+  "slug": "gareoult",
+  "name": "Garéoult",
+  "cp": "83136",
+  "cps": [
+   "83136"
+  ],
+  "dep": "83",
+  "pop": 5835,
+  "lat": 43.3397,
+  "lng": 6.0426,
   "quartiers": [],
   "lieux": []
  },
  {
-  "slug": "sceaux",
-  "name": "Sceaux",
-  "cp": "92330",
-  "dep": "92",
-  "pop": 20884,
-  "lat": 48.7766,
-  "lng": 2.29,
+  "slug": "gassin",
+  "name": "Gassin",
+  "cp": "83580",
+  "cps": [
+   "83580"
+  ],
+  "dep": "83",
+  "pop": 2687,
+  "lat": 43.2385,
+  "lng": 6.5876,
   "quartiers": [],
   "lieux": []
  },
  {
-  "slug": "sevres",
-  "name": "Sèvres",
-  "cp": "92310",
-  "dep": "92",
-  "pop": 22303,
-  "lat": 48.824,
-  "lng": 2.211,
+  "slug": "ginasservis",
+  "name": "Ginasservis",
+  "cp": "83560",
+  "cps": [
+   "83560"
+  ],
+  "dep": "83",
+  "pop": 2075,
+  "lat": 43.6566,
+  "lng": 5.8393,
   "quartiers": [],
   "lieux": []
  },
  {
-  "slug": "suresnes",
-  "name": "Suresnes",
-  "cp": "92150",
-  "dep": "92",
-  "pop": 48956,
-  "lat": 48.871,
-  "lng": 2.229,
+  "slug": "gonfaron",
+  "name": "Gonfaron",
+  "cp": "83590",
+  "cps": [
+   "83590"
+  ],
+  "dep": "83",
+  "pop": 4496,
+  "lat": 43.3149,
+  "lng": 6.2978,
   "quartiers": [],
   "lieux": []
  },
  {
-  "slug": "vanves",
-  "name": "Vanves",
-  "cp": "92170",
-  "dep": "92",
-  "pop": 28622,
-  "lat": 48.8215,
-  "lng": 2.29,
+  "slug": "grimaud",
+  "name": "Grimaud",
+  "cp": "83310",
+  "cps": [
+   "83310"
+  ],
+  "dep": "83",
+  "pop": 4587,
+  "lat": 43.2822,
+  "lng": 6.5097,
   "quartiers": [],
   "lieux": []
  },
  {
-  "slug": "vaucresson",
-  "name": "Vaucresson",
-  "cp": "92420",
-  "dep": "92",
-  "pop": 8432,
-  "lat": 48.84,
-  "lng": 2.153,
+  "slug": "hyeres",
+  "name": "Hyères",
+  "cp": "83400",
+  "cps": [
+   "83400"
+  ],
+  "dep": "83",
+  "pop": 55858,
+  "lat": 43.1139,
+  "lng": 6.2357,
   "quartiers": [],
   "lieux": []
  },
  {
-  "slug": "ville-d-avray",
-  "name": "Ville-d'Avray",
-  "cp": "92410",
-  "dep": "92",
-  "pop": 11089,
-  "lat": 48.825,
-  "lng": 2.193,
+  "slug": "la-bastide",
+  "name": "La Bastide",
+  "cp": "83840",
+  "cps": [
+   "83840"
+  ],
+  "dep": "83",
+  "pop": 227,
+  "lat": 43.7464,
+  "lng": 6.6327,
   "quartiers": [],
   "lieux": []
  },
  {
-  "slug": "villeneuve-la-garenne",
-  "name": "Villeneuve-la-Garenne",
-  "cp": "92390",
-  "dep": "92",
-  "pop": 26021,
-  "lat": 48.9367,
-  "lng": 2.325,
+  "slug": "la-cadiere-d-azur",
+  "name": "La Cadière-d'Azur",
+  "cp": "83740",
+  "cps": [
+   "83740"
+  ],
+  "dep": "83",
+  "pop": 5739,
+  "lat": 43.2026,
+  "lng": 5.7231,
   "quartiers": [],
   "lieux": []
  },
  {
-  "slug": "saint-ouen-sur-seine",
-  "name": "Saint-Ouen-sur-Seine",
-  "cp": "93400",
-  "dep": "93",
-  "pop": 53615,
-  "lat": 48.9116,
-  "lng": 2.3339,
+  "slug": "la-celle",
+  "name": "La Celle",
+  "cp": "83170",
+  "cps": [
+   "83170"
+  ],
+  "dep": "83",
+  "pop": 1659,
+  "lat": 43.3843,
+  "lng": 6.0016,
+  "quartiers": [],
+  "lieux": []
+ },
+ {
+  "slug": "la-crau",
+  "name": "La Crau",
+  "cp": "83260",
+  "cps": [
+   "83260"
+  ],
+  "dep": "83",
+  "pop": 19556,
+  "lat": 43.1706,
+  "lng": 6.0923,
+  "quartiers": [],
+  "lieux": []
+ },
+ {
+  "slug": "la-croix-valmer",
+  "name": "La Croix-Valmer",
+  "cp": "83420",
+  "cps": [
+   "83420"
+  ],
+  "dep": "83",
+  "pop": 3855,
+  "lat": 43.1909,
+  "lng": 6.588,
+  "quartiers": [],
+  "lieux": []
+ },
+ {
+  "slug": "la-farlede",
+  "name": "La Farlède",
+  "cp": "83210",
+  "cps": [
+   "83210"
+  ],
+  "dep": "83",
+  "pop": 10014,
+  "lat": 43.164,
+  "lng": 6.0414,
+  "quartiers": [],
+  "lieux": []
+ },
+ {
+  "slug": "la-garde",
+  "name": "La Garde",
+  "cp": "83130",
+  "cps": [
+   "83130"
+  ],
+  "dep": "83",
+  "pop": 26476,
+  "lat": 43.129,
+  "lng": 6.0162,
+  "quartiers": [],
+  "lieux": []
+ },
+ {
+  "slug": "la-garde-freinet",
+  "name": "La Garde-Freinet",
+  "cp": "83680",
+  "cps": [
+   "83680"
+  ],
+  "dep": "83",
+  "pop": 1862,
+  "lat": 43.3251,
+  "lng": 6.4603,
+  "quartiers": [],
+  "lieux": []
+ },
+ {
+  "slug": "la-londe-les-maures",
+  "name": "La Londe-les-Maures",
+  "cp": "83250",
+  "cps": [
+   "83250"
+  ],
+  "dep": "83",
+  "pop": 10584,
+  "lat": 43.1641,
+  "lng": 6.2417,
+  "quartiers": [],
+  "lieux": []
+ },
+ {
+  "slug": "la-martre",
+  "name": "La Martre",
+  "cp": "83840",
+  "cps": [
+   "83840"
+  ],
+  "dep": "83",
+  "pop": 226,
+  "lat": 43.7631,
+  "lng": 6.5914,
+  "quartiers": [],
+  "lieux": []
+ },
+ {
+  "slug": "la-motte",
+  "name": "La Motte",
+  "cp": "83920",
+  "cps": [
+   "83920"
+  ],
+  "dep": "83",
+  "pop": 3071,
+  "lat": 43.5091,
+  "lng": 6.5506,
+  "quartiers": [],
+  "lieux": []
+ },
+ {
+  "slug": "la-mole",
+  "name": "La Môle",
+  "cp": "83310",
+  "cps": [
+   "83310"
+  ],
+  "dep": "83",
+  "pop": 1535,
+  "lat": 43.2202,
+  "lng": 6.4835,
+  "quartiers": [],
+  "lieux": []
+ },
+ {
+  "slug": "la-roque-esclapon",
+  "name": "La Roque-Esclapon",
+  "cp": "83840",
+  "cps": [
+   "83840"
+  ],
+  "dep": "83",
+  "pop": 261,
+  "lat": 43.721,
+  "lng": 6.6479,
+  "quartiers": [],
+  "lieux": []
+ },
+ {
+  "slug": "la-roquebrussanne",
+  "name": "La Roquebrussanne",
+  "cp": "83136",
+  "cps": [
+   "83136"
+  ],
+  "dep": "83",
+  "pop": 2817,
+  "lat": 43.3384,
+  "lng": 5.9787,
+  "quartiers": [],
+  "lieux": []
+ },
+ {
+  "slug": "la-seyne-sur-mer",
+  "name": "La Seyne-sur-Mer",
+  "cp": "83500",
+  "cps": [
+   "83500"
+  ],
+  "dep": "83",
+  "pop": 63732,
+  "lat": 43.0837,
+  "lng": 5.8789,
+  "quartiers": [],
+  "lieux": []
+ },
+ {
+  "slug": "la-valette-du-var",
+  "name": "La Valette-du-Var",
+  "cp": "83160",
+  "cps": [
+   "83160"
+  ],
+  "dep": "83",
+  "pop": 23719,
+  "lat": 43.1484,
+  "lng": 5.9893,
+  "quartiers": [],
+  "lieux": []
+ },
+ {
+  "slug": "la-verdiere",
+  "name": "La Verdière",
+  "cp": "83560",
+  "cps": [
+   "83560"
+  ],
+  "dep": "83",
+  "pop": 1668,
+  "lat": 43.6529,
+  "lng": 5.9374,
+  "quartiers": [],
+  "lieux": []
+ },
+ {
+  "slug": "le-beausset",
+  "name": "Le Beausset",
+  "cp": "83330",
+  "cps": [
+   "83330"
+  ],
+  "dep": "83",
+  "pop": 10219,
+  "lat": 43.205,
+  "lng": 5.8239,
+  "quartiers": [],
+  "lieux": []
+ },
+ {
+  "slug": "le-bourguet",
+  "name": "Le Bourguet",
+  "cp": "83840",
+  "cps": [
+   "83840"
+  ],
+  "dep": "83",
+  "pop": 42,
+  "lat": 43.7798,
+  "lng": 6.5017,
+  "quartiers": [],
+  "lieux": []
+ },
+ {
+  "slug": "le-cannet-des-maures",
+  "name": "Le Cannet-des-Maures",
+  "cp": "83340",
+  "cps": [
+   "83340"
+  ],
+  "dep": "83",
+  "pop": 5140,
+  "lat": 43.3695,
+  "lng": 6.3703,
+  "quartiers": [],
+  "lieux": []
+ },
+ {
+  "slug": "le-castellet",
+  "name": "Le Castellet",
+  "cp": "83330",
+  "cps": [
+   "83330"
+  ],
+  "dep": "83",
+  "pop": 6040,
+  "lat": 43.2148,
+  "lng": 5.7561,
+  "quartiers": [],
+  "lieux": []
+ },
+ {
+  "slug": "le-lavandou",
+  "name": "Le Lavandou",
+  "cp": "83980",
+  "cps": [
+   "83980"
+  ],
+  "dep": "83",
+  "pop": 6646,
+  "lat": 43.1669,
+  "lng": 6.4015,
+  "quartiers": [],
+  "lieux": []
+ },
+ {
+  "slug": "le-luc",
+  "name": "Le Luc",
+  "cp": "83340",
+  "cps": [
+   "83340"
+  ],
+  "dep": "83",
+  "pop": 11310,
+  "lat": 43.3855,
+  "lng": 6.3107,
+  "quartiers": [],
+  "lieux": []
+ },
+ {
+  "slug": "le-muy",
+  "name": "Le Muy",
+  "cp": "83490",
+  "cps": [
+   "83490"
+  ],
+  "dep": "83",
+  "pop": 10118,
+  "lat": 43.468,
+  "lng": 6.5844,
+  "quartiers": [],
+  "lieux": []
+ },
+ {
+  "slug": "le-plan-de-la-tour",
+  "name": "Le Plan-de-la-Tour",
+  "cp": "83120",
+  "cps": [
+   "83120"
+  ],
+  "dep": "83",
+  "pop": 3125,
+  "lat": 43.337,
+  "lng": 6.5462,
+  "quartiers": [],
+  "lieux": []
+ },
+ {
+  "slug": "le-pradet",
+  "name": "Le Pradet",
+  "cp": "83220",
+  "cps": [
+   "83220"
+  ],
+  "dep": "83",
+  "pop": 10933,
+  "lat": 43.0984,
+  "lng": 6.0214,
+  "quartiers": [],
+  "lieux": []
+ },
+ {
+  "slug": "le-revest-les-eaux",
+  "name": "Le Revest-les-Eaux",
+  "cp": "83200",
+  "cps": [
+   "83200"
+  ],
+  "dep": "83",
+  "pop": 4074,
+  "lat": 43.1878,
+  "lng": 5.9453,
+  "quartiers": [],
+  "lieux": []
+ },
+ {
+  "slug": "le-thoronet",
+  "name": "Le Thoronet",
+  "cp": "83340",
+  "cps": [
+   "83340"
+  ],
+  "dep": "83",
+  "pop": 2631,
+  "lat": 43.4585,
+  "lng": 6.2905,
+  "quartiers": [],
+  "lieux": []
+ },
+ {
+  "slug": "le-val",
+  "name": "Le Val",
+  "cp": "83143",
+  "cps": [
+   "83143"
+  ],
+  "dep": "83",
+  "pop": 4335,
+  "lat": 43.4468,
+  "lng": 6.0569,
+  "quartiers": [],
+  "lieux": []
+ },
+ {
+  "slug": "les-adrets-de-l-esterel",
+  "name": "Les Adrets-de-l'Estérel",
+  "cp": "83600",
+  "cps": [
+   "83600"
+  ],
+  "dep": "83",
+  "pop": 2775,
+  "lat": 43.5385,
+  "lng": 6.8177,
+  "quartiers": [],
+  "lieux": []
+ },
+ {
+  "slug": "les-arcs",
+  "name": "Les Arcs",
+  "cp": "83460",
+  "cps": [
+   "83460"
+  ],
+  "dep": "83",
+  "pop": 8109,
+  "lat": 43.4533,
+  "lng": 6.4862,
+  "quartiers": [],
+  "lieux": []
+ },
+ {
+  "slug": "les-mayons",
+  "name": "Les Mayons",
+  "cp": "83340",
+  "cps": [
+   "83340"
+  ],
+  "dep": "83",
+  "pop": 625,
+  "lat": 43.3117,
+  "lng": 6.3621,
+  "quartiers": [],
+  "lieux": []
+ },
+ {
+  "slug": "les-salles-sur-verdon",
+  "name": "Les Salles-sur-Verdon",
+  "cp": "83630",
+  "cps": [
+   "83630"
+  ],
+  "dep": "83",
+  "pop": 236,
+  "lat": 43.767,
+  "lng": 6.2042,
+  "quartiers": [],
+  "lieux": []
+ },
+ {
+  "slug": "lorgues",
+  "name": "Lorgues",
+  "cp": "83510",
+  "cps": [
+   "83510"
+  ],
+  "dep": "83",
+  "pop": 9849,
+  "lat": 43.4734,
+  "lng": 6.3588,
+  "quartiers": [],
+  "lieux": []
+ },
+ {
+  "slug": "mazaugues",
+  "name": "Mazaugues",
+  "cp": "83136",
+  "cps": [
+   "83136"
+  ],
+  "dep": "83",
+  "pop": 901,
+  "lat": 43.3435,
+  "lng": 5.8899,
+  "quartiers": [],
+  "lieux": []
+ },
+ {
+  "slug": "moissac-bellevue",
+  "name": "Moissac-Bellevue",
+  "cp": "83630",
+  "cps": [
+   "83630"
+  ],
+  "dep": "83",
+  "pop": 306,
+  "lat": 43.6487,
+  "lng": 6.1666,
+  "quartiers": [],
+  "lieux": []
+ },
+ {
+  "slug": "mons",
+  "name": "Mons",
+  "cp": "83440",
+  "cps": [
+   "83440"
+  ],
+  "dep": "83",
+  "pop": 909,
+  "lat": 43.7041,
+  "lng": 6.7054,
+  "quartiers": [],
+  "lieux": []
+ },
+ {
+  "slug": "montauroux",
+  "name": "Montauroux",
+  "cp": "83440",
+  "cps": [
+   "83440"
+  ],
+  "dep": "83",
+  "pop": 7183,
+  "lat": 43.5936,
+  "lng": 6.7993,
+  "quartiers": [],
+  "lieux": []
+ },
+ {
+  "slug": "montferrat",
+  "name": "Montferrat",
+  "cp": "83131",
+  "cps": [
+   "83131"
+  ],
+  "dep": "83",
+  "pop": 1719,
+  "lat": 43.6336,
+  "lng": 6.4774,
+  "quartiers": [],
+  "lieux": []
+ },
+ {
+  "slug": "montfort-sur-argens",
+  "name": "Montfort-sur-Argens",
+  "cp": "83570",
+  "cps": [
+   "83570"
+  ],
+  "dep": "83",
+  "pop": 1453,
+  "lat": 43.486,
+  "lng": 6.1252,
+  "quartiers": [],
+  "lieux": []
+ },
+ {
+  "slug": "montmeyan",
+  "name": "Montmeyan",
+  "cp": "83670",
+  "cps": [
+   "83670"
+  ],
+  "dep": "83",
+  "pop": 596,
+  "lat": 43.6574,
+  "lng": 6.0652,
+  "quartiers": [],
+  "lieux": []
+ },
+ {
+  "slug": "meounes-les-montrieux",
+  "name": "Méounes-lès-Montrieux",
+  "cp": "83136",
+  "cps": [
+   "83136"
+  ],
+  "dep": "83",
+  "pop": 2277,
+  "lat": 43.2699,
+  "lng": 5.979,
+  "quartiers": [],
+  "lieux": []
+ },
+ {
+  "slug": "nans-les-pins",
+  "name": "Nans-les-Pins",
+  "cp": "83860",
+  "cps": [
+   "83860"
+  ],
+  "dep": "83",
+  "pop": 5215,
+  "lat": 43.3808,
+  "lng": 5.7874,
+  "quartiers": [],
+  "lieux": []
+ },
+ {
+  "slug": "neoules",
+  "name": "Néoules",
+  "cp": "83136",
+  "cps": [
+   "83136"
+  ],
+  "dep": "83",
+  "pop": 2976,
+  "lat": 43.2912,
+  "lng": 6.0267,
+  "quartiers": [],
+  "lieux": []
+ },
+ {
+  "slug": "ollioules",
+  "name": "Ollioules",
+  "cp": "83190",
+  "cps": [
+   "83190"
+  ],
+  "dep": "83",
+  "pop": 14568,
+  "lat": 43.1385,
+  "lng": 5.8515,
+  "quartiers": [],
+  "lieux": []
+ },
+ {
+  "slug": "ollieres",
+  "name": "Ollières",
+  "cp": "83470",
+  "cps": [
+   "83470"
+  ],
+  "dep": "83",
+  "pop": 636,
+  "lat": 43.5074,
+  "lng": 5.8141,
+  "quartiers": [],
+  "lieux": []
+ },
+ {
+  "slug": "pierrefeu-du-var",
+  "name": "Pierrefeu-du-Var",
+  "cp": "83390",
+  "cps": [
+   "83390"
+  ],
+  "dep": "83",
+  "pop": 6084,
+  "lat": 43.2351,
+  "lng": 6.1798,
+  "quartiers": [],
+  "lieux": []
+ },
+ {
+  "slug": "pignans",
+  "name": "Pignans",
+  "cp": "83790",
+  "cps": [
+   "83790"
+  ],
+  "dep": "83",
+  "pop": 4838,
+  "lat": 43.2997,
+  "lng": 6.2625,
+  "quartiers": [],
+  "lieux": []
+ },
+ {
+  "slug": "plan-d-aups-sainte-baume",
+  "name": "Plan-d'Aups-Sainte-Baume",
+  "cp": "83640",
+  "cps": [
+   "83640"
+  ],
+  "dep": "83",
+  "pop": 2527,
+  "lat": 43.3336,
+  "lng": 5.7472,
+  "quartiers": [],
+  "lieux": []
+ },
+ {
+  "slug": "ponteves",
+  "name": "Pontevès",
+  "cp": "83670",
+  "cps": [
+   "83670"
+  ],
+  "dep": "83",
+  "pop": 784,
+  "lat": 43.5509,
+  "lng": 6.0687,
+  "quartiers": [],
+  "lieux": []
+ },
+ {
+  "slug": "pourcieux",
+  "name": "Pourcieux",
+  "cp": "83470",
+  "cps": [
+   "83470"
+  ],
+  "dep": "83",
+  "pop": 1552,
+  "lat": 43.4626,
+  "lng": 5.7894,
+  "quartiers": [],
+  "lieux": []
+ },
+ {
+  "slug": "pourrieres",
+  "name": "Pourrières",
+  "cp": "83910",
+  "cps": [
+   "83910"
+  ],
+  "dep": "83",
+  "pop": 5642,
+  "lat": 43.487,
+  "lng": 5.7432,
+  "quartiers": [],
+  "lieux": []
+ },
+ {
+  "slug": "puget-ville",
+  "name": "Puget-Ville",
+  "cp": "83390",
+  "cps": [
+   "83390"
+  ],
+  "dep": "83",
+  "pop": 4610,
+  "lat": 43.2809,
+  "lng": 6.1646,
+  "quartiers": [],
+  "lieux": []
+ },
+ {
+  "slug": "puget-sur-argens",
+  "name": "Puget-sur-Argens",
+  "cp": "83480",
+  "cps": [
+   "83480"
+  ],
+  "dep": "83",
+  "pop": 8602,
+  "lat": 43.4712,
+  "lng": 6.6861,
+  "quartiers": [],
+  "lieux": []
+ },
+ {
+  "slug": "ramatuelle",
+  "name": "Ramatuelle",
+  "cp": "83350",
+  "cps": [
+   "83350"
+  ],
+  "dep": "83",
+  "pop": 1888,
+  "lat": 43.2115,
+  "lng": 6.6449,
+  "quartiers": [],
+  "lieux": []
+ },
+ {
+  "slug": "rayol-canadel-sur-mer",
+  "name": "Rayol-Canadel-sur-Mer",
+  "cp": "83820",
+  "cps": [
+   "83820"
+  ],
+  "dep": "83",
+  "pop": 639,
+  "lat": 43.1664,
+  "lng": 6.4744,
+  "quartiers": [],
+  "lieux": []
+ },
+ {
+  "slug": "rians",
+  "name": "Rians",
+  "cp": "83560",
+  "cps": [
+   "83560"
+  ],
+  "dep": "83",
+  "pop": 4223,
+  "lat": 43.6026,
+  "lng": 5.734,
+  "quartiers": [],
+  "lieux": []
+ },
+ {
+  "slug": "riboux",
+  "name": "Riboux",
+  "cp": "13780",
+  "cps": [
+   "13780"
+  ],
+  "dep": "83",
+  "pop": 51,
+  "lat": 43.3063,
+  "lng": 5.753,
+  "quartiers": [],
+  "lieux": []
+ },
+ {
+  "slug": "rocbaron",
+  "name": "Rocbaron",
+  "cp": "83136",
+  "cps": [
+   "83136"
+  ],
+  "dep": "83",
+  "pop": 5660,
+  "lat": 43.3062,
+  "lng": 6.0869,
+  "quartiers": [],
+  "lieux": []
+ },
+ {
+  "slug": "roquebrune-sur-argens",
+  "name": "Roquebrune-sur-Argens",
+  "cp": "83380",
+  "cps": [
+   "83380",
+   "83520"
+  ],
+  "dep": "83",
+  "pop": 15442,
+  "lat": 43.4282,
+  "lng": 6.6525,
+  "quartiers": [],
+  "lieux": []
+ },
+ {
+  "slug": "rougiers",
+  "name": "Rougiers",
+  "cp": "83170",
+  "cps": [
+   "83170"
+  ],
+  "dep": "83",
+  "pop": 1697,
+  "lat": 43.3869,
+  "lng": 5.8505,
+  "quartiers": [],
+  "lieux": []
+ },
+ {
+  "slug": "regusse",
+  "name": "Régusse",
+  "cp": "83630",
+  "cps": [
+   "83630"
+  ],
+  "dep": "83",
+  "pop": 2380,
+  "lat": 43.663,
+  "lng": 6.122,
+  "quartiers": [],
+  "lieux": []
+ },
+ {
+  "slug": "saint-antonin-du-var",
+  "name": "Saint-Antonin-du-Var",
+  "cp": "83510",
+  "cps": [
+   "83510"
+  ],
+  "dep": "83",
+  "pop": 870,
+  "lat": 43.5071,
+  "lng": 6.2935,
+  "quartiers": [],
+  "lieux": []
+ },
+ {
+  "slug": "saint-cyr-sur-mer",
+  "name": "Saint-Cyr-sur-Mer",
+  "cp": "83270",
+  "cps": [
+   "83270"
+  ],
+  "dep": "83",
+  "pop": 11658,
+  "lat": 43.17,
+  "lng": 5.7055,
+  "quartiers": [],
+  "lieux": []
+ },
+ {
+  "slug": "saint-julien",
+  "name": "Saint-Julien",
+  "cp": "83560",
+  "cps": [
+   "83560"
+  ],
+  "dep": "83",
+  "pop": 2453,
+  "lat": 43.7045,
+  "lng": 5.9143,
+  "quartiers": [],
+  "lieux": []
+ },
+ {
+  "slug": "saint-mandrier-sur-mer",
+  "name": "Saint-Mandrier-sur-Mer",
+  "cp": "83430",
+  "cps": [
+   "83430"
+  ],
+  "dep": "83",
+  "pop": 6000,
+  "lat": 43.0762,
+  "lng": 5.9272,
+  "quartiers": [],
+  "lieux": []
+ },
+ {
+  "slug": "saint-martin-de-pallieres",
+  "name": "Saint-Martin-de-Pallières",
+  "cp": "83560",
+  "cps": [
+   "83560"
+  ],
+  "dep": "83",
+  "pop": 284,
+  "lat": 43.577,
+  "lng": 5.8869,
+  "quartiers": [],
+  "lieux": []
+ },
+ {
+  "slug": "saint-maximin-la-sainte-baume",
+  "name": "Saint-Maximin-la-Sainte-Baume",
+  "cp": "83470",
+  "cps": [
+   "83470"
+  ],
+  "dep": "83",
+  "pop": 17896,
+  "lat": 43.4488,
+  "lng": 5.8603,
+  "quartiers": [],
+  "lieux": []
+ },
+ {
+  "slug": "saint-paul-en-foret",
+  "name": "Saint-Paul-en-Forêt",
+  "cp": "83440",
+  "cps": [
+   "83440"
+  ],
+  "dep": "83",
+  "pop": 1735,
+  "lat": 43.5681,
+  "lng": 6.6822,
+  "quartiers": [],
+  "lieux": []
+ },
+ {
+  "slug": "saint-raphael",
+  "name": "Saint-Raphaël",
+  "cp": "83530",
+  "cps": [
+   "83530",
+   "83700"
+  ],
+  "dep": "83",
+  "pop": 37113,
+  "lat": 43.4582,
+  "lng": 6.8483,
+  "quartiers": [],
+  "lieux": []
+ },
+ {
+  "slug": "saint-tropez",
+  "name": "Saint-Tropez",
+  "cp": "83990",
+  "cps": [
+   "83990"
+  ],
+  "dep": "83",
+  "pop": 3582,
+  "lat": 43.2619,
+  "lng": 6.6638,
+  "quartiers": [],
+  "lieux": []
+ },
+ {
+  "slug": "saint-zacharie",
+  "name": "Saint-Zacharie",
+  "cp": "83640",
+  "cps": [
+   "83640"
+  ],
+  "dep": "83",
+  "pop": 5879,
+  "lat": 43.3749,
+  "lng": 5.7164,
+  "quartiers": [],
+  "lieux": []
+ },
+ {
+  "slug": "sainte-anastasie-sur-issole",
+  "name": "Sainte-Anastasie-sur-Issole",
+  "cp": "83136",
+  "cps": [
+   "83136"
+  ],
+  "dep": "83",
+  "pop": 2165,
+  "lat": 43.3337,
+  "lng": 6.1227,
+  "quartiers": [],
+  "lieux": []
+ },
+ {
+  "slug": "sainte-maxime",
+  "name": "Sainte-Maxime",
+  "cp": "83120",
+  "cps": [
+   "83120"
+  ],
+  "dep": "83",
+  "pop": 14118,
+  "lat": 43.3584,
+  "lng": 6.6139,
+  "quartiers": [],
+  "lieux": []
+ },
+ {
+  "slug": "salernes",
+  "name": "Salernes",
+  "cp": "83690",
+  "cps": [
+   "83690"
+  ],
+  "dep": "83",
+  "pop": 4019,
+  "lat": 43.5646,
+  "lng": 6.2379,
+  "quartiers": [],
+  "lieux": []
+ },
+ {
+  "slug": "sanary-sur-mer",
+  "name": "Sanary-sur-Mer",
+  "cp": "83110",
+  "cps": [
+   "83110"
+  ],
+  "dep": "83",
+  "pop": 18538,
+  "lat": 43.1374,
+  "lng": 5.7951,
+  "quartiers": [],
+  "lieux": []
+ },
+ {
+  "slug": "seillans",
+  "name": "Seillans",
+  "cp": "83440",
+  "cps": [
+   "83440"
+  ],
+  "dep": "83",
+  "pop": 2941,
+  "lat": 43.6326,
+  "lng": 6.6024,
+  "quartiers": [],
+  "lieux": []
+ },
+ {
+  "slug": "seillons-source-d-argens",
+  "name": "Seillons-Source-d'Argens",
+  "cp": "83470",
+  "cps": [
+   "83470"
+  ],
+  "dep": "83",
+  "pop": 2818,
+  "lat": 43.5156,
+  "lng": 5.8775,
+  "quartiers": [],
+  "lieux": []
+ },
+ {
+  "slug": "signes",
+  "name": "Signes",
+  "cp": "83870",
+  "cps": [
+   "83870"
+  ],
+  "dep": "83",
+  "pop": 3126,
+  "lat": 43.2759,
+  "lng": 5.8498,
+  "quartiers": [],
+  "lieux": []
+ },
+ {
+  "slug": "sillans-la-cascade",
+  "name": "Sillans-la-Cascade",
+  "cp": "83690",
+  "cps": [
+   "83690"
+  ],
+  "dep": "83",
+  "pop": 787,
+  "lat": 43.565,
+  "lng": 6.1549,
+  "quartiers": [],
+  "lieux": []
+ },
+ {
+  "slug": "six-fours-les-plages",
+  "name": "Six-Fours-les-Plages",
+  "cp": "83140",
+  "cps": [
+   "83140"
+  ],
+  "dep": "83",
+  "pop": 37109,
+  "lat": 43.0843,
+  "lng": 5.8079,
+  "quartiers": [],
+  "lieux": []
+ },
+ {
+  "slug": "sollies-pont",
+  "name": "Solliès-Pont",
+  "cp": "83210",
+  "cps": [
+   "83210"
+  ],
+  "dep": "83",
+  "pop": 12521,
+  "lat": 43.1895,
+  "lng": 6.0625,
+  "quartiers": [],
+  "lieux": []
+ },
+ {
+  "slug": "sollies-toucas",
+  "name": "Solliès-Toucas",
+  "cp": "83210",
+  "cps": [
+   "83210"
+  ],
+  "dep": "83",
+  "pop": 6269,
+  "lat": 43.2097,
+  "lng": 5.9836,
+  "quartiers": [],
+  "lieux": []
+ },
+ {
+  "slug": "sollies-ville",
+  "name": "Solliès-Ville",
+  "cp": "83210",
+  "cps": [
+   "83210"
+  ],
+  "dep": "83",
+  "pop": 2504,
+  "lat": 43.1804,
+  "lng": 6.0232,
+  "quartiers": [],
+  "lieux": []
+ },
+ {
+  "slug": "tanneron",
+  "name": "Tanneron",
+  "cp": "83440",
+  "cps": [
+   "83440"
+  ],
+  "dep": "83",
+  "pop": 1750,
+  "lat": 43.5732,
+  "lng": 6.8538,
+  "quartiers": [],
+  "lieux": []
+ },
+ {
+  "slug": "taradeau",
+  "name": "Taradeau",
+  "cp": "83460",
+  "cps": [
+   "83460"
+  ],
+  "dep": "83",
+  "pop": 1945,
+  "lat": 43.4657,
+  "lng": 6.4283,
+  "quartiers": [],
+  "lieux": []
+ },
+ {
+  "slug": "tavernes",
+  "name": "Tavernes",
+  "cp": "83670",
+  "cps": [
+   "83670"
+  ],
+  "dep": "83",
+  "pop": 1492,
+  "lat": 43.6009,
+  "lng": 6.0232,
+  "quartiers": [],
+  "lieux": []
+ },
+ {
+  "slug": "toulon",
+  "name": "Toulon",
+  "cp": "83000",
+  "cps": [
+   "83000",
+   "83100",
+   "83200"
+  ],
+  "dep": "83",
+  "pop": 179116,
+  "lat": 43.1364,
+  "lng": 5.9334,
+  "quartiers": [],
+  "lieux": []
+ },
+ {
+  "slug": "tourrettes",
+  "name": "Tourrettes",
+  "cp": "83440",
+  "cps": [
+   "83440"
+  ],
+  "dep": "83",
+  "pop": 2972,
+  "lat": 43.609,
+  "lng": 6.7252,
+  "quartiers": [],
+  "lieux": []
+ },
+ {
+  "slug": "tourtour",
+  "name": "Tourtour",
+  "cp": "83690",
+  "cps": [
+   "83690"
+  ],
+  "dep": "83",
+  "pop": 581,
+  "lat": 43.594,
+  "lng": 6.3098,
+  "quartiers": [],
+  "lieux": []
+ },
+ {
+  "slug": "tourves",
+  "name": "Tourves",
+  "cp": "83170",
+  "cps": [
+   "83170"
+  ],
+  "dep": "83",
+  "pop": 5207,
+  "lat": 43.4108,
+  "lng": 5.9281,
+  "quartiers": [],
+  "lieux": []
+ },
+ {
+  "slug": "trans-en-provence",
+  "name": "Trans-en-Provence",
+  "cp": "83720",
+  "cps": [
+   "83720"
+  ],
+  "dep": "83",
+  "pop": 6905,
+  "lat": 43.5025,
+  "lng": 6.4869,
+  "quartiers": [],
+  "lieux": []
+ },
+ {
+  "slug": "trigance",
+  "name": "Trigance",
+  "cp": "83840",
+  "cps": [
+   "83840"
+  ],
+  "dep": "83",
+  "pop": 232,
+  "lat": 43.7365,
+  "lng": 6.438,
+  "quartiers": [],
+  "lieux": []
+ },
+ {
+  "slug": "varages",
+  "name": "Varages",
+  "cp": "83670",
+  "cps": [
+   "83670"
+  ],
+  "dep": "83",
+  "pop": 1177,
+  "lat": 43.5924,
+  "lng": 5.9435,
+  "quartiers": [],
+  "lieux": []
+ },
+ {
+  "slug": "vidauban",
+  "name": "Vidauban",
+  "cp": "83550",
+  "cps": [
+   "83550"
+  ],
+  "dep": "83",
+  "pop": 12608,
+  "lat": 43.4071,
+  "lng": 6.4599,
+  "quartiers": [],
+  "lieux": []
+ },
+ {
+  "slug": "villecroze",
+  "name": "Villecroze",
+  "cp": "83690",
+  "cps": [
+   "83690"
+  ],
+  "dep": "83",
+  "pop": 1514,
+  "lat": 43.5649,
+  "lng": 6.2855,
+  "quartiers": [],
+  "lieux": []
+ },
+ {
+  "slug": "vinon-sur-verdon",
+  "name": "Vinon-sur-Verdon",
+  "cp": "83560",
+  "cps": [
+   "83560"
+  ],
+  "dep": "83",
+  "pop": 4464,
+  "lat": 43.7214,
+  "lng": 5.8017,
+  "quartiers": [],
+  "lieux": []
+ },
+ {
+  "slug": "vins-sur-caramy",
+  "name": "Vins-sur-Caramy",
+  "cp": "83170",
+  "cps": [
+   "83170"
+  ],
+  "dep": "83",
+  "pop": 936,
+  "lat": 43.432,
+  "lng": 6.1495,
+  "quartiers": [],
+  "lieux": []
+ },
+ {
+  "slug": "verignon",
+  "name": "Vérignon",
+  "cp": "83630",
+  "cps": [
+   "83630"
+  ],
+  "dep": "83",
+  "pop": 8,
+  "lat": 43.658,
+  "lng": 6.2653,
+  "quartiers": [],
+  "lieux": []
+ },
+ {
+  "slug": "evenos",
+  "name": "Évenos",
+  "cp": "83330",
+  "cps": [
+   "83330"
+  ],
+  "dep": "83",
+  "pop": 2406,
+  "lat": 43.1876,
+  "lng": 5.8702,
   "quartiers": [],
   "lieux": []
  }
