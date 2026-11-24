@@ -13,6 +13,15 @@ remplacement de portes blindées, blindage de portes et installation / changemen
 | `mentions-legales.html` | Mentions légales + politique de confidentialité (RGPD) |
 | `merci.html` | Page de confirmation après envoi du formulaire |
 
+## Logos et photos
+
+- `assets/img/marques/` : 38 logos de fabricants (repris du dépôt Shopta-serrure). Ils sont listés dans le mur de marques,
+  la bande défilante, les fiches produits et le pied de page.
+- `assets/img/photos/` : photos d'interventions (reprises du dépôt Shopta-serrure, redimensionnées à 1200 px).
+
+Les logos sont utilisés pour indiquer les marques installées. Le site précise que l'entreprise est un installateur
+indépendant : ne pas se présenter comme revendeur agréé d'une marque (ex. réseau « Point Fort Fichet ») sans l'être.
+
 Les produits des catalogues sont définis dans `assets/js/main.js` (tableaux `DOORS` et `LOCKS`) :
 ajoutez, retirez ou modifiez une entrée pour mettre à jour le catalogue.
 
