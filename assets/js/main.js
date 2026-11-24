@@ -5,6 +5,7 @@
 (function () {
   "use strict";
   var DATA = window.SITE_DATA || { doors: [], locks: [], logos: {} };
+  window.doorSVGRef = function (o) { return doorSVG(o); };
   var dl = window.dataLayer = window.dataLayer || [];
   function track(event, extra) {
     var o = { event: event };
@@ -140,10 +141,11 @@
         '<circle cx="28" cy="121" r="2.5"/><circle cx="92" cy="121" r="2.5"/></g>';
     }
     var hinge = '<rect x="13" y="50" width="5" height="18" rx="2" fill="#8d96a6"/><rect x="13" y="175" width="5" height="18" rx="2" fill="#8d96a6"/>';
+    var HC = { alu: ["#aab1b7", "#c8cdd1"], inox: ["#cfd4d8", "#eceef0"], noir: ["#1b1c1e", "#3a3c40"], laiton: ["#b8913a", "#d9b867"] }[o.handle || "alu"];
     var handle =
-      '<rect x="94" y="112" width="8" height="34" rx="4" fill="#aab1b7"/>' +
-      '<rect x="80" y="124" width="22" height="6" rx="3" fill="#c8cdd1"/>' +
-      '<circle cx="98" cy="156" r="5" fill="#aab1b7"/><rect x="97" y="153" width="2" height="6" fill="#3a3f44"/>';
+      '<rect x="94" y="112" width="8" height="34" rx="4" fill="' + HC[0] + '"/>' +
+      '<rect x="80" y="124" width="22" height="6" rx="3" fill="' + HC[1] + '"/>' +
+      '<circle cx="98" cy="156" r="5" fill="' + HC[0] + '"/><rect x="97" y="153" width="2" height="6" fill="#3a3f44"/>';
     return '' +
       '<svg viewBox="0 0 120 250" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">' +
       '<defs><linearGradient id="steel" x1="0" x2="1"><stop offset="0" stop-color="#c3cad5"/><stop offset=".5" stop-color="#e6eaf0"/><stop offset="1" stop-color="#aeb7c4"/></linearGradient>' +
@@ -229,6 +231,7 @@
       '<p>' + esc(p.desc) + '</p>' +
       '<div class="specs">' + p.specs.map(function (s) { return '<span>' + s + '</span>'; }).join("") + '</div>' +
       '<div class="product-foot"><div class="price">' + (p.price ? 'Budget indicatif posé<strong>' + p.price + '</strong>' : 'Prix posé<strong>Sur devis</strong>') + '</div>' +
+      '<label class="cmp-check"><input type="checkbox" data-compare="' + p.id + '"> Comparer</label>' +
       '<a class="btn btn-ink btn-sm" href="' + url + '">Voir</a></div>' +
       '</div></article>';
   }
@@ -371,5 +374,99 @@
     var setBA = function () { ba.style.setProperty("--pos", range.value + "%"); };
     range.addEventListener("input", setBA);
     setBA();
+  }
+
+  /* ======================================================
+     Comparateur (jusqu'à 3 modèles, mémorisés dans le navigateur)
+     ====================================================== */
+  var CMP_KEY = "spb-compare";
+  function cmpGet() { try { return JSON.parse(localStorage.getItem(CMP_KEY) || "[]").filter(function (id) { return BY_ID[id]; }); } catch (e) { return []; } }
+  function cmpSet(list) { try { localStorage.setItem(CMP_KEY, JSON.stringify(list)); } catch (e) {} cmpSync(); }
+  var bar = document.createElement("div");
+  bar.className = "cmp-bar"; bar.hidden = true;
+  document.body.appendChild(bar);
+  function cmpSync() {
+    var list = cmpGet();
+    document.querySelectorAll("[data-compare]").forEach(function (cb) { cb.checked = list.indexOf(cb.getAttribute("data-compare")) !== -1; });
+    document.querySelectorAll(".cmp-count").forEach(function (el) { el.hidden = !list.length; el.textContent = "(" + list.length + ")"; });
+    var onCmpPage = !!document.getElementById("compare-view");
+    bar.hidden = !list.length || onCmpPage;
+    bar.innerHTML = '<div class="container"><span>' + list.map(function (id) { return "<b>" + esc(BY_ID[id].brand) + "</b> " + esc(BY_ID[id].name); }).join(" · ") + "</span>" +
+      '<a class="btn btn-white btn-sm" href="/comparateur.html">Comparer (' + list.length + ")</a></div>";
+    if (onCmpPage) renderCompare(list);
+  }
+  document.addEventListener("change", function (e) {
+    var cb = e.target;
+    if (!cb.matches || !cb.matches("[data-compare]")) return;
+    var id = cb.getAttribute("data-compare"), list = cmpGet();
+    if (cb.checked) {
+      if (list.indexOf(id) === -1) list.push(id);
+      if (list.length > 3) list.shift();
+    } else list = list.filter(function (x) { return x !== id; });
+    cmpSet(list);
+  });
+  function renderCompare(list) {
+    var view = document.getElementById("compare-view");
+    if (!list.length) { view.innerHTML = '<div class="empty"><strong>Aucun modèle à comparer.</strong><br>Cochez « Comparer » sur les modèles qui vous intéressent dans les catalogues.</div>'; return; }
+    var items = list.map(function (id) { return BY_ID[id]; });
+    var CERT = { BP1: "A2P BP1 · 5 min", BP2: "A2P BP2 · 10 min", BP3: "A2P BP3 · 15 min", RC3: "EN 1627 classe 3", RC4: "EN 1627 classe 4", A2P1: "A2P★", A2P2: "A2P★★", A2P3: "A2P★★★", hs: "Haute sécurité", none: "Non certifiée" };
+    var row = function (label, fn) { return "<tr><th>" + label + "</th>" + items.map(function (p) { return "<td>" + fn(p) + "</td>"; }).join("") + "</tr>"; };
+    view.innerHTML = '<div class="table-wrap cmp-table"><table><thead><tr><th></th>' + items.map(function (p) {
+      return '<th><div class="cmp-visual">' + visual(p) + '</div>' + brandLogo(p.brand) + '<a href="/produits/' + p.slug + '.html">' + esc(p.name) + '</a><button type="button" class="cmp-remove" data-remove="' + p.id + '">Retirer</button></th>';
+    }).join("") + "</tr></thead><tbody>" +
+      row("Marque", function (p) { return esc(p.brand); }) +
+      row("Certification", function (p) { return CERT[p.cert] || "—"; }) +
+      row("Type", function (p) { return p.isDoor ? (p.type === "blindage" ? "Blindage de porte" : "Bloc-porte complet") : ({ multipoints: "Serrure multipoints", cylindre: "Cylindre", verrou: "Verrou", connectee: "Serrure connectée" }[p.kind]); }) +
+      row("Usage", function (p) { return p.isDoor ? (p.usage || []).join(", ") : ({ applique: "En applique", encastree: "Encastrée", cylindre: "Remplacement de cylindre", electronique: "Électronique" }[p.pose]); }) +
+      row("Caractéristiques", function (p) { return p.specs.map(esc).join("<br>"); }) +
+      row("Description", function (p) { return esc(p.desc); }) +
+      row("Budget posé", function (p) { return "<strong>" + (p.price || "Sur devis") + "</strong>"; }) +
+      row("", function (p) { return '<a class="btn btn-red btn-sm" href="/?produit=' + encodeURIComponent(p.brand + " – " + p.name) + "&prestation=" + (p.isDoor ? "remplacement" : "serrure") + '#devis">Devis</a>'; }) +
+      "</tbody></table></div>";
+    view.querySelectorAll("[data-remove]").forEach(function (b) {
+      b.addEventListener("click", function () { cmpSet(cmpGet().filter(function (x) { return x !== b.getAttribute("data-remove"); })); });
+    });
+  }
+  var clr = document.getElementById("compare-clear");
+  if (clr) clr.addEventListener("click", function () { cmpSet([]); });
+  cmpSync();
+
+  /* ---------- Catalogue PDF (impression) ---------- */
+  document.querySelectorAll(".js-print").forEach(function (b) { b.addEventListener("click", function () { window.print(); }); });
+
+  /* ======================================================
+     Aperçus de finitions + configurateur
+     ====================================================== */
+  document.querySelectorAll(".fin-visual[data-panel]").forEach(function (el) {
+    el.innerHTML = doorSVG({ id: "f" + Math.random().toString(36).slice(2, 7), style: el.getAttribute("data-panel"), color: el.getAttribute("data-color"), dark: el.getAttribute("data-dark"), handle: el.getAttribute("data-handle") || "alu" });
+  });
+  var cfg = document.getElementById("cfg-form");
+  if (cfg && DATA.coloris) {
+    cfg.querySelectorAll("span[data-panel]").forEach(function (el) {
+      el.innerHTML = doorSVG({ id: "p" + el.getAttribute("data-panel"), style: el.getAttribute("data-panel"), color: "#cbd0cc", dark: "#8c9298" });
+    });
+    var v = function (n) { var el = cfg.querySelector('input[name="' + n + '"]:checked'); return el ? el.value : null; };
+    var fmtE = function (n) { return n.toLocaleString("fr-FR") + " €"; };
+    var drawCfg = function () {
+      var col = DATA.coloris[+v("coloris")], pan = v("panneau"), poi = v("poignee"), niv = v("niveau");
+      var panName = DATA.panneaux.filter(function (p) { return p[0] === pan; })[0][1];
+      var poiName = DATA.poignees.filter(function (p) { return p[0] === poi; })[0][1];
+      var nv = DATA.niveaux.filter(function (n) { return n[0] === niv; })[0];
+      document.getElementById("cfg-preview").innerHTML = doorSVG({ id: "cfg", style: pan, color: col[2], dark: col[3], handle: poi });
+      var min = nv[3], max = nv[4], opts = [];
+      cfg.querySelectorAll('input[name="options"]:checked').forEach(function (o) {
+        var d = DATA.options.filter(function (x) { return x[0] === o.value; })[0];
+        min += d[3]; max += d[4]; opts.push(d[1]);
+      });
+      if (pan === "glass") { min += 300; max += 700; }
+      if (col[0] === "Chêne doré" || col[0] === "Noyer") { min += 300; max += 600; }
+      var recap = panName + " · " + col[0] + " " + col[1] + " · poignée " + poiName.toLowerCase() + " · " + nv[1] + (opts.length ? " · " + opts.join(", ") : "");
+      document.getElementById("cfg-recap").textContent = recap;
+      document.getElementById("cfg-min").textContent = fmtE(min);
+      document.getElementById("cfg-max").textContent = fmtE(max);
+      document.getElementById("cfg-cta").href = "/?prestation=remplacement&produit=" + encodeURIComponent("Configuration : " + recap + " (estimation " + fmtE(min) + " à " + fmtE(max) + ")") + "#devis";
+    };
+    cfg.addEventListener("change", function () { drawCfg(); track("configurateur_modif"); });
+    drawCfg();
   }
 })();

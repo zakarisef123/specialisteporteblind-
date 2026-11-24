@@ -129,8 +129,11 @@ def header(active):
       <li class="hide-sm">{I["pin"]} <a href="/zones/">{ZONE}</a></li>
       <li class="hide-sm">{I["clock"]} {HOURS}</li>
     </ul>
-    <ul>
-      <li>{I["mail"]} <a href="mailto:{EMAIL}">{EMAIL}</a></li>
+    <ul class="utility-links">
+      <li><a href="/finitions.html">Finitions &amp; coloris</a></li>
+      <li><a href="/guides/">Guides</a></li>
+      <li><a href="/professionnels.html">Professionnels</a></li>
+      <li><a href="/comparateur.html">Comparateur <span class="cmp-count" hidden></span></a></li>
     </ul>
   </div>
 </div>
@@ -141,9 +144,9 @@ def header(active):
       {a("/portes-blindees.html", "Portes blindées", "portes")}
       {a("/serrures.html", "Serrures", "serrures")}
       {a("/marques/", "Marques", "marques")}
+      {a("/configurateur.html", "Configurateur", "config")}
       {a("/simulateur.html", "Prix", "prix")}
       {a("/realisations.html", "Réalisations", "realisations")}
-      {a("/guides/", "Guides", "guides")}
     </nav>
     <div class="header-cta">
       <a class="phone-pill" href="tel:{PHONE_TEL}" data-track="clic_appel" aria-label="Appeler le {PHONE}"><span class="ring">{I["phone"]}</span><span><small>Devis gratuit</small><strong>{PHONE}</strong></span></a>
@@ -192,7 +195,10 @@ def footer():
           <li><a href="/portes-blindees.html">Remplacement de porte blindée</a></li>
           <li><a href="/?prestation=blindage#devis">Blindage de porte existante</a></li>
           <li><a href="/serrures.html">Changement de serrure</a></li>
+          <li><a href="/configurateur.html">Configurateur de porte</a></li>
           <li><a href="/simulateur.html">Simulateur de prix</a></li>
+          <li><a href="/finitions.html">Finitions &amp; coloris</a></li>
+          <li><a href="/professionnels.html">Professionnels &amp; syndics</a></li>
           <li><a href="/realisations.html">Nos réalisations</a></li>
         </ul>
       </div>
@@ -267,7 +273,7 @@ def product_card(p):
     <h3><a href="/produits/{p["slug"]}.html">{E(p["name"])}</a></h3>
     <p>{E(p["desc"])}</p>
     <div class="specs">{"".join(f"<span>{s}</span>" for s in p["specs"])}</div>
-    <div class="product-foot"><div class="price">{price}</div><a class="btn btn-ink btn-sm" href="/produits/{p["slug"]}.html">Voir</a></div>
+    <div class="product-foot"><div class="price">{price}</div><label class="cmp-check"><input type="checkbox" data-compare="{p["id"]}"> Comparer</label><a class="btn btn-ink btn-sm" href="/produits/{p["slug"]}.html">Voir</a></div>
   </div>
 </article>'''
 
@@ -300,6 +306,7 @@ for tpl in sorted((SRC / "pages").glob("*.py")):
 data = {
     "doors": PRODUCTS["doors"], "locks": PRODUCTS["locks"],
     "logos": {b[1]: b[2] for b in BRAND_DATA if b[2]},
+    "coloris": COLORIS, "panneaux": PANNEAUX, "poignees": POIGNEES, "options": OPTIONS, "niveaux": NIVEAUX,
 }
 (ROOT / "assets/js/data.js").write_text(
     "/* Généré par _src/build.py — ne pas modifier à la main */\nwindow.SITE_DATA = " +

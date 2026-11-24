@@ -16,6 +16,7 @@ Python (sans dépendance) puis versionnées : le site se publie tel quel, sans �
 | `_src/config.py` | **Coordonnées, WhatsApp, mentions légales, Google Tag Manager, lien avis Google** |
 | `_src/products.json` | Catalogue des portes et serrures (fiches produits + catalogues filtrables) |
 | `_src/brands.py` | Les marques (logo, catégories, description) → pages `/marques/` |
+| `_src/finitions.py` | Coloris RAL, habillages, poignées, options et prix de base du configurateur |
 | `_src/guides.py` | Les guides de conseil → pages `/guides/` |
 | `_src/zones.json` | Villes et arrondissements desservis → pages `/zones/` |
 | `_src/pages/*.py` | Accueil, catalogues, mentions légales, page merci |
@@ -29,6 +30,8 @@ Python (sans dépendance) puis versionnées : le site se publie tel quel, sans �
 - **52 fiches produits** (`/produits/`) et **40 pages marques** (`/marques/`)
 - **57 pages zones** (`/zones/`, Paris par arrondissement + Hauts-de-Seine)
 - **5 guides** (`/guides/`) : prix, certification A2P, blindage ou bloc-porte, assurance, serrure
+- **Configurateur de porte** (aperçu en direct + estimation), **Finitions & coloris**, **Comparateur** (3 modèles), **Professionnels & syndics**
+- Pages marques avec tableau comparatif de la gamme, finitions et catalogue PDF (impression)
 - **Simulateur de prix**, **Réalisations** (avant / après + galerie), **Qui sommes-nous**, plan du site, 404
 - `sitemap.xml` et `robots.txt` régénérés à chaque build
 

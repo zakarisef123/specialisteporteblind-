@@ -1,5 +1,45 @@
 # Exécuté dans l'espace de noms de build.py (accès à head, header, footer, write, etc.)
 
+
+from finitions import COLORIS, PANNEAUX, POIGNEES, OPTIONS, NIVEAUX
+
+CERT_SHORT = {"BP1": "A2P BP1", "BP2": "A2P BP2", "BP3": "A2P BP3", "RC3": "EN 1627 cl. 3", "RC4": "EN 1627 cl. 4",
+              "A2P1": "A2P★", "A2P2": "A2P★★", "A2P3": "A2P★★★", "hs": "Haute sécurité", "none": "—"}
+USAGE = {"appartement": "Appartement", "maison": "Maison", "immeuble": "Immeuble"}
+
+def brand_compare(prods):
+    if len(prods) < 2:
+        return ""
+    is_door = prods[0]["kind_label"] == "porte"
+    rows = ""
+    for p in prods:
+        col3 = ", ".join(USAGE[u] for u in p.get("usage", [])) if is_door else {"multipoints": "Multipoints", "cylindre": "Cylindre", "verrou": "Verrou", "connectee": "Connectée"}[p["kind"]]
+        col4 = ("Bloc-porte" if p.get("type") == "bloc-porte" else "Blindage") if is_door else {"applique": "Applique", "encastree": "Encastrée", "cylindre": "Cylindre", "electronique": "Électronique"}[p["pose"]]
+        rows += f'<tr><td><a href="/produits/{p["slug"]}.html">{E(p["name"])}</a></td><td>{CERT_SHORT.get(p.get("cert"), "—")}</td><td>{col3}</td><td>{col4}</td><td class="num">{p.get("price") or "Sur devis"}</td><td><label class="cmp-check"><input type="checkbox" data-compare="{p["id"]}"> Comparer</label></td></tr>'
+    h3, h4 = ("Logement", "Solution") if is_door else ("Type", "Pose")
+    return f"""<section class="section" style="padding-top:0">
+  <div class="container">
+    <div class="head"><div><span class="kicker">Comparatif</span><h2>Toute la gamme en un coup d'œil</h2></div><p>Cochez jusqu'à 3 modèles pour les comparer côte à côte.</p></div>
+    <div class="table-wrap spec-table"><table>
+      <thead><tr><th>Modèle</th><th>Certification</th><th>{h3}</th><th>{h4}</th><th>Budget posé</th><th></th></tr></thead>
+      <tbody>{rows}</tbody>
+    </table></div>
+  </div>
+</section>"""
+
+def swatch(c):
+    code, nom, col, dark = c
+    return f'<span class="swatch"><i style="background:{col}"></i><strong>{code}</strong><small>{nom}</small></span>'
+
+def brand_finishes(name):
+    return f"""<section class="section section-sand">
+  <div class="container">
+    <div class="head"><div><span class="kicker">Finitions</span><h2>Personnalisez votre porte {E(name)}</h2></div><p>Habillages, coloris et options : les finitions disponibles dépendent de la gamme choisie et sont confirmées sur le devis.</p></div>
+    <div class="swatches">{"".join(swatch(c) for c in COLORIS[:8])}</div>
+    <div class="hero-actions" style="margin:32px 0 0"><a class="btn btn-red" href="/configurateur.html">Configurer ma porte {I["arrow"]}</a><a class="btn btn-line" href="/finitions.html">Toutes les finitions</a></div>
+  </div>
+</section>"""
+
 CAT_LABEL = {"portes": "Portes blindées", "serrures": "Serrures & cylindres", "connectees": "Serrures connectées"}
 DEP_LABEL = {"75": "Paris (75)", "92": "Hauts-de-Seine (92)", "93": "Seine-Saint-Denis (93)"}
 
@@ -94,6 +134,7 @@ for b in BRAND_DATA:
       <div class="hero-actions" style="margin:28px 0 0">
         <a class="btn btn-red" href="{devis_href(name, prest)}">Devis gratuit {name} {I["arrow"]}</a>
         <a class="btn btn-ghost" href="tel:{PHONE_TEL}" data-track="clic_appel">{I["phone"]} {PHONE}</a>
+        <button class="btn btn-ghost js-print" type="button">{I["file"]} Catalogue PDF</button>
       </div>
     </div>
     {lg}
@@ -107,6 +148,8 @@ for b in BRAND_DATA:
     {prod_html}
   </div>
 </section>
+{brand_compare(prods)}
+{brand_finishes(name) if is_door else ""}
 <section class="section section-sand">
   <div class="container">
     <div class="head"><div><span class="kicker">Nos services</span><h2>Votre projet {E(name)}, de A à Z.</h2></div>
@@ -164,6 +207,7 @@ for p in ALL_PRODUCTS:
           <a class="btn btn-line" href="tel:{PHONE_TEL}" data-track="clic_appel">{I["phone"]} {PHONE}</a>
           {wa_btn()}
         </div>
+        <label class="cmp-check big"><input type="checkbox" data-compare="{p["id"]}"> Ajouter au comparateur</label>
       </div>
     </div>
   </div>
@@ -495,3 +539,136 @@ html_ = head(f"Page introuvable | {NAME}", "Cette page n'existe pas.", "404.html
 </div></section></main>
 ''' + footer()
 write("404.html", html_, index=False)
+
+
+# ======================================================== CONFIGURATEUR
+def cfg_radio(name, value, inner, checked=False, cls="opt"):
+    return f'<label class="{cls}"><input type="radio" name="{name}" value="{value}"{" checked" if checked else ""}><span>{inner}</span></label>'
+
+col_opts = "".join(cfg_radio("coloris", i, f'<i style="background:{c[2]}"></i><strong>{c[0]}</strong><small>{c[1]}</small>', i == 0, "opt sw") for i, c in enumerate(COLORIS))
+pan_opts = "".join(cfg_radio("panneau", k, f'<span data-panel="{k}"></span><strong>{n}</strong>', k == "classic", "opt pan") for k, n, d in PANNEAUX if k != "plate")
+poi_opts = "".join(cfg_radio("poignee", k, f'<strong>{n}</strong>', k == "alu") for k, n in POIGNEES)
+niv_opts = "".join(cfg_radio("niveau", k, f'<strong>{n}</strong><small>{d}</small>', k == "BP1") for k, n, d, a, b in NIVEAUX)
+opt_opts = "".join(f'<label class="opt"><input type="checkbox" name="options" value="{k}"><span><strong>{n}</strong><small>{d}</small></span></label>' for k, n, d, a, b in OPTIONS)
+html_ = head(f"Configurateur de porte blindée | {NAME}",
+             "Composez votre porte blindée : panneau, coloris RAL, poignée, certification A2P et options. Aperçu en direct et estimation du prix posé.",
+             "configurateur.html", crumbs_ld([("Accueil", "/"), ("Configurateur", "/configurateur.html")])) + header("config") + f'''
+<main id="main">
+<section class="cfg" id="configurateur">
+  <div class="cfg-stage">
+    <div class="cfg-preview" id="cfg-preview" aria-live="polite"></div>
+    <div class="cfg-summary">
+      <span class="kicker">Votre porte</span>
+      <p id="cfg-recap">—</p>
+      <div class="sim-amount"><strong id="cfg-min">–</strong><span>à</span><strong id="cfg-max">–</strong></div>
+      <p class="sim-label">Estimation fourniture et pose, TTC</p>
+      <a class="btn btn-red btn-block" id="cfg-cta" href="/#devis">Recevoir un devis pour cette porte {I["arrow"]}</a>
+    </div>
+  </div>
+  <form class="cfg-panel" id="cfg-form">
+    <nav class="crumbs dark" aria-label="Fil d'Ariane"><a href="/">Accueil</a><span>/</span><span>Configurateur</span></nav>
+    <h1>Configurez votre porte blindée</h1>
+    <p class="muted">Choisissez l'habillage, le coloris, la poignée et le niveau de sécurité : votre porte se dessine en direct.</p>
+    <fieldset><legend>1. Habillage extérieur</legend><div class="opts three pans">{pan_opts}</div></fieldset>
+    <fieldset><legend>2. Coloris</legend><div class="sw-grid">{col_opts}</div></fieldset>
+    <fieldset><legend>3. Poignée</legend><div class="opts four">{poi_opts}</div></fieldset>
+    <fieldset><legend>4. Niveau de sécurité</legend><div class="opts four">{niv_opts}</div></fieldset>
+    <fieldset><legend>5. Options</legend><div class="opts two">{opt_opts}</div></fieldset>
+    <p class="fine">Aperçu non contractuel. Les coloris, habillages et options disponibles dépendent du fabricant et de la gamme : ils sont confirmés lors de la visite technique et sur le devis.</p>
+  </form>
+</section>
+</main>
+''' + footer()
+write("configurateur.html", html_, "0.9")
+
+# ======================================================== FINITIONS
+pan_cards = "".join(f'<div class="fin-card"><span class="fin-visual" data-panel="{k}" data-color="#383e42" data-dark="#24282b"></span><strong>{n}</strong><p>{d}</p></div>' for k, n, d in PANNEAUX)
+poi_cards = "".join(f'<div class="fin-card small"><span class="fin-visual" data-panel="modern" data-color="#e6e8e9" data-dark="#b9bfc4" data-handle="{k}"></span><strong>{n}</strong></div>' for k, n in POIGNEES)
+opt_cards = "".join(f'<div class="feature"><h3>{n}</h3><p>{d}</p><p class="opt-price">+ {a} à {b} € posé</p></div>' for k, n, d, a, b in OPTIONS)
+html_ = head(f"Finitions et coloris de portes blindées | {NAME}",
+             "Habillages, coloris RAL, poignées et options pour votre porte blindée : nuancier, panneaux moulurés, contemporains ou vitrés.",
+             "finitions.html", crumbs_ld([("Accueil", "/"), ("Finitions & coloris", "/finitions.html")])) + header("") + page_hero(
+    "Finitions & coloris", "Finitions &amp; coloris", "Une porte blindée se personnalise comme une porte d'entrée : habillage, coloris, poignée et options. Voici les possibilités les plus courantes.", "cle-serrure-porte-blindee") + f'''
+<main id="main">
+<section class="section">
+  <div class="container">
+    <div class="head"><div><span class="kicker">Habillages</span><h2>Le panneau extérieur</h2></div><p>Côté palier ou côté rue, l'habillage donne son style à la porte. Le panneau intérieur peut être choisi séparément.</p></div>
+    <div class="fin-grid">{pan_cards}</div>
+  </div>
+</section>
+<section class="section section-sand">
+  <div class="container">
+    <div class="head"><div><span class="kicker">Nuancier</span><h2>Les coloris</h2></div><p>Les teintes RAL les plus demandées et les placages bois. D'autres teintes sont possibles selon les fabricants.</p></div>
+    <div class="swatches big">{"".join(swatch(c) for c in COLORIS)}</div>
+  </div>
+</section>
+<section class="section">
+  <div class="container">
+    <div class="head"><div><span class="kicker">Poignées</span><h2>Garnitures</h2></div><p>Béquilles, plaques et rosaces de sécurité, assorties au style de la porte.</p></div>
+    <div class="fin-grid four">{poi_cards}</div>
+  </div>
+</section>
+<section class="section section-sand">
+  <div class="container">
+    <div class="head"><div><span class="kicker">Options</span><h2>Confort et isolation</h2></div><p>Suppléments indicatifs, fourniture et pose comprises.</p></div>
+    <div class="feature-row three">{opt_cards}</div>
+    <div class="hero-actions" style="margin:40px 0 0"><a class="btn btn-red" href="/configurateur.html">Configurer ma porte {I["arrow"]}</a></div>
+  </div>
+</section>
+''' + cta_block() + "</main>\n" + footer()
+write("finitions.html", html_, "0.7")
+
+# ======================================================== COMPARATEUR
+html_ = head(f"Comparateur de portes blindées et serrures | {NAME}",
+             "Comparez côte à côte les portes blindées et serrures : certification, usage, caractéristiques et budget posé.",
+             "comparateur.html", crumbs_ld([("Accueil", "/"), ("Comparateur", "/comparateur.html")])) + header("") + page_hero(
+    "Comparateur", "Comparateur", "Comparez jusqu'à 3 modèles côte à côte. Ajoutez des modèles depuis les catalogues ou les pages marques.", "serrure-multipoints-porte-blindee") + f'''
+<main id="main">
+<section class="section">
+  <div class="container">
+    <div id="compare-view" class="compare-view"></div>
+    <div class="hero-actions" style="margin:40px 0 0"><a class="btn btn-line" href="/portes-blindees.html">Ajouter une porte</a><a class="btn btn-line" href="/serrures.html">Ajouter une serrure</a><button class="btn btn-line" type="button" id="compare-clear">Vider le comparateur</button></div>
+  </div>
+</section>
+''' + cta_block() + "</main>\n" + footer()
+write("comparateur.html", html_, "0.4")
+
+# ======================================================== PROFESSIONNELS
+html_ = head(f"Professionnels, syndics et copropriétés | {NAME}",
+             "Portes blindées, portes de caves et de locaux, contrôle d'accès et organigrammes de clés pour syndics, gestionnaires et bailleurs. Devis groupés.",
+             "professionnels.html", crumbs_ld([("Accueil", "/"), ("Professionnels", "/professionnels.html")])) + header("") + page_hero(
+    "Professionnels", "Syndics, gestionnaires &amp; bailleurs", "Un interlocuteur unique pour sécuriser les accès d'un immeuble ou d'un parc de logements : parties communes, logements, locaux techniques.", "porte-vitree-reparee") + f'''
+<main id="main">
+<section class="section">
+  <div class="container">
+    <div class="head"><div><span class="kicker">Nos prestations</span><h2>Pour les immeubles et les parcs de logements</h2></div><p>Interventions planifiées, devis groupés et suivi par un interlocuteur unique.</p></div>
+    <div class="feature-row">
+      <div class="feature"><span class="ico">{I["door"]}</span><h3>Portes palières en lot</h3><p>Remplacement coordonné de plusieurs portes palières avec un habillage extérieur identique, conforme au règlement de copropriété.</p></div>
+      <div class="feature"><span class="ico">{I["building"]}</span><h3>Halls et parties communes</h3><p>Portes d'entrée d'immeuble, ventouses, interphones et contrôle d'accès par badge.</p></div>
+      <div class="feature"><span class="ico">{I["lock"]}</span><h3>Caves et locaux</h3><p>Portes métalliques renforcées pour caves, locaux vélos, poubelles et techniques.</p></div>
+      <div class="feature"><span class="ico">{I["key"]}</span><h3>Organigrammes de clés</h3><p>Un même passe pour les parties communes, des clés individuelles protégées pour chaque logement.</p></div>
+    </div>
+  </div>
+</section>
+<section class="section section-sand">
+  <div class="container split-2">
+    <div>
+      <span class="kicker">Méthode</span>
+      <h2>Comment nous travaillons</h2>
+      <ul class="points compact">
+        <li><span class="n">{I["check"]}</span><div><strong>Visite de l'immeuble et relevé de toutes les ouvertures</strong></div></li>
+        <li><span class="n">{I["check"]}</span><div><strong>Devis détaillé par lot, présentable en assemblée générale</strong></div></li>
+        <li><span class="n">{I["check"]}</span><div><strong>Planning d'intervention coordonné avec le gardien</strong></div></li>
+        <li><span class="n">{I["check"]}</span><div><strong>Procès-verbal de fin de travaux et documents par logement</strong></div></li>
+      </ul>
+    </div>
+    <div>
+      <span class="kicker">Pour qui</span>
+      <h2>Ils peuvent nous confier leurs accès</h2>
+      <p class="muted">Syndics de copropriété, conseils syndicaux, gestionnaires locatifs, bailleurs, agences immobilières, commerces et bureaux.</p>
+      <div class="hero-actions" style="margin-top:28px"><a class="btn btn-red" href="/?prestation=remplacement&produit=Projet%20professionnel%20%2F%20copropri%C3%A9t%C3%A9#devis">Demander un devis groupé {I["arrow"]}</a><a class="btn btn-line" href="mailto:{EMAIL}">{I["mail"]} {EMAIL}</a></div>
+    </div>
+  </div>
+</section>
+''' + cta_block() + "</main>\n" + footer()
+write("professionnels.html", html_, "0.6")
