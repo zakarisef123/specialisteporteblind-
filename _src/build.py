@@ -67,10 +67,10 @@ def logo_img(slug, name, lazy=True, cls=""):
     return f'<img{c} src="/assets/img/marques/{slug}.webp" alt="{E(name)}"{" loading=\"lazy\"" if lazy else ""} decoding="async">'
 
 LOGO = '''<svg class="logo-mark" viewBox="0 0 48 48" aria-hidden="true">
-  <rect width="48" height="48" rx="12" fill="#0f1419"/>
-  <path d="M24 8 12 12.5v9c0 8 5.1 14.6 12 17.5 6.9-2.9 12-9.5 12-17.5v-9z" fill="none" stroke="#c8281e" stroke-width="2.4" stroke-linejoin="round"/>
+  <rect width="48" height="48" rx="12" fill="#141516"/>
+  <path d="M24 8 12 12.5v9c0 8 5.1 14.6 12 17.5 6.9-2.9 12-9.5 12-17.5v-9z" fill="none" stroke="#b9bfc4" stroke-width="2.4" stroke-linejoin="round"/>
   <rect x="19" y="16" width="10" height="15" rx="1.5" fill="#fff"/>
-  <circle cx="26.3" cy="23.5" r="1.2" fill="#0f1419"/>
+  <circle cx="26.3" cy="23.5" r="1.2" fill="#141516"/>
 </svg>'''
 
 def logo_block():
@@ -107,11 +107,11 @@ def head(title, desc, canonical, extra="", image="serrure-multipoints-porte-blin
   <meta property="og:url" content="{DOMAIN}{path}">
   <meta property="og:image" content="{DOMAIN}/assets/img/photos/{image}.webp">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="theme-color" content="#0f1419">
+  <meta name="theme-color" content="#141516">
   <link rel="icon" href="/assets/img/favicon.svg" type="image/svg+xml">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Inter+Tight:wght@600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@600;700;800&family=Public+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/assets/css/style.css">
 {gtm_head()}{extra}</head>
 <body>

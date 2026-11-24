@@ -141,9 +141,9 @@
     }
     var hinge = '<rect x="13" y="50" width="5" height="18" rx="2" fill="#8d96a6"/><rect x="13" y="175" width="5" height="18" rx="2" fill="#8d96a6"/>';
     var handle =
-      '<rect x="94" y="112" width="8" height="34" rx="4" fill="#c9a24a"/>' +
-      '<rect x="80" y="124" width="22" height="6" rx="3" fill="#d9b867"/>' +
-      '<circle cx="98" cy="156" r="5" fill="#c9a24a"/><rect x="97" y="153" width="2" height="6" fill="#5c4614"/>';
+      '<rect x="94" y="112" width="8" height="34" rx="4" fill="#aab1b7"/>' +
+      '<rect x="80" y="124" width="22" height="6" rx="3" fill="#c8cdd1"/>' +
+      '<circle cx="98" cy="156" r="5" fill="#aab1b7"/><rect x="97" y="153" width="2" height="6" fill="#3a3f44"/>';
     return '' +
       '<svg viewBox="0 0 120 250" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">' +
       '<defs><linearGradient id="steel" x1="0" x2="1"><stop offset="0" stop-color="#c3cad5"/><stop offset=".5" stop-color="#e6eaf0"/><stop offset="1" stop-color="#aeb7c4"/></linearGradient>' +
@@ -163,19 +163,19 @@
         '<defs><linearGradient id="brass' + o.id + '" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="' + (o.color || "#e2c77a") + '"/><stop offset="1" stop-color="' + (o.dark || "#a8842f") + '"/></linearGradient></defs>' +
         '<rect x="16" y="40" width="128" height="40" rx="20" fill="url(#brass' + o.id + ')"/>' +
         '<rect x="70" y="72" width="20" height="30" rx="4" fill="url(#brass' + o.id + ')"/>' +
-        '<circle cx="36" cy="60" r="14" fill="#fff" opacity=".35"/><circle cx="36" cy="60" r="10" fill="none" stroke="#5c4614" stroke-width="2"/>' +
-        '<rect x="33" y="52" width="6" height="16" rx="2" fill="#5c4614"/>' +
-        '<circle cx="124" cy="60" r="10" fill="none" stroke="#5c4614" stroke-width="2"/>' +
+        '<circle cx="36" cy="60" r="14" fill="#fff" opacity=".35"/><circle cx="36" cy="60" r="10" fill="none" stroke="#3a3f44" stroke-width="2"/>' +
+        '<rect x="33" y="52" width="6" height="16" rx="2" fill="#3a3f44"/>' +
+        '<circle cx="124" cy="60" r="10" fill="none" stroke="#3a3f44" stroke-width="2"/>' +
         '<rect x="66" y="40" width="28" height="40" fill="#000" opacity=".08"/>' +
         '<path d="M100 18h40a6 6 0 0 1 6 6v6h-52v-6a6 6 0 0 1 6-6z" fill="#1a2b4f"/>' +
-        '<text x="120" y="28" font-size="9" font-weight="800" fill="#d9b867" text-anchor="middle" font-family="Arial">A2P</text>' +
+        '<text x="120" y="28" font-size="9" font-weight="800" fill="#c8cdd1" text-anchor="middle" font-family="Arial">A2P</text>' +
         '</svg>';
     }
     if (t === "connectee") {
       return '<svg viewBox="0 0 160 120" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">' +
         '<rect x="44" y="10" width="72" height="100" rx="14" fill="#1a2b4f"/>' +
         '<rect x="54" y="22" width="52" height="40" rx="6" fill="#0b1426"/>' +
-        '<g fill="#d9b867"><circle cx="66" cy="76" r="4"/><circle cx="80" cy="76" r="4"/><circle cx="94" cy="76" r="4"/><circle cx="66" cy="90" r="4"/><circle cx="80" cy="90" r="4"/><circle cx="94" cy="90" r="4"/></g>' +
+        '<g fill="#c8cdd1"><circle cx="66" cy="76" r="4"/><circle cx="80" cy="76" r="4"/><circle cx="94" cy="76" r="4"/><circle cx="66" cy="90" r="4"/><circle cx="80" cy="90" r="4"/><circle cx="94" cy="90" r="4"/></g>' +
         '<path d="M70 42a14 14 0 0 1 20 0M74 47a8 8 0 0 1 12 0" stroke="#3ddc84" stroke-width="3" fill="none" stroke-linecap="round"/>' +
         '<circle cx="80" cy="52" r="2.5" fill="#3ddc84"/>' +
         '</svg>';
@@ -184,7 +184,7 @@
       return '<svg viewBox="0 0 160 120" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">' +
         '<rect x="30" y="34" width="70" height="52" rx="6" fill="' + (o.color || "#8d96a6") + '"/>' +
         '<rect x="100" y="50" width="34" height="20" rx="3" fill="#c3cad5"/>' +
-        '<circle cx="54" cy="60" r="12" fill="#c9a24a"/><rect x="52" y="52" width="4" height="16" rx="1" fill="#5c4614"/>' +
+        '<circle cx="54" cy="60" r="12" fill="#aab1b7"/><rect x="52" y="52" width="4" height="16" rx="1" fill="#3a3f44"/>' +
         '<rect x="30" y="34" width="70" height="10" rx="5" fill="#fff" opacity=".2"/>' +
         '</svg>';
     }
@@ -198,8 +198,8 @@
       bolts +
       '<rect x="30" y="34" width="58" height="56" rx="6" fill="' + (o.color || "#1a2b4f") + '"/>' +
       '<rect x="30" y="34" width="58" height="10" rx="5" fill="#fff" opacity=".12"/>' +
-      '<circle cx="50" cy="70" r="10" fill="#c9a24a"/><rect x="48" y="63" width="4" height="14" rx="1" fill="#5c4614"/>' +
-      '<text x="68" y="56" font-size="10" font-weight="800" fill="#d9b867" text-anchor="middle" font-family="Arial">' + n + 'pts</text>' +
+      '<circle cx="50" cy="70" r="10" fill="#aab1b7"/><rect x="48" y="63" width="4" height="14" rx="1" fill="#3a3f44"/>' +
+      '<text x="68" y="56" font-size="10" font-weight="800" fill="#c8cdd1" text-anchor="middle" font-family="Arial">' + n + 'pts</text>' +
       '</svg>';
   }
 
