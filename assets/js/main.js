@@ -20,6 +20,29 @@
     });
   }
 
+  /* ---------- En-tête au scroll ---------- */
+  var headerEl = document.querySelector(".header");
+  if (headerEl) {
+    var onScroll = function () { headerEl.classList.toggle("scrolled", window.scrollY > 8); };
+    window.addEventListener("scroll", onScroll, { passive: true });
+    onScroll();
+  }
+
+  /* ---------- Mur de marques : onglets ---------- */
+  var wall = document.getElementById("brand-wall");
+  if (wall) {
+    var tabs = document.querySelectorAll("[data-filter]");
+    tabs.forEach(function (tab) {
+      tab.addEventListener("click", function () {
+        var f = tab.getAttribute("data-filter");
+        tabs.forEach(function (t) { t.setAttribute("aria-selected", t === tab ? "true" : "false"); });
+        wall.querySelectorAll(".brand-cell").forEach(function (cell) {
+          cell.hidden = f !== "all" && (" " + cell.getAttribute("data-cats") + " ").indexOf(" " + f + " ") === -1;
+        });
+      });
+    });
+  }
+
   /* ---------- Année du footer ---------- */
   document.querySelectorAll("[data-year]").forEach(function (el) {
     el.textContent = new Date().getFullYear();
@@ -175,6 +198,21 @@
       '</svg>';
   }
 
+  /* Logos des marques (assets/img/marques/<slug>.webp) */
+  var LOGOS = {
+    "Fichet": "point-fort-fichet", "Picard Serrures": "picard", "Bricard": "bricard", "Héraclès": "heracles",
+    "Tordjman Métal": "tordjman", "Zilten": "zilten", "Dierre": "dierre", "Gardesa": "gardesa", "Stremler": "stremler",
+    "Bel'M": "belm", "K-Line": "kline", "Hörmann": "hormann", "Vachette": "vachette", "Mul-T-Lock": "mul-t-lock",
+    "Abus": "abus", "Thirard": "thirard", "Mottura": "mottura", "Iseo": "iseo", "Cisa": "cisa", "Kaba": "kaba",
+    "Keso": "keso", "Evva": "evva", "Tesa": "tesa", "DOM": "dom", "JPM": "jpm", "Laperche": "laperche",
+    "Métalux": "metalux", "Pollux": "pollux", "Ultion": "ultion", "Yale": "yale", "Nuki": "nuki", "Somfy": "somfy",
+    "Netatmo": "netatmo", "Danalock": "danalock", "igloohome": "igloohome", "Bold": "bold"
+  };
+  function brandLogo(name) {
+    var slug = LOGOS[name];
+    return slug ? '<span class="brand-logo"><img src="assets/img/marques/' + slug + '.webp" alt="' + name + '" loading="lazy"></span>' : "";
+  }
+
   /* ======================================================
      Catalogue générique (filtrage + recherche)
      ====================================================== */
@@ -241,14 +279,14 @@
       grid.innerHTML = list.map(function (p) {
         var label = p.brand + " – " + p.name;
         return '<article class="product">' +
-          '<div class="product-visual">' + (p.badge ? '<span class="cert">' + p.badge + '</span>' : "") + cfg.visual(p) + '</div>' +
+          '<div class="product-visual">' + brandLogo(p.brand) + (p.badge ? '<span class="cert-tag">' + p.badge + '</span>' : "") + cfg.visual(p) + '</div>' +
           '<div class="product-body">' +
           '<div class="product-brand">' + p.brand + '</div>' +
           '<h3>' + p.name + '</h3>' +
           '<p>' + p.desc + '</p>' +
-          '<div class="specs">' + p.specs.map(function (s) { return '<span>' + s + '</span>'; }).join("") + '</div>' +
+          '<div class="specs">' + p.specs.map(function (sp) { return '<span>' + sp + '</span>'; }).join("") + '</div>' +
           '<div class="product-foot"><div class="price">' + (p.price ? 'Budget indicatif posé<strong>' + p.price + '</strong>' : 'Prix posé<strong>Sur devis</strong>') + '</div>' +
-          '<a class="btn btn-navy" href="index.html?produit=' + encodeURIComponent(label) + '&prestation=' + cfg.prestation + '#devis">Devis</a></div>' +
+          '<a class="btn btn-ink btn-sm" href="index.html?produit=' + encodeURIComponent(label) + '&prestation=' + cfg.prestation + '#devis">Devis</a></div>' +
           '</div></article>';
       }).join("");
     }
@@ -316,6 +354,24 @@
     { brand: "Stremler", name: "Blindage de porte", cert: "none", usage: ["appartement", "maison"], type: "blindage",
       desc: "Solution de blindage français pour renforcer une porte en bois existante sans changer l'huisserie.",
       specs: ["Blindage acier", "Fabrication française", "Serrure multipoints"], price: "à partir de 1 300 €", color: "#7d5a3c", dark: "#4b3422", style: "plate" },
+    { brand: "Tordjman Métal", name: "Porte blindée certifiée", cert: "BP1", usage: ["appartement"], type: "bloc-porte",
+      desc: "Fabricant français de portes blindées et de blindages, reconnu pour la robustesse de ses blocs-portes.",
+      specs: ["A2P BP1", "Fabrication française", "Sur mesure"], price: "à partir de 3 200 €", badge: "A2P BP1", color: "#3a2a20", dark: "#22170f", style: "classic" },
+    { brand: "Tordjman Métal", name: "Blindage de porte", cert: "none", usage: ["appartement", "maison"], type: "blindage",
+      desc: "Blindage sur mesure d'une porte existante avec cornières, paumelles renforcées et serrure multipoints.",
+      specs: ["Blindage acier", "Cornières anti-pince", "Multipoints"], price: "à partir de 1 400 €", color: "#6b4b33", dark: "#3e2a1b", style: "plate" },
+    { brand: "Zilten", name: "Porte blindée design", cert: "BP2", usage: ["appartement", "maison"], type: "bloc-porte",
+      desc: "Portes blindées françaises au design soigné, larges choix de panneaux et de finitions contemporaines.",
+      specs: ["A2P selon version", "Design", "Acoustique"], price: "à partir de 4 200 €", badge: "A2P", color: "#d9d4cc", dark: "#a39b8f", style: "modern" },
+    { brand: "Hörmann", name: "Porte d'entrée de sécurité", cert: "RC3", usage: ["maison"], type: "bloc-porte",
+      desc: "Porte d'entrée isolante avec équipement de sécurité anti-effraction classé selon la norme européenne.",
+      specs: ["Classe RC selon modèle", "Isolation thermique", "Usage extérieur"], price: "à partir de 3 500 €", badge: "RC", color: "#3d4249", dark: "#23272c", style: "glass" },
+    { brand: "Bel'M", name: "Porte d'entrée haute sécurité", cert: "none", usage: ["maison"], type: "bloc-porte",
+      desc: "Porte d'entrée aluminium haut de gamme, serrure automatique multipoints et forte isolation.",
+      specs: ["Aluminium", "Serrure automatique", "Isolation"], color: "#2d3035", dark: "#16181b", style: "lines" },
+    { brand: "K-Line", name: "Porte d'entrée aluminium sécurisée", cert: "none", usage: ["maison"], type: "bloc-porte",
+      desc: "Porte d'entrée aluminium design, renforts et serrure multipoints pour une maison individuelle.",
+      specs: ["Aluminium", "Multipoints", "Design"], color: "#5b6068", dark: "#34383d", style: "modern" },
     { brand: "Toutes marques", name: "Porte blindée de cave / local technique", cert: "none", usage: ["immeuble"], type: "bloc-porte",
       desc: "Porte métallique renforcée pour caves, locaux poubelles, locaux vélos ou locaux techniques en copropriété.",
       specs: ["Acier", "Serrure 3 points", "Ferme-porte"], price: "à partir de 1 200 €", color: "#5b6678", dark: "#394150", style: "lines" },
@@ -370,6 +426,42 @@
     { brand: "Mottura", name: "Serrure multipoints Champions", kind: "multipoints", cert: "hs", pose: "encastree", points: 5,
       desc: "Serrure italienne pour porte blindée, déclinable avec cylindre européen haute sécurité.",
       specs: ["Encastrée", "Cylindre européen", "5 points"], badge: "Sécurité", color: "#24272c" },
+    { brand: "Thirard", name: "Serrure multipoints en applique", kind: "multipoints", cert: "A2P2", pose: "applique", points: 3,
+      desc: "Fabricant français historique : serrures 3 points en applique pour sécuriser une porte d'entrée.",
+      specs: ["A2P selon version", "En applique", "Fabrication française"], badge: "A2P", color: "#3a3f46" },
+    { brand: "Ultion", name: "Cylindre haute sécurité", kind: "cylindre", cert: "hs", pose: "cylindre",
+      desc: "Cylindre réputé pour sa résistance au cassage, au crochetage et au perçage.",
+      specs: ["Anti-casse", "Anti-crochetage", "Clé protégée"], badge: "Sécurité" },
+    { brand: "Tesa", name: "Cylindre de sécurité", kind: "cylindre", cert: "hs", pose: "cylindre",
+      desc: "Cylindres européens à clé protégée, adaptés aux serrures de portes d'entrée et blindées.",
+      specs: ["Clé protégée", "Anti-perçage"], badge: "Sécurité", color: "#e8e8e8", dark: "#9aa1ab" },
+    { brand: "DOM", name: "Cylindre haute sécurité", kind: "cylindre", cert: "hs", pose: "cylindre",
+      desc: "Cylindres allemands à reproduction de clés contrôlée, pour portes d'appartement ou de maison.",
+      specs: ["Reproduction contrôlée", "Anti-crochetage"], badge: "Sécurité" },
+    { brand: "JPM", name: "Serrure multipoints", kind: "multipoints", cert: "A2P1", pose: "applique", points: 3,
+      desc: "Fabricant français de serrures : multipoints en applique et serrures de sûreté pour l'habitat.",
+      specs: ["A2P selon version", "Fabrication française"], badge: "A2P", color: "#7a1f1f" },
+    { brand: "Laperche", name: "Serrure en applique", kind: "multipoints", cert: "A2P1", pose: "applique", points: 3,
+      desc: "Serrures en applique robustes, solution éprouvée pour les portes d'appartement.",
+      specs: ["En applique", "Pose rapide"], badge: "A2P", color: "#5b2a2a" },
+    { brand: "Métalux", name: "Serrure multipoints", kind: "multipoints", cert: "A2P2", pose: "applique", points: 3,
+      desc: "Serrures et systèmes de verrouillage multipoints pour renforcer la porte d'entrée.",
+      specs: ["Multipoints", "Verrouillage renforcé"], badge: "A2P", color: "#4a4f57" },
+    { brand: "Pollux", name: "Verrou de sécurité", kind: "verrou", cert: "hs", pose: "applique",
+      desc: "Fabricant français de verrous et serrures : complément idéal à une serrure existante.",
+      specs: ["Fabrication française", "Complément"], badge: "Verrou" },
+    { brand: "Yale", name: "Serrure connectée", kind: "connectee", cert: "none", pose: "electronique",
+      desc: "Serrure connectée pilotable depuis le smartphone, avec accès temporaires pour vos proches.",
+      specs: ["Smartphone", "Accès partagés"], badge: "Connectée" },
+    { brand: "Nuki", name: "Smart Lock", kind: "connectee", cert: "none", pose: "electronique",
+      desc: "Se monte côté intérieur sur la serrure existante : ouverture automatique à votre arrivée.",
+      specs: ["Sans changer la serrure", "Smartphone"], badge: "Connectée" },
+    { brand: "Somfy", name: "Serrure connectée", kind: "connectee", cert: "none", pose: "electronique",
+      desc: "Serrure connectée intégrée à l'écosystème maison connectée, alarme et caméras.",
+      specs: ["Maison connectée", "Smartphone"], badge: "Connectée" },
+    { brand: "Netatmo", name: "Serrure intelligente", kind: "connectee", cert: "none", pose: "electronique",
+      desc: "Serrure connectée avec clés physiques intelligentes et application, sans abonnement.",
+      specs: ["Clés intelligentes", "Application"], badge: "Connectée" },
     { brand: "Toutes marques", name: "Serrure 3 points en applique A2P★", kind: "multipoints", cert: "A2P1", pose: "applique", points: 3,
       desc: "La solution la plus courante pour sécuriser une porte d'entrée en bois : pose rapide, certification A2P.",
       specs: ["A2P★", "En applique", "3 points"], badge: "A2P★", color: "#4a4f57" },
